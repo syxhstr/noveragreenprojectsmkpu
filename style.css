@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg: #f5f5f7;           /* Apple Signature Grey */
-  --sidebar-bg: #ffffff;
-  --accent: #2c3e50;       /* Deep Charcoal */
-  --gold: #bfa15d;         /* Muted Gold */
-  --text: #1d1d1f;         /* Standard Apple Text Color */
-  --card-bg: rgba(255, 255, 255, 0.7);
-  --bezier: cubic-bezier(0.25, 0.1, 0.25, 1); /* Silky Smooth */
+  --bg: #ffffff;
+  --secondary-bg: #f5f5f7;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent: #0071e3; /* Apple Blue */
+  --gold: #bfa15d;
+  --glass: rgba(255, 255, 255, 0.8);
+  /* Easing Apple yang ikonik: keluar masuk sangat natural */
+  --apple-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -16,91 +18,104 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  display: flex;
-  overflow-x: hidden;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
 }
 
-/* --- MINIMAL SIDEBAR (Apple Style) --- */
+/* --- SIDEBAR: ULTRA-MINIMAL GLASS --- */
 .sidebar {
-  width: 280px; background: var(--sidebar-bg); height: 100vh;
-  position: fixed; padding: 40px;
-  border-right: 1px solid #d2d2d7;
-  display: flex; flex-direction: column; z-index: 1000;
+  width: 260px; height: 100vh; position: fixed;
+  background: var(--glass);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  padding: 40px 24px; z-index: 1000;
+  display: flex; flex-direction: column;
 }
 
-.sidebar-logo { 
-  font-size: 1.5rem; font-weight: 700; color: var(--text); 
-  text-decoration: none; margin-bottom: 50px; letter-spacing: -0.5px;
+.sidebar-logo {
+  font-size: 1.4rem; font-weight: 700; color: var(--text);
+  text-decoration: none; margin-bottom: 40px; padding-left: 12px;
 }
 
-.nav-menu { list-style: none; flex-grow: 1; }
-.nav-item { margin-bottom: 12px; }
-.nav-link { 
-  text-decoration: none; color: var(--text); opacity: 0.5; font-weight: 600;
-  display: flex; align-items: center; gap: 12px; padding: 12px;
-  border-radius: 12px; transition: 0.3s var(--bezier);
+.nav-link {
+  text-decoration: none; color: var(--text); opacity: 0.6;
+  font-size: 0.95rem; font-weight: 500; padding: 12px 16px;
+  border-radius: 10px; display: block; transition: 0.2s var(--apple-ease);
 }
-.nav-link:hover, .nav-link.active { opacity: 1; background: #f2f2f7; color: var(--gold); }
 
-/* --- ACCOUNT UI (Simple) --- */
+.nav-link:hover { opacity: 1; background: rgba(0,0,0,0.04); }
+.nav-link.active { opacity: 1; background: rgba(0,0,0,0.08); font-weight: 600; }
+
 .sidebar-account {
-  padding-top: 20px; border-top: 1px solid #d2d2d7;
+  margin-top: auto; padding: 16px; background: rgba(0,0,0,0.03);
+  border-radius: 14px; text-align: center;
 }
-.user-name { font-weight: 700; font-size: 0.9rem; }
-.user-status { font-size: 0.75rem; opacity: 0.5; }
 
-/* --- MAIN LAYOUT --- */
-main { margin-left: 280px; width: 100%; }
+/* --- MAIN CONTENT & REVEAL --- */
+main { margin-left: 260px; width: calc(100% - 260px); }
 
 .mega-section {
-  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 10%; position: relative;
+  padding: 120px 80px; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
 }
 
-/* APPLE-STYLE REVEAL ANIMATION */
+/* ANIMASI REVEAL: Bukan setakat naik, tapi scale sikit (Macam Unlock iPhone) */
 .reveal {
-  opacity: 0; transform: translateY(30px);
-  animation: appleReveal 1.2s var(--bezier) forwards;
+  opacity: 0; transform: scale(0.96) translateY(30px);
+  animation: appleEntrance 1.4s var(--apple-ease) forwards;
 }
 
-@keyframes appleReveal {
-  to { opacity: 1; transform: translateY(0); }
+@keyframes appleEntrance {
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* --- TYPOGRAPHY: THE HERO --- */
+.hero-tag {
+  font-size: 0.9rem; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;
+  display: block;
 }
 
 h1.hero-title {
-  font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 700;
-  line-height: 1.05; letter-spacing: -2px; margin-bottom: 25px;
+  font-size: 5.5rem; font-weight: 700; line-height: 1.02;
+  letter-spacing: -0.015em; margin-bottom: 30px;
 }
 
 .hero-desc {
-  font-size: 1.5rem; line-height: 1.5; color: #86868b;
-  max-width: 700px; font-weight: 400;
+  font-size: 1.7rem; font-weight: 500; color: var(--text-secondary);
+  max-width: 800px; line-height: 1.3;
 }
 
-/* --- GLASS CARDS --- */
-.grid { 
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 25px; margin-top: 50px; 
+/* --- THE CARDS: BENTO BOX STYLE --- */
+.grid {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: 24px; margin-top: 60px;
 }
+
 .card {
-  background: var(--card-bg); padding: 40px; border-radius: 28px;
-  backdrop-filter: blur(20px); border: 1px solid rgba(0,0,0,0.05);
-  transition: transform 0.5s var(--bezier), box-shadow 0.5s var(--bezier);
+  grid-column: span 6; background: var(--secondary-bg);
+  border-radius: 32px; padding: 50px;
+  transition: transform 0.6s var(--apple-ease);
+  overflow: hidden; position: relative;
 }
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-}
-.card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
-.card p { color: #86868b; line-height: 1.6; }
 
-/* --- APPLE BUTTON --- */
+.card:hover { transform: scale(1.01); }
+
+.card h3 { font-size: 2rem; margin-bottom: 15px; }
+.card p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* --- BUTTON: PILL SHAPE --- */
 .btn-apple {
-  background: var(--text); color: #fff; padding: 16px 32px;
-  border-radius: 30px; font-weight: 600; text-decoration: none;
-  display: inline-block; transition: 0.3s; margin-top: 30px;
+  background: var(--text); color: #fff; padding: 18px 36px;
+  border-radius: 40px; font-weight: 600; font-size: 1.05rem;
+  text-decoration: none; display: inline-block; margin-top: 40px;
+  transition: 0.3s var(--apple-ease);
 }
-.btn-apple:hover { opacity: 0.8; transform: scale(1.02); }
 
-/* --- LOGO --- */
-.logo-img { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.btn-apple:hover { transform: scale(1.04); opacity: 0.9; }
+
+/* --- LOGO: THE ICON --- */
+.logo-icon {
+  width: 100px; height: 100px; border-radius: 22%; /* Squircle */
+  margin-bottom: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
