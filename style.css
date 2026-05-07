@@ -123,3 +123,16 @@ form input {
     opacity: 1;
   }
 }
+
+.end-section {
+  text-align: center;
+  margin-top: 40px;
+  padding: 30px;
+  background: #eaffea;
+  border-radius: 12px;
+}
+
+.small-text {
+  font-size: 13px;
+  opacity: 0.7;
+}
