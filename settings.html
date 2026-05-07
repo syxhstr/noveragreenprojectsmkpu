@@ -4,40 +4,6 @@
   <meta charset="UTF-8">
   <title>Settings | Novera</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Tambahan sikit CSS khas untuk page settings bagi nampak kemas */
-    .settings-group {
-      margin-bottom: 40px;
-    }
-    .settings-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .settings-item:last-child { border-bottom: none; }
-    
-    .item-info h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
-    .item-info p { font-size: 0.9rem; color: var(--text-secondary); }
-
-    /* Toggle Switch Gaya iOS */
-    .switch {
-      position: relative; display: inline-block; width: 50px; height: 28px;
-    }
-    .switch input { opacity: 0; width: 0; height: 0; }
-    .slider {
-      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-      background-color: #e2e2e7; transition: .4s; border-radius: 34px;
-    }
-    .slider:before {
-      position: absolute; content: ""; height: 24px; width: 24px; left: 2px; bottom: 2px;
-      background-color: white; transition: .4s; border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    input:checked + .slider { background-color: #34c759; } /* Hijau Apple */
-    input:checked + .slider:before { transform: translateX(22px); }
-  </style>
 </head>
 <body>
   <nav class="sidebar">
@@ -49,79 +15,35 @@
       <a href="volunteer.html" class="nav-link">Join Us</a>
       <a href="settings.html" class="nav-link active">Settings</a>
     </div>
-    <div class="sidebar-account">
-      <p class="user-name">MinimallyFolium</p>
-      <p class="user-status">Verified Member</p>
-    </div>
   </nav>
 
   <main>
     <section class="mega-section reveal">
-      <span class="hero-tag">System Control</span>
       <h1 class="hero-title">Settings.</h1>
-      <p class="hero-desc">Manage your account preferences and customize your Novera experience.</p>
-
+      
       <div class="grid">
         <div class="card" style="grid-column: span 12;">
-          <div class="settings-group">
-            <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Appearance</h3>
-            
-            <div class="settings-item">
-              <div class="item-info">
-                <h4>Eco-Dark Mode</h4>
-                <p>Save energy with a darker interface.</p>
-              </div>
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
+          <h3 style="margin-bottom: 20px; opacity: 0.5;">Preferences</h3>
+          <div class="settings-row">
+            <div>
+              <p style="font-weight: 600;">Dark Mode</p>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">Reduce eye strain in low light.</p>
             </div>
-
-            <div class="settings-item">
-              <div class="item-info">
-                <h4>Reduce Motion</h4>
-                <p>Simplify animations for a faster feel.</p>
-              </div>
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
+            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+          </div>
+          <div class="settings-row">
+            <div>
+              <p style="font-weight: 600;">Motion Effects</p>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">Enable smooth transition animations.</p>
             </div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
           </div>
         </div>
 
         <div class="card" style="grid-column: span 6;">
-          <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Notifications</h3>
-          <div class="settings-item">
-            <div class="item-info">
-              <h4>Leaf Collection Alerts</h4>
-              <p>Get notified when we are near your area.</p>
-            </div>
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-
-        <div class="card" style="grid-column: span 6;">
-          <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Security</h3>
-          <div class="settings-item">
-            <div class="item-info">
-              <h4>Two-Factor Auth</h4>
-              <p>Protect your Novera ID.</p>
-            </div>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-
-        <div class="card" style="grid-column: span 12; border: 1px solid rgba(255, 59, 48, 0.2);">
-            <h3 style="color: #ff3b30; margin-bottom: 10px;">Account Actions</h3>
-            <p style="margin-bottom: 20px;">Once you delete your data, it cannot be recovered.</p>
-            <a href="#" class="btn-apple" style="background: #ff3b30; margin-top: 0;">Delete All Data</a>
+          <h3 style="margin-bottom: 10px;">Security</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 20px;">Protect your Novera ID and personal data.</p>
+          <a href="#" class="btn-apple" style="font-size: 0.8rem;">Update Password</a>
         </div>
       </div>
     </section>
