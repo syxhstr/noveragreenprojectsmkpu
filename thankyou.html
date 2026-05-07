@@ -6,85 +6,18 @@
   <link rel="stylesheet" href="style.css">
   <meta http-equiv="refresh" content="5;url=index.html">
   <style>
-    /* Kita overwrite style body khusus untuk page ni sahaja */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    /* Kita sorokkan sidebar dalam page thank you */
-    .sidebar {
-      display: none !important;
-    }
-
-    /* Kita hilangkan margin-left yang ada kat main tadi */
-    main {
-      margin-left: 0 !important;
-      width: 100% !important;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .success-icon {
-      font-size: 6rem;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 20px var(--accent));
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .progress-bar {
-      width: 200px;
-      height: 4px;
-      background: rgba(255,255,255,0.1);
-      margin: 30px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      width: 0%;
-      height: 100%;
-      background: var(--accent);
-      animation: fillBar 5s linear forwards;
-    }
-
-    @keyframes fillBar {
-      to { width: 100%; }
-    }
+    body { display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+    .sidebar { display: none !important; }
+    main { margin-left: 0 !important; width: 100% !important; }
+    h1 { font-size: 6rem; }
   </style>
 </head>
 <body>
-
   <main class="reveal">
-    <div class="success-icon">🌿</div>
-    <h1>Registration Received.</h1>
-    <p class="big-text" style="font-size: 1.2rem; opacity: 0.7;">
-      Your contribution to the bio-stationery revolution has been recorded.<br>
-      Our systems are synchronizing your data now.
-    </p>
-
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-
-    <p style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 2px;">RETURNING TO DASHBOARD IN 5s</p>
-    
-    <a href="index.html" class="btn-accent" style="display: inline-block; width: auto; margin-top: 30px; text-decoration: none; padding: 15px 40px;">
-        GO HOME NOW
-    </a>
+    <h1 style="color: white;">SUCCESS.</h1>
+    <p class="big-text" style="margin: 0 auto;">Your data has been uplinked to the Novera Network.</p>
+    <br>
+    <p style="opacity: 0.5;">Redirecting to Dashboard...</p>
   </main>
-
 </body>
 </html>
