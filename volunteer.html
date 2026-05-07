@@ -2,50 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Volunteer | NOVERA GREEN</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    input, select, textarea {
+      width: 100%; padding: 15px; margin: 10px 0 20px;
+      background: var(--primary); border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 10px; color: white;
+    }
+    label { font-weight: bold; color: var(--accent); }
+  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">NOVERA🌿</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="volunteer.html">Volunteer</a></li>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">NOVERA🌿</a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Process</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Volunteer</span></a></li>
     </ul>
-  </nav>
+  </aside>
 
-  <header class="hero" style="padding: 150px 20px 50px;">
-    <h1>Start Contributing.</h1>
-    <p>Fill in the details below to schedule a leaf collection or join our production team.</p>
-  </header>
-
-  <section class="container" style="margin-top: -50px;">
-    <div class="form-card fade-in">
-      <form action="thankyou.html" method="GET">
-        <label>Full Name</label>
-        <input type="text" placeholder="e.g. Ahmad Fauzi" required>
+  <main class="reveal">
+    <div style="max-width: 700px; margin: 0 auto; background: var(--secondary); padding: 50px; border-radius: 30px;">
+      <h1 style="color: var(--accent); margin-bottom: 20px;">Get Involved.</h1>
+      <form action="thankyou.html">
+        <label>Name</label>
+        <input type="text" placeholder="Your full name" required>
         
-        <label>Email Address</label>
-        <input type="email" placeholder="ahmad@email.com" required>
+        <label>Email</label>
+        <input type="email" placeholder="email@example.com" required>
 
-        <label>How can you help?</label>
-        <select required>
-          <option value="">Select an option</option>
-          <option value="donate">I want to donate dry leaves</option>
-          <option value="worker">I want to help with production</option>
-          <option value="brand">I want to be a brand partner</option>
+        <label>Contribution Type</label>
+        <select>
+          <option>Donate Dry Leaves</option>
+          <option>Join Production Team</option>
+          <option>Brand Partnership</option>
         </select>
 
-        <label>Estimate Weight (kg) - For leaf donors</label>
-        <input type="number" placeholder="e.g. 5">
-
-        <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+        <button type="submit" style="background: var(--accent); width: 100%; padding: 15px; border-radius: 10px; border: none; font-weight: 800; cursor: pointer;">Submit Registration</button>
       </form>
     </div>
-  </section>
-
+  </main>
 </body>
 </html>
