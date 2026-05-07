@@ -4,50 +4,39 @@
     <meta charset="UTF-8">
     <title>Our Impact | Novera</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <nav class="sidebar">
         <img src="assets/images/logonovera.png" class="main-logo" alt="Novera">
         <div class="nav-menu">
-            <a href="index.html" class="nav-link">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link active">Impact</a>
-            <a href="volunteer.html" class="nav-link">Join Us</a>
-            <a href="settings.html" class="nav-link">Settings</a>
+            <a href="index.html" class="nav-link" data-en="Overview" data-ms="Utama">Overview</a>
+            <a href="process.html" class="nav-link" data-en="Process" data-ms="Proses">Process</a>
+            <a href="impact.html" class="nav-link active" data-en="Impact" data-ms="Impak">Impact</a>
+            <a href="volunteer.html" class="nav-link" data-en="Join Us" data-ms="Sertai">Join Us</a>
+            <a href="settings.html" class="nav-link" data-en="Settings" data-ms="Tetapan">Settings</a>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn active" id="btn-en" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn" id="btn-ms" onclick="changeLang('ms')">BM</button>
         </div>
     </nav>
 
     <main>
-        <section class="hero-section">
-            <h1 class="hero-title">Tangible<br>Results.</h1>
-            <div class="grid-bento">
-                <div class="bento-card" style="grid-column: span 4; background: #1c1c1e;">
-                    <h2 style="font-size: 5rem; color: var(--accent);">80%</h2>
-                    <p class="info-text">Pengurangan pelepasan karbon dioksida berbanding kaedah pembuatan kertas kayu tradisional (Kraft Process).</p>
-                </div>
-                <div class="card bento-card" style="grid-column: span 8;">
-                    <h3>Socio-Economic Engine</h3>
-                    <p class="info-text">Projek Novera bukan sahaja tentang alam sekitar. Kami mewujudkan ekonomi kitaran (circular economy) di mana sisa yang dahulunya dianggap beban oleh petani, kini menjadi komoditi yang kami beli. Ini meningkatkan pendapatan isi rumah komuniti luar bandar sebanyak 15% setiap musim luruh/kemarau.</p>
-                </div>
-                <div class="bento-card" style="grid-column: span 12;">
-                    <h3>The Bio-Diversity Protection</h3>
-                    <p class="info-text">Dengan menggunakan daun kering, kita secara tidak langsung melindungi habitat kritikal spesies terancam. Setiap 1 tan kertas Novera yang dihasilkan bermakna 17 pokok matang dikekalkan di dalam hutan untuk membekalkan oksigen kepada 34 orang setahun.</p>
-                </div>
-            </div>
-        </section>
+        <h1 class="hero-title" style="opacity:0;" data-en="Global<br>Impact." data-ms="Impak<br>Global.">Global<br>Impact.</h1>
+        
+        <div class="bento-card">
+            <h2 style="font-size: 4rem; color: var(--accent);">80%</h2>
+            <p class="info-text" data-en="Reduction in CO2 emissions compared to tree-based paper." data-ms="Pengurangan pelepasan CO2 berbanding kertas berasaskan pokok.">Reduction in CO2 emissions compared to tree-based paper.</p>
+        </div>
+
+        <div class="bento-card">
+            <h3 data-en="Socio-Economic Growth" data-ms="Pertumbuhan Sosio-Ekonomi">Socio-Economic Growth</h3>
+            <p data-en="By sourcing waste from local farmers, we increase their household income by 15% during dry seasons." data-ms="Dengan mengambil sisa daripada petani tempatan, kami meningkatkan pendapatan isi rumah mereka sebanyak 15% semasa musim kemarau.">By sourcing waste from local farmers, we increase their household income by 15% during dry seasons.</p>
+        </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".hero-title", { opacity: 0, y: 100, duration: 1.5 });
-        gsap.utils.toArray('.bento-card').forEach(card => {
-            gsap.from(card, {
-                scrollTrigger: { trigger: card, start: "top 90%" },
-                opacity: 0, y: 50, duration: 1
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
