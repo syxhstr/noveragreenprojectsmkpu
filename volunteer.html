@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Join Us | Novera</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="sidebar">
-        <a href="index.html" class="logo-squircle">N</a>
-        <div class="nav-menu">
-            <a href="index.html" class="nav-link">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link">Impact</a>
-            <a href="volunteer.html" class="nav-link active">Join Us</a>
-            <a href="settings.html" class="nav-link">Settings</a>
+<main>
+    <section class="mega-section reveal">
+        <img src="assets/images/logonovera.png" class="logo-icon" style="box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+        <span class="hero-tag">The Movement</span>
+        <h1 class="hero-title">Start your <br>contribution.</h1>
+        <p class="hero-desc">Sama ada anda ingin menderma daun atau menjadi sebahagian daripada team produksi, pintu kami sentiasa terbuka.</p>
+        
+        <div class="form-card reveal">
+            <form action="thankyou.html">
+                <input type="text" placeholder="Nama Penuh" style="width:100%;" required>
+                
+                <select required>
+                    <option value="" disabled selected>Saya mahu...</option>
+                    <option>Saya mahu menderma daun kering</option>
+                    <option>Saya mahu jadi sukarelawan</option>
+                    <option>Saya mahu jadi rakan kerjasama</option>
+                </select>
+                
+                <input type="email" placeholder="Alamat Emel" style="width:100%;" required>
+                <input type="tel" placeholder="Nombor Telefon" style="width:100%;">
+                
+                <button type="submit" class="btn-apple" style="width: 100%;">Hantar Permohonan</button>
+            </form>
         </div>
-    </nav>
-    <main>
-        <section class="section">
-            <h1>Join the<br>Mission.</h1>
-            <div class="card" style="max-width: 500px;">
-                <form action="thankyou.html">
-                    <input type="text" placeholder="Full Name" style="width:100%; padding:15px; border-radius:10px; border:1px solid #d2d2d7; margin-bottom:15px;" required>
-                    <button type="submit" style="width:100%; padding:15px; background:#000; color:#fff; border-radius:10px; border:none; cursor:pointer; font-weight:600;">Apply Now</button>
-                </form>
-            </div>
-        </section>
-        <footer>© 2026 Novera Inc.</footer>
-    </main>
-</body>
-</html>
+    </section>
+</main>
