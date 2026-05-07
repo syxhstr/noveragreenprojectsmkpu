@@ -1,128 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  --primary: #1b3022;    /* Hijau sangat gelap (Eksklusif) */
-  --accent: #8da47e;     /* Sage Green */
-  --gold: #b38b59;       /* Warna Kertas Kraf */
-  --light: #f9f8f3;      /* Background Cream */
-  --white: #ffffff;
+  --primary: #0a140e;    /* Hitam Hutan (Deepest Green) */
+  --secondary: #142118;  /* Hijau Gelap */
+  --accent: #c5a059;     /* Gold Kertas */
+  --text: #e0e7e1;
+  --card-bg: #1a2a1f;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--light);
-  color: var(--primary);
-  line-height: 1.8;
+  background-color: var(--primary);
+  color: var(--text);
+  display: flex; /* Guna flex untuk letak sidebar kat sebelah */
+  min-height: 100vh;
 }
 
-/* --- NAVIGATION (Fixed Contrast) --- */
-nav {
+/* --- SIDEBAR (Desktop: Tepi, Mobile: Bawah) --- */
+.sidebar {
+  width: 260px;
+  background: var(--secondary);
+  height: 100vh;
   position: fixed;
-  top: 0; width: 100%;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 15px 8%;
-  background: var(--white);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Lagi terang & timbul */
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-right: 1px solid rgba(197, 160, 89, 0.1);
   z-index: 1000;
 }
 
-.nav-logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none; }
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--gold); }
-
-/* --- HERO SECTION --- */
-.hero {
-  padding: 180px 20px 100px;
-  text-align: center;
-  background: linear-gradient(to bottom, #f0f2e8, var(--light));
-}
-
-.hero h1 {
+.sidebar-logo {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Saiz auto ikut screen */
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-/* --- LOGO (Sekarang baru 3D!) --- */
-.logo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  margin-bottom: 30px;
-  border: 5px solid var(--white);
-  /* Efek Drop Shadow untuk PNG supaya nampak timbul dari skrin */
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2)); 
-  animation: float 4s ease-in-out infinite;
-}
-
-/* --- BUTTONS --- */
-.btn {
-  padding: 16px 40px;
-  border-radius: 50px;
-  border: none;
-  background: var(--primary);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1.8rem;
+  color: var(--accent);
   text-decoration: none;
-  display: inline-block;
+  margin-bottom: 50px;
+  font-weight: 800;
 }
 
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(27, 48, 34, 0.3);
-  background: var(--gold);
+.nav-menu {
+  list-style: none;
+  flex-grow: 1;
 }
 
-/* --- CARDS & SECTIONS --- */
-.container { padding: 80px 8%; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.nav-item { margin-bottom: 20px; }
 
-.card {
-  background: var(--white);
-  padding: 40px;
-  border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0.6;
   transition: 0.3s;
 }
 
-.card:hover { transform: translateY(-10px); }
-
-/* --- ANIMATIONS (Fixed) --- */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+.nav-link:hover, .nav-link.active {
+  opacity: 1;
+  color: var(--accent);
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
+.account-section {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- FORM STYLING --- */
-.form-card {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
+/* --- MAIN CONTENT AREA --- */
+main {
+  flex-grow: 1;
+  margin-left: 260px; /* Jarak untuk sidebar desktop */
   padding: 40px;
-  border-radius: 30px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  width: 100%;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 15px;
+.hero-banner {
+  background: linear-gradient(135deg, #1a2a1f 0%, #0a140e 100%);
+  border-radius: 30px;
+  padding: 80px 40px;
+  text-align: center;
+  border: 1px solid rgba(197, 160, 89, 0.1);
+  margin-bottom: 40px;
+}
+
+.premium-logo {
+  width: 150px;
+  filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.4));
+  animation: float 4s ease-in-out infinite;
   margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fdfdfd;
+}
+
+/* --- GRID & CARDS --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-10px); background: #203527; }
+
+/* --- RESPONSIVE (MOBILE FIX) --- */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: sticky; /* Sentiasa kat atas/bawah */
+    top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  }
+
+  .sidebar-logo { margin-bottom: 0; font-size: 1.2rem; }
+  .nav-menu { display: flex; gap: 15px; margin-left: 20px; }
+  .nav-item { margin-bottom: 0; }
+  .nav-link span { display: none; } /* Sorok teks, tinggal icon/singkatan kat mobile */
+  .account-section { display: none; } /* Sorok kat mobile navigation bar */
+  
+  main { margin-left: 0; padding: 20px; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
