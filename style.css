@@ -1,156 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  --primary: #1e392a;     /* Deep Forest Green */
-  --accent: #8da47e;      /* Muted Sage */
-  --gold: #c5a059;        /* Earthy Gold/Paper color */
-  --light: #fdfcf8;       /* Bone White */
-  --glass: rgba(253, 252, 248, 0.8);
+  --primary: #1b3022;    /* Hijau sangat gelap (Eksklusif) */
+  --accent: #8da47e;     /* Sage Green */
+  --gold: #b38b59;       /* Warna Kertas Kraf */
+  --light: #f9f8f3;      /* Background Cream */
+  --white: #ffffff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--light);
   color: var(--primary);
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
-/* --- NAVIGATION BAR --- */
+/* --- NAVIGATION (Fixed Contrast) --- */
 nav {
   position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 8%;
-  background: var(--glass);
-  backdrop-filter: blur(15px);
+  top: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 8%;
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Lagi terang & timbul */
   z-index: 1000;
-  border-bottom: 1px solid rgba(30, 57, 42, 0.05);
 }
 
-.nav-logo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: 0.3s;
-  opacity: 0.7;
-}
-
-.nav-links a:hover {
-  opacity: 1;
-  color: var(--gold);
-}
+.nav-logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
 
 /* --- HERO SECTION --- */
 .hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 180px 20px 100px;
   text-align: center;
-  background: radial-gradient(circle at center, #fdfcf8 0%, #e9ece0 100%);
-  padding: 0 20px;
+  background: linear-gradient(to bottom, #f0f2e8, var(--light));
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Saiz auto ikut screen */
+  line-height: 1.1;
   margin-bottom: 20px;
-  background: linear-gradient(to bottom, #1e392a, #4a6d55);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
+/* --- LOGO (Sekarang baru 3D!) --- */
 .logo {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   margin-bottom: 30px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border: 2px solid white;
-  animation: float 6s ease-in-out infinite;
+  border: 5px solid var(--white);
+  /* Efek Drop Shadow untuk PNG supaya nampak timbul dari skrin */
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2)); 
+  animation: float 4s ease-in-out infinite;
 }
 
 /* --- BUTTONS --- */
 .btn {
-  padding: 15px 35px;
+  padding: 16px 40px;
   border-radius: 50px;
   border: none;
   background: var(--primary);
   color: white;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   display: inline-block;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(30, 57, 42, 0.2);
-  background: #2a4d3a;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(27, 48, 34, 0.3);
+  background: var(--gold);
 }
 
-/* --- TRUST SECTION (Logo Partners) --- */
-.partners {
-  padding: 60px 0;
-  text-align: center;
-  background: white;
+/* --- CARDS & SECTIONS --- */
+.container { padding: 80px 8%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  transition: 0.3s;
 }
 
-.partners p {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0.5;
-  margin-bottom: 30px;
-}
+.card:hover { transform: translateY(-10px); }
 
-.partner-grid {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  filter: grayscale(100%);
-  opacity: 0.4;
-}
-
-/* --- ANIMATIONS --- */
+/* --- ANIMATIONS (Fixed) --- */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
 }
 
-/* Reveal Animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: revealIn 1s forwards;
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
 }
 
-@keyframes revealIn {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FORM STYLING --- */
+.form-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fdfdfd;
 }
