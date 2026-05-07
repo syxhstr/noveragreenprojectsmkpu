@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Command Center | NOVERA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVERA | Settings</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,44 +15,23 @@
       <li class="nav-item"><a href="volunteer.html" class="nav-link">🌿 <span>Network</span></a></li>
       <li class="nav-item"><a href="settings.html" class="nav-link active">⚙️ <span>Control Panel</span></a></li>
     </ul>
-    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px;">
-        <p style="font-size: 0.7rem; color: var(--accent);">SYSTEM STATUS</p>
-        <p style="font-weight: 800;">OFFLINE (GUEST)</p>
-    </div>
   </aside>
 
   <main class="reveal">
-    <h1>System Settings</h1>
-    <p class="big-text">Configure your workspace and management preferences.</p>
+    <h1>Control Panel.</h1>
+    <p class="big-text">Adjust system parameters and interface preferences.</p>
 
     <div class="settings-group">
-      <h3>Appearance & Interface</h3>
-      <div style="display: flex; justify-content: space-between; margin-top: 30px;">
-        <p>Ultra-High Contrast Mode</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <p>Interface: High-Contrast Gold</p>
         <div class="btn-toggle on"></div>
       </div>
-      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-        <p>Enable 3D Render Graphics</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
+        <p>Hardware Acceleration (3D Tilt)</p>
         <div class="btn-toggle on"></div>
       </div>
     </div>
-
-    <div class="settings-group">
-        <h3>Privacy & Security</h3>
-        <div style="display: flex; justify-content: space-between; margin-top: 30px;">
-          <p>Anonymous Data Contribution</p>
-          <div class="btn-toggle"></div>
-        </div>
-        <div style="margin-top: 20px;">
-            <button style="background: var(--accent); color: var(--primary); border:none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">Reset All Cache</button>
-        </div>
-    </div>
-
-    <div class="settings-group" style="border: 2px dashed rgba(231, 76, 60, 0.3);">
-        <h3 style="color: #e74c3c;">Danger Zone</h3>
-        <p style="opacity: 0.6; margin-top: 10px;">Once you delete your local project data, it cannot be recovered.</p>
-        <button style="background: #e74c3c; color: white; border:none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-top: 20px; cursor: pointer;">Wipe System Data</button>
-    </div>
+    <button class="btn-accent" style="background: #e74c3c; width: auto; padding: 10px 25px;">DELETE LOCAL DATA</button>
   </main>
 </body>
 </html>
