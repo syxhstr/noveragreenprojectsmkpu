@@ -36,8 +36,9 @@ body {
 }
 
 .logo:hover {
-  transform: scale(1.05);
-
+  transform: scale(1.03);
+  transition: 0.2s ease;
+  
 }
 
 /* TAGLINE */
@@ -78,6 +79,10 @@ body {
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
+.hero, .card, .cta, .form-wrapper {
+  animation: fadeUp 0.5s ease;
+}
+
 /* highlight card */
 .highlight {
   border-left: 5px solid #27ae60;
@@ -113,17 +118,16 @@ form input {
 }
 
 /* ANIMATION */
-@keyframes pop {
+@keyframes fadeUp {
   from {
-    transform: scale(0);
     opacity: 0;
+    transform: translateY(12px);
   }
   to {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
-
 .end-section {
   text-align: center;
   margin-top: 40px;
