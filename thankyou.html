@@ -2,89 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Transmission Success | NOVERA</title>
+  <title>Thank You | Novera</title>
   <link rel="stylesheet" href="style.css">
-  <meta http-equiv="refresh" content="6;url=index.html">
+  <meta http-equiv="refresh" content="5;url=index.html">
   <style>
-    /* Kita overwrite body sikit sebab page ni tak ada sidebar */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      background: radial-gradient(circle at center, var(--secondary) 0%, var(--primary) 100%);
-    }
-
-    .sidebar { display: none !important; } /* Sorok sidebar untuk focus */
-    
-    main { 
-      margin-left: 0 !important; 
-      width: 100% !important; 
-      padding: 0 !important;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .success-icon {
-      font-size: 8rem;
-      margin-bottom: 30px;
-      filter: drop-shadow(0 0 30px var(--accent));
-      animation: pulse 2s infinite var(--bezier);
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.7; }
-    }
-
-    .loading-bar-container {
-      width: 300px;
-      height: 2px;
-      background: rgba(255,255,255,0.1);
-      margin-top: 50px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .loading-fill {
-      width: 0%;
-      height: 100%;
-      background: var(--accent);
-      animation: loadProgress 5.5s linear forwards;
-    }
-
-    @keyframes loadProgress {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-
-    .btn-gold {
-      margin-top: 40px;
-      padding: 15px 40px;
-      font-size: 0.9rem;
-    }
+    body { justify-content: center; align-items: center; text-align: center; height: 100vh; }
+    .sidebar { display: none !important; }
+    main { margin-left: 0 !important; width: 100% !important; }
+    .success-icon { font-size: 5rem; margin-bottom: 20px; }
   </style>
 </head>
 <body>
-
-  <main>
-    <div class="success-icon">🌿</div>
-    <h1 class="mega-title" style="font-size: 5rem; letter-spacing: -2px;">UPLINK<br>COMPLETE.</h1>
-    <p class="mega-desc" style="font-size: 1.4rem; margin: 0 auto; max-width: 600px;">
-        Your data has been successfully integrated into the Novera Network. Our team will contact you shortly via the encrypted channel provided.
-    </p>
-
-    <div class="loading-bar-container">
-        <div class="loading-fill"></div>
-    </div>
-    <p style="margin-top: 15px; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.4;">
-        REDIRECTING TO COMMAND CENTER
-    </p>
-
-    <a href="index.html" class="btn-gold">RETURN HOME NOW</a>
+  <main class="reveal">
+    <div class="success-icon">🍃</div>
+    <h1 class="hero-title">Thank you.</h1>
+    <p class="hero-desc" style="margin: 0 auto;">We’ve received your message. Let's make the world a little greener together.</p>
+    <br>
+    <p style="font-size: 0.8rem; color: #86868b;">Going back home in a few seconds...</p>
+    <a href="index.html" class="btn-apple">Return Now</a>
   </main>
-
 </body>
 </html>
