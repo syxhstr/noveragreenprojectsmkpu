@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4fff6;
+  color: #222;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #2ecc71, #27ae60);
+  color: white;
+}
+
+/* BUTTON */
+.volunteer-btn {
+  padding: 12px 20px;
+  border: none;
+  background: white;
+  color: #27ae60;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.volunteer-btn:hover {
+  transform: scale(1.05);
+  background: #eaffea;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* FORM */
+form input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 250px;
+}
+
+form button {
+  padding: 10px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+
+/* ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
