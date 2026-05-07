@@ -1,25 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Success</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success | NOVERA GREEN</title>
   <link rel="stylesheet" href="style.css">
-  <meta http-equiv="refresh" content="3;url=index.html">
-</head>
+  <meta http-equiv="refresh" content="5;url=index.html">
+  <style>
+    .success-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
+    .checkmark-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #8da47e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(141, 164, 126, 0.4);
+      animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .checkmark {
+      color: white;
+      font-size: 50px;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .loading-bar {
+      width: 200px;
+      height: 4px;
+      background: #e0e0e0;
+      margin-top: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loading-bar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: var(--gold);
+      animation: progress 5s linear forwards;
+    }
+
+    @keyframes progress {
+      to { width: 100%; }
+    }
+  </style>
+</head>
 <body>
 
-  <div class="cta">
+  <div class="success-container fade-in">
+    <div class="checkmark-circle">
+      <span class="checkmark">✓</span>
+    </div>
 
-    <h1>✔ Pendaftaran Berjaya</h1>
+    <h1 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 15px;">
+      Registration Successful
+    </h1>
+    
+    <p style="max-width: 500px; opacity: 0.8; font-size: 1.1rem;">
+      Thank you for choosing <strong>NOVERA GREEN</strong>. Your commitment to a greener planet starts here. We will contact you shortly via email.
+    </p>
 
-    <p>Terima kasih kerana menyertai NOVERA GREEN 🌿</p>
-    <p>Anda akan dibawa kembali ke laman utama...</p>
+    <div class="loading-bar"></div>
+    <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">
+      Redirecting you back to home in 5 seconds...
+    </p>
 
-    <a href="index.html">
-      <button class="btn">Back to Home</button>
+    <a href="index.html" class="btn" style="margin-top: 40px; background: transparent; border: 1px solid var(--primary); color: var(--primary);">
+      Back to Home Now
     </a>
-
   </div>
 
 </body>
