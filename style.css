@@ -1,88 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary: #020503;
-  --secondary: #08120a;
-  --accent: #d4af37; /* Emas Premium */
-  --text: #f0f5f2;
-  --card-bg: #0d1a11;
-  --bezier: cubic-bezier(0.16, 1, 0.3, 1);
+  --bg: #f5f5f7;           /* Apple Signature Grey */
+  --sidebar-bg: #ffffff;
+  --accent: #2c3e50;       /* Deep Charcoal */
+  --gold: #bfa15d;         /* Muted Gold */
+  --text: #1d1d1f;         /* Standard Apple Text Color */
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --bezier: cubic-bezier(0.25, 0.1, 0.25, 1); /* Silky Smooth */
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--primary);
+  background-color: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
   display: flex;
+  overflow-x: hidden;
 }
 
-/* --- SIDEBAR KEKAL --- */
+/* --- MINIMAL SIDEBAR (Apple Style) --- */
 .sidebar {
-  width: 320px; background: var(--secondary); height: 100vh;
-  position: fixed; padding: 50px 30px;
-  border-right: 1px solid rgba(212, 175, 55, 0.15);
+  width: 280px; background: var(--sidebar-bg); height: 100vh;
+  position: fixed; padding: 40px;
+  border-right: 1px solid #d2d2d7;
   display: flex; flex-direction: column; z-index: 1000;
 }
 
-.sidebar-logo { font-family: 'Playfair Display'; font-size: 2.2rem; color: var(--accent); text-decoration: none; font-weight: 900; margin-bottom: 50px; }
+.sidebar-logo { 
+  font-size: 1.5rem; font-weight: 700; color: var(--text); 
+  text-decoration: none; margin-bottom: 50px; letter-spacing: -0.5px;
+}
 
 .nav-menu { list-style: none; flex-grow: 1; }
-.nav-item { margin-bottom: 20px; }
+.nav-item { margin-bottom: 12px; }
 .nav-link { 
-  text-decoration: none; color: var(--text); opacity: 0.5; font-weight: 700; font-size: 1.1rem;
-  display: flex; align-items: center; gap: 15px; transition: 0.4s var(--bezier); 
+  text-decoration: none; color: var(--text); opacity: 0.5; font-weight: 600;
+  display: flex; align-items: center; gap: 12px; padding: 12px;
+  border-radius: 12px; transition: 0.3s var(--bezier);
 }
-.nav-link:hover, .nav-link.active { opacity: 1; color: var(--accent); transform: translateX(10px); }
+.nav-link:hover, .nav-link.active { opacity: 1; background: #f2f2f7; color: var(--gold); }
 
-/* --- AKAUN BOX (TAK HILANG) --- */
+/* --- ACCOUNT UI (Simple) --- */
 .sidebar-account {
-  background: rgba(212, 175, 55, 0.05); padding: 25px; border-radius: 20px;
-  border: 1px solid rgba(212, 175, 55, 0.1); margin-top: auto;
+  padding-top: 20px; border-top: 1px solid #d2d2d7;
 }
-.user-badge { font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; font-weight: 800; }
-.user-name { font-size: 1.2rem; font-weight: 800; margin: 5px 0 5px; }
+.user-name { font-weight: 700; font-size: 0.9rem; }
+.user-status { font-size: 0.75rem; opacity: 0.5; }
 
-/* --- MAIN CONTENT --- */
-main { margin-left: 320px; width: calc(100% - 320px); }
+/* --- MAIN LAYOUT --- */
+main { margin-left: 280px; width: 100%; }
 
 .mega-section {
   min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  padding: 100px; border-bottom: 1px solid rgba(212, 175, 55, 0.05);
-  opacity: 0; transform: translateY(40px); animation: fadeInUp 1.2s var(--bezier) forwards;
+  padding: 80px 10%; position: relative;
 }
 
-@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-/* --- LOGO KING --- */
-.hero-logo {
-  width: 250px; height: 250px; background: white; border-radius: 50%;
-  padding: 20px; border: 8px solid var(--accent); margin-bottom: 40px;
-  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
-  animation: float 6s ease-in-out infinite; object-fit: contain;
-}
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
-
-h1.mega-title {
-  font-family: 'Playfair Display'; font-size: clamp(4rem, 10vw, 9rem);
-  line-height: 0.85; letter-spacing: -4px; color: var(--accent); margin-bottom: 30px;
+/* APPLE-STYLE REVEAL ANIMATION */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  animation: appleReveal 1.2s var(--bezier) forwards;
 }
 
-.mega-desc { font-size: 1.8rem; line-height: 1.5; opacity: 0.8; max-width: 900px; }
+@keyframes appleReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* --- CARDS & SETTINGS UI --- */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 60px; }
+h1.hero-title {
+  font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 700;
+  line-height: 1.05; letter-spacing: -2px; margin-bottom: 25px;
+}
+
+.hero-desc {
+  font-size: 1.5rem; line-height: 1.5; color: #86868b;
+  max-width: 700px; font-weight: 400;
+}
+
+/* --- GLASS CARDS --- */
+.grid { 
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 25px; margin-top: 50px; 
+}
 .card {
-  background: var(--card-bg); padding: 60px; border-radius: 40px;
-  border: 1px solid rgba(255,255,255,0.03); transition: 0.6s var(--bezier);
+  background: var(--card-bg); padding: 40px; border-radius: 28px;
+  backdrop-filter: blur(20px); border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.5s var(--bezier), box-shadow 0.5s var(--bezier);
 }
-.card:hover { transform: translateY(-20px); border-color: var(--accent); box-shadow: 0 40px 80px rgba(0,0,0,0.7); }
-
-.settings-box { background: var(--secondary); padding: 40px; border-radius: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); }
-.settings-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-
-.btn-gold {
-  background: var(--accent); color: var(--primary); padding: 20px 50px;
-  border-radius: 100px; border: none; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-block;
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
 }
+.card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
+.card p { color: #86868b; line-height: 1.6; }
+
+/* --- APPLE BUTTON --- */
+.btn-apple {
+  background: var(--text); color: #fff; padding: 16px 32px;
+  border-radius: 30px; font-weight: 600; text-decoration: none;
+  display: inline-block; transition: 0.3s; margin-top: 30px;
+}
+.btn-apple:hover { opacity: 0.8; transform: scale(1.02); }
+
+/* --- LOGO --- */
+.logo-img { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
