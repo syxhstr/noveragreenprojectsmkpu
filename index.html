@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOVERA GREEN</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -9,57 +10,95 @@
 <body>
 
   <!-- HERO SECTION -->
-  <header class="hero fade">
+  <header class="hero">
     <h1>NOVERA GREEN</h1>
     <p>Menukar daun mati kepada kertas berkualiti demi kelestarian alam 🌿</p>
 
-    <a href="#volunteer">
-      <button class="volunteer-btn">Volunteer Sekarang</button>
+    <a href="volunteer.html">
+      <button class="btn-primary">Volunteer Sekarang</button>
     </a>
   </header>
 
-  <!-- ABOUT -->
-  <section class="fade">
-    <h2>About Us</h2>
-    <p>Kami mengumpul daun terbuang daripada masyarakat dan menukarkannya menjadi kertas mesra alam.</p>
+  <!-- ABOUT PROJECT -->
+  <section class="container">
+
+    <div class="card">
+      <h2>About NOVERA GREEN</h2>
+      <p>
+        NOVERA GREEN ialah satu inisiatif inovasi alam sekitar yang menumpukan kepada penukaran daun kering dan sisa organik kepada kertas berkualiti tinggi.
+        Projek ini diwujudkan bagi mengurangkan pembaziran bahan semula jadi serta memberi nilai baharu kepada bahan buangan yang sering diabaikan.
+      </p>
+      <p>
+        Kami percaya bahawa alam semula jadi tidak pernah menghasilkan “sampah”, sebaliknya setiap elemen boleh dimanfaatkan semula untuk kebaikan manusia dan bumi.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Masalah Alam Sekitar</h2>
+      <p>
+        Setiap tahun, berjuta-juta kilogram daun kering dibuang tanpa pemprosesan semula.
+        Ini menyumbang kepada peningkatan sisa organik, pembakaran terbuka, dan pencemaran udara.
+      </p>
+      <p>
+        Kekurangan sistem kitar semula khusus untuk bahan organik seperti daun menjadikan isu ini semakin serius di kawasan bandar dan luar bandar.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Proses Inovasi</h2>
+      <p>Projek ini menggunakan pendekatan mesra alam melalui beberapa langkah utama:</p>
+      <ul>
+        <li>Pengumpulan daun kering daripada komuniti</li>
+        <li>Pembersihan dan pengasingan bahan asing</li>
+        <li>Proses penghancuran menjadi pulpa organik</li>
+        <li>Pembentukan lembaran kertas baharu</li>
+        <li>Pengeringan dan penambahbaikan kualiti produk akhir</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Impacts Kepada Alam Sekitar</h2>
+      <ul>
+        <li>Mengurangkan jumlah sisa organik yang dibuang</li>
+        <li>Menurunkan kadar pembakaran terbuka</li>
+        <li>Meningkatkan kesedaran masyarakat tentang kitar semula</li>
+        <li>Menyokong ekonomi hijau berasaskan sumber semula jadi</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Visi & Misi</h2>
+      <p><b>Visi:</b> Menjadi projek inovasi hijau terkemuka dalam pengurusan sisa organik di Malaysia.</p>
+      <p><b>Misi:</b> Mendidik masyarakat, mengurangkan sisa alam, dan menghasilkan produk mesra alam yang berguna kepada komuniti.</p>
+    </div>
+
+    <div class="card">
+      <h2>Kenapa Sertai Kami?</h2>
+      <p>
+        Dengan menyertai NOVERA GREEN, anda menjadi sebahagian daripada gerakan perubahan yang memberi impak sebenar kepada alam sekitar.
+        Setiap sumbangan tenaga, masa, atau idea anda membantu menjadikan bumi lebih bersih dan lestari.
+      </p>
+      <p>
+        Ini bukan sekadar projek — ia adalah satu gerakan komuniti untuk masa depan yang lebih hijau.
+      </p>
+    </div>
+
   </section>
 
-  <!-- IMPACT -->
-  <section class="fade">
-    <h2>Impacts</h2>
-    <p>✔ Mengurangkan sisa daun</p>
-    <p>✔ Menyokong kelestarian alam</p>
-    <p>✔ Menghasilkan kertas alternatif</p>
-  </section>
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <h2>Mulakan Perubahan Hari Ini</h2>
+    <p>Sertai kami dalam misi menghijaukan bumi 🌱</p>
 
-  <!-- VOLUNTEER -->
-  <section id="volunteer" class="fade">
-    <h2>Volunteer With Us</h2>
-
-    <form>
-      <input type="text" placeholder="Nama" required>
-      <input type="email" placeholder="Email" required>
-      <button type="submit">Hantar</button>
-    </form>
+    <a href="volunteer.html">
+      <button class="btn-primary">Join Volunteer</button>
+    </a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 NOVERA GREEN</p>
+    <p>© 2026 NOVERA GREEN | All Rights Reserved</p>
   </footer>
-
-  <!-- ANIMATION SCRIPT -->
-  <script>
-    window.addEventListener("scroll", function () {
-      document.querySelectorAll(".fade").forEach(el => {
-        const pos = el.getBoundingClientRect().top;
-        if (pos < window.innerHeight - 100) {
-          el.style.opacity = 1;
-          el.style.transform = "translateY(0)";
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
