@@ -79,3 +79,48 @@ input:checked + .slider { background-color: #34c759; }
 input:checked + .slider:before { transform: translateX(22px); }
 
 .btn-apple { background: var(--text); color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; border: none; }
+
+/* --- 1. NYAWA PADA CARDS (Apple Pro Shadow) --- */
+.card {
+    cursor: pointer;
+    transition: all 0.6s var(--apple-ease);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.01);
+    background: #ffffff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    border-color: rgba(191, 161, 93, 0.2); /* Sentuhan warna emas sikit */
+}
+
+/* --- 2. SMOOTH PAGE ENTRANCE --- */
+body {
+    animation: fadeInPage 0.8s var(--apple-ease);
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; filter: blur(5px); }
+    to { opacity: 1; filter: blur(0); }
+}
+
+/* --- 3. CUSTOM SCROLLBAR (Bagi tak nampak Windows sangat) --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: #d2d2d7;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #86868b;
+}
+
+/* --- 4. SECTIONS SPACING --- */
+/* Apple suka space gila-gila antara topik */
+.mega-section {
+    margin-bottom: 50px;
+}
