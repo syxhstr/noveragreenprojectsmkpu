@@ -203,3 +203,21 @@ h1 span { color: var(--accent); }
   main { margin-left: 0; width: 100%; padding: 40px 20px; }
   h1 { font-size: 4rem; }
 }
+
+/* Feedback bila butang ditekan */
+.btn-accent:active {
+  transform: scale(0.95);
+  filter: brightness(0.8);
+}
+
+/* Khas untuk drop-down select supaya tak nampak kusam */
+select option {
+  background: var(--secondary);
+  color: white;
+}
+
+/* Link Navigasi yang lebih jelas bila hover */
+.nav-link:hover span {
+    letter-spacing: 1px;
+    color: var(--accent);
+}
