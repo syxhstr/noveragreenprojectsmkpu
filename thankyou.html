@@ -2,42 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Success | Novera</title>
+    <title>Thank You | Novera</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh; text-align:center;">
-
-    <main style="margin-left:0; width:100%;">
-        <section class="section">
-            <h1 class="reveal" data-en="Success." data-ms="Berjaya.">Success.</h1>
-            <p class="hero-desc reveal" 
-               data-en="Thank you for reaching out. Our team will contact you shortly." 
-               data-ms="Terima kasih kerana menghubungi kami. Pasukan kami akan hubungi anda segera.">
-               Thank you for reaching out. Our team will contact you shortly.
-            </p>
-            
-            <div class="reveal" style="margin-top:40px;">
-                <a href="index.html" class="nav-link active" style="display:inline-block; padding:15px 40px; border-radius:40px;"
-                   data-en="Back to Home" data-ms="Kembali ke Utama">
-                   Back to Home
-                </a>
-            </div>
-        </section>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh;">
+    <main style="margin-left:0; text-align:center;">
+        <h1 class="hero-title" id="t-title" style="font-size: 8rem;">Done.</h1>
+        <p class="hero-sub" style="margin: 0 auto;">Permohonan anda telah selamat sampai ke makmal Novera. Kita jumpa di masa depan.</p>
+        <br><br>
+        <a href="index.html" class="apple-btn">Go Home</a>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        // Animasi muncul dari tengah
-        gsap.to(".reveal", { 
-            opacity: 1, 
-            y: 0, 
-            duration: 1.5, 
-            stagger: 0.3, 
-            ease: "power4.out" 
-        });
-
-        // Check bahasa dari page sebelum ni (optional)
-        // Kalau nak buat switcher kat sini pun boleh, tapi biasanya page ni sekejap je.
+        gsap.from(".hero-title", { opacity: 0, scale: 0.5, duration: 1.5, ease: "elastic.out(1, 0.3)" });
+        gsap.from(".hero-sub", { opacity: 0, y: 20, delay: 0.8 });
     </script>
 </body>
 </html>
