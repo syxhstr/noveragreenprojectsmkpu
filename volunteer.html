@@ -2,52 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Volunteer | NOVERA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVERA | Network</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .form-group { margin-bottom: 20px; }
     input, select, textarea { 
-      width: 100%; padding: 12px; background: var(--primary); 
-      border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px; 
-      color: white; margin-top: 8px;
+      width: 100%; padding: 18px; background: var(--secondary); 
+      border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 12px; 
+      color: white; margin: 10px 0 25px; font-size: 1rem;
     }
-    label { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+    label { font-weight: 800; color: var(--accent); text-transform: uppercase; font-size: 0.8rem; }
   </style>
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">NOVERA🌿</a>
+    <a href="index.html" class="sidebar-logo">NOVERA.</a>
     <ul class="nav-menu">
-      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>The Process</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Volunteer</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Settings</span></a></li>
+      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Dashboard</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Systems</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Network</span></a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Control Panel</span></a></li>
     </ul>
   </aside>
 
   <main class="reveal">
-    <div style="max-width: 600px; margin: 0 auto; background: var(--secondary); padding: 40px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.1);">
-      <h1 style="color:var(--accent); margin-bottom: 10px;">Join the Initiative</h1>
-      <p style="margin-bottom: 30px; opacity: 0.6;">Register to donate biomass or join our production team.</p>
-      
+    <h1>Global Network.</h1>
+    <p class="big-text">Join the ranks of eco-engineers. Register your interest below.</p>
+
+    <div class="card" style="max-width: 600px; transform: none !important;">
       <form action="thankyou.html">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="example@gmail.com" required>
-        </div>
-        <div class="form-group">
-          <label>Involvement Type</label>
-          <select>
-            <option>Leaf Donor (Biomass)</option>
-            <option>Production Assistant</option>
-            <option>Educational Outreach</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-accent" style="margin-top: 10px;">Submit Application</button>
+        <label>Full Name</label>
+        <input type="text" placeholder="John Doe" required>
+        
+        <label>Role</label>
+        <select>
+          <option>Biomass Contributor</option>
+          <option>Lab Assistant</option>
+          <option>Brand Partner</option>
+        </select>
+        
+        <button type="submit" class="btn-accent" style="padding: 20px; font-size: 1.1rem;">INITIALIZE JOIN SEQUENCE</button>
       </form>
     </div>
   </main>
