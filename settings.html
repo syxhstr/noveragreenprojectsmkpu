@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Settings | Novera OS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="sidebar">
-        <img src="assets/images/logonovera.png" class="main-logo" alt="Novera">
-        <div class="nav-menu">
-            <a href="index.html" class="nav-link">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link">Impact</a>
-            <a href="volunteer.html" class="nav-link">Join Us</a>
-            <a href="settings.html" class="nav-link active">Settings</a>
-        </div>
-    </nav>
-
-    <main>
-        <section class="hero-section">
-            <h1 class="hero-title">System<br>Preferences.</h1>
-            <div class="grid-bento">
-                <div class="bento-card" style="grid-column: span 12;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
-                        <div>
-                            <h3>High Fidelity Motion</h3>
-                            <p style="color:var(--text-dim);">Aktifkan animasi 60fps untuk transisi yang lebih lancar.</p>
-                        </div>
-                        <div class="switch on" onclick="this.classList.toggle('on')"></div>
-                    </div>
-                    
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <div>
-                            <h3>Experimental Glass</h3>
-                            <p style="color:var(--text-dim);">Gunakan Apple Liquid Glass pada semua elemen UI.</p>
-                        </div>
-                        <div class="switch" onclick="this.classList.toggle('on')"></div>
-                    </div>
-                </div>
+<main>
+    <h1 class="hero-title" style="opacity:0;" data-en="Settings" data-ms="Tetapan">Settings</h1>
+    
+    <div class="bento-card">
+        <div class="setting-item">
+            <div>
+                <h4 data-en="Eco Motion" data-ms="Gerakan Eko">Eco Motion</h4>
+                <p style="color:var(--text-dim); font-size:0.9rem;" data-en="Optimize animations for power saving." data-ms="Optimumkan animasi untuk penjimatan tenaga.">Optimize animations for power saving.</p>
             </div>
-        </section>
-    </main>
-</body>
-</html>
+            <div class="apple-switch on" onclick="this.classList.toggle('on')"></div>
+        </div>
+
+        <div class="setting-item" style="border:none;">
+            <div>
+                <h4 data-en="Glass Interface" data-ms="Antaramuka Kaca">Glass Interface</h4>
+                <p style="color:var(--text-dim); font-size:0.9rem;" data-en="Enable blur effects on sidebars." data-ms="Aktifkan kesan kabur pada bar sisi.">Enable blur effects on sidebars.</p>
+            </div>
+            <div class="apple-switch" onclick="this.classList.toggle('on')"></div>
+        </div>
+    </div>
+</main>
