@@ -2,60 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Join Network | NOVERA</title>
+  <title>Join Us | Novera</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Tambahan sikit untuk borang bagi nampak kemas dalam mega-layout */
-    form { width: 100%; max-width: 800px; margin-top: 50px; }
-    label { display: block; margin-bottom: 10px; font-weight: 800; color: var(--accent); letter-spacing: 1px; font-size: 0.8rem; }
-    input, select, textarea { 
-      width: 100%; padding: 25px; background: var(--secondary); 
-      border: 2px solid rgba(212, 175, 55, 0.2); border-radius: 20px; 
-      color: white; font-size: 1.1rem; margin-bottom: 40px;
-      transition: 0.4s var(--bezier);
+    /* Tambahan sikit untuk input gaya Apple */
+    input, select {
+      width: 100%; padding: 16px; background: #fff;
+      border: 1px solid #d2d2d7; border-radius: 12px;
+      margin-top: 10px; margin-bottom: 25px; font-size: 1rem;
+      transition: 0.3s;
     }
-    input:focus, select:focus { border-color: var(--accent); outline: none; background: rgba(212, 175, 55, 0.05); }
+    input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 4px rgba(191, 161, 93, 0.1); }
+    label { font-weight: 600; font-size: 0.9rem; color: #1d1d1f; }
   </style>
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">NOVERA.</a>
+    <a href="index.html" class="sidebar-logo">Novera.</a>
     <ul class="nav-menu">
-      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>The Science</span></a></li>
-      <li class="nav-item"><a href="impact.html" class="nav-link">📊 <span>Impact Tracker</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Join Network</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Control Center</span></a></li>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="process.html" class="nav-link">Our Process</a></li>
+      <li><a href="volunteer.html" class="nav-link active">Join Us</a></li>
+      <li><a href="settings.html" class="nav-link">Settings</a></li>
     </ul>
     <div class="sidebar-account">
-      <span class="user-badge">ADMIN ACCESS</span>
       <p class="user-name">MinimallyFolium</p>
+      <p class="user-status">Active Member</p>
     </div>
   </aside>
 
   <main>
-    <section class="mega-section">
-      <h1 class="mega-title">JOIN THE<br>UPLINK.</h1>
-      <p class="mega-desc">Be part of the circular movement. Donate your biomass or apply for a position in our bio-lab.</p>
-      
-      <form action="thankyou.html">
-        <label>FULL IDENTITY</label>
-        <input type="text" placeholder="e.g. Ahmad Firdaus" required>
+    <section class="mega-section reveal">
+      <h1 class="hero-title">Join the<br>movement.</h1>
+      <p class="hero-desc">Whether you have leaves to donate or you want to help us make paper, we'd love to have you.</p>
 
-        <label>CONTRIBUTION TYPE</label>
-        <select required>
-          <option value="" disabled selected>Select your role...</option>
-          <option>Biomass Donor (Dry Leaves)</option>
-          <option>Production Assistant</option>
-          <option>Brand Partner</option>
-          <option>Investor</option>
-        </select>
+      <div class="card" style="max-width: 600px; margin-top: 40px;">
+        <form action="thankyou.html">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Appleseed" required>
 
-        <label>COMMUNICATION CHANNEL</label>
-        <input type="email" placeholder="email@address.com" required>
+          <label>How can you help?</label>
+          <select required>
+            <option value="" disabled selected>Select an option...</option>
+            <option>I have dry leaves to donate</option>
+            <option>I want to help make paper</option>
+            <option>I want to be a brand partner</option>
+          </select>
 
-        <button type="submit" class="btn-gold">INITIALIZE REGISTRATION</button>
-      </form>
+          <label>Email Address</label>
+          <input type="email" placeholder="name@email.com" required>
+
+          <button type="submit" class="btn-apple" style="width: 100%; border: none; cursor: pointer;">Send Interest</button>
+        </form>
+      </div>
     </section>
   </main>
 </body>
