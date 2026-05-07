@@ -1,49 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Settings | Novera</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .settings-container { background: var(--secondary-bg); border-radius: 32px; display: flex; height: 500px; overflow: hidden; border: 1px solid var(--border); }
-        .settings-nav { width: 200px; background: rgba(0,0,0,0.02); border-right: 1px solid var(--border); padding: 20px; }
-        .settings-content { flex: 1; padding: 40px; background: #fff; overflow-y: auto; }
-        .settings-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-    </style>
-</head>
-<body>
-    <nav class="sidebar">
-        <a href="index.html" class="logo-squircle">N</a>
-        <div class="nav-menu">
-            <a href="index.html" class="nav-link">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link">Impact</a>
-            <a href="volunteer.html" class="nav-link">Join Us</a>
-            <a href="settings.html" class="nav-link active">Settings</a>
-        </div>
-    </nav>
-    <main>
-        <section class="section">
-            <h1>Settings.</h1>
-            <div class="settings-container">
+<main>
+    <section class="mega-section reveal">
+        <h1 class="hero-title">Settings.</h1>
+        <p class="hero-desc">Urus akaun dan peribadikan pengalaman Novera anda.</p>
+
+        <div class="grid">
+            <div class="settings-box reveal">
                 <div class="settings-nav">
-                    <p style="font-weight:600; font-size:14px; color:var(--accent);">Appearance</p>
-                    <p style="font-size:14px; margin-top:15px; opacity:0.5;">Account</p>
-                    <p style="font-size:14px; margin-top:15px; opacity:0.5;">Privacy</p>
+                    <a href="#" class="nav-link active">Appearance</a>
+                    <a href="#" class="nav-link">Notifications</a>
+                    <a href="#" class="nav-link">Privacy</a>
+                    <a href="#" class="nav-link">Akaun</a>
                 </div>
                 <div class="settings-content">
+                    <h3 style="margin-bottom: 25px; color: var(--gold);">Appearance</h3>
+                    
                     <div class="settings-row">
-                        <div><p style="font-weight:600;">Eco-Dark Mode</p></div>
+                        <div>
+                            <p style="font-weight: 600;">Dark Mode</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Jimat bateri dengan rupa gelap.</p>
+                        </div>
                         <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                     </div>
+
                     <div class="settings-row">
-                        <div><p style="font-weight:600;">Reduce Motion</p></div>
+                        <div>
+                            <p style="font-weight: 600;">Reduce Motion</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Permudahkan animasi untuk kelajuan.</p>
+                        </div>
                         <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                     </div>
                 </div>
             </div>
-        </section>
-        <footer>© 2026 Novera Inc.</footer>
-    </main>
-</body>
-</html>
+        </div>
+    </section>
+</main>
