@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Join Us | Novera</title>
+  <meta charset="UTF-8"><title>Join Us | Novera</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Tambahan sikit untuk input gaya Apple */
     input, select {
-      width: 100%; padding: 16px; background: #fff;
-      border: 1px solid #d2d2d7; border-radius: 12px;
-      margin-top: 10px; margin-bottom: 25px; font-size: 1rem;
-      transition: 0.3s;
+      width: 100%; padding: 20px; background: var(--secondary-bg);
+      border: 1px solid transparent; border-radius: 16px;
+      margin: 10px 0 30px; font-size: 1.1rem; transition: 0.3s;
     }
-    input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 4px rgba(191, 161, 93, 0.1); }
-    label { font-weight: 600; font-size: 0.9rem; color: #1d1d1f; }
+    input:focus { background: #fff; border-color: var(--accent); outline: none; }
+    label { font-weight: 600; font-size: 0.85rem; opacity: 0.8; margin-left: 5px; }
   </style>
 </head>
 <body>
-  <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">Novera.</a>
-    <ul class="nav-menu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="process.html" class="nav-link">Our Process</a></li>
-      <li><a href="volunteer.html" class="nav-link active">Join Us</a></li>
-      <li><a href="settings.html" class="nav-link">Settings</a></li>
-    </ul>
-    <div class="sidebar-account">
-      <p class="user-name">MinimallyFolium</p>
-      <p class="user-status">Active Member</p>
+  <nav class="sidebar">
+    <a href="index.html" class="sidebar-logo">Novera</a>
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link">Overview</a>
+      <a href="process.html" class="nav-link">Process</a>
+      <a href="impact.html" class="nav-link">Impact</a>
+      <a href="volunteer.html" class="nav-link active">Join Us</a>
     </div>
-  </aside>
+  </nav>
 
   <main>
     <section class="mega-section reveal">
-      <h1 class="hero-title">Join the<br>movement.</h1>
-      <p class="hero-desc">Whether you have leaves to donate or you want to help us make paper, we'd love to have you.</p>
-
-      <div class="card" style="max-width: 600px; margin-top: 40px;">
+      <span class="hero-tag">Community</span>
+      <h1 class="hero-title">Be part of <br>the solution.</h1>
+      
+      <div class="card" style="grid-column: span 12; max-width: 700px;">
         <form action="thankyou.html">
-          <label>Your Name</label>
-          <input type="text" placeholder="John Appleseed" required>
+          <label>NAME</label>
+          <input type="text" placeholder="Your full name" required>
 
-          <label>How can you help?</label>
+          <label>INTEREST</label>
           <select required>
-            <option value="" disabled selected>Select an option...</option>
-            <option>I have dry leaves to donate</option>
-            <option>I want to help make paper</option>
-            <option>I want to be a brand partner</option>
+            <option>I want to donate leaves</option>
+            <option>I want to join the production team</option>
           </select>
 
-          <label>Email Address</label>
-          <input type="email" placeholder="name@email.com" required>
-
-          <button type="submit" class="btn-apple" style="width: 100%; border: none; cursor: pointer;">Send Interest</button>
+          <button type="submit" class="btn-apple" style="width: 100%; border: none; cursor: pointer;">Submit Request</button>
         </form>
       </div>
     </section>
