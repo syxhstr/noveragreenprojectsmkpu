@@ -1,47 +1,60 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4fff6;
+  background: #f5fff6;
   color: #222;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(to right, #2ecc71, #27ae60);
+  padding: 90px 20px;
+  background: linear-gradient(120deg, #2ecc71, #27ae60);
   color: white;
 }
 
 /* BUTTON */
-.volunteer-btn {
-  padding: 12px 20px;
-  border: none;
+.btn-primary {
+  padding: 12px 22px;
   background: white;
   color: #27ae60;
-  border-radius: 8px;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
-  margin-top: 15px;
+  font-weight: bold;
 }
 
-.volunteer-btn:hover {
+.btn-primary:hover {
   transform: scale(1.05);
-  background: #eaffea;
 }
 
-/* SECTIONS */
-section {
-  padding: 60px 20px;
+/* LAYOUT */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FORM PAGE */
+.form-page {
   text-align: center;
+  padding: 80px 20px;
 }
 
-/* FORM */
 form input {
   display: block;
   margin: 10px auto;
   padding: 10px;
-  width: 250px;
+  width: 260px;
 }
 
 form button {
@@ -50,24 +63,13 @@ form button {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #222;
-  color: white;
-}
-
-/* ANIMATION */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s ease;
-}
-
-/* SMOOTH SCROLL */
-html {
-  scroll-behavior: smooth;
+/* BACK LINK */
+.back-link {
+  display: block;
+  margin-top: 20px;
+  color: #27ae60;
+  text-decoration: none;
 }
