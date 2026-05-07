@@ -2,43 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Novera | Nature Re-imagined</title>
+    <title>Novera | Overview</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="sidebar">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="assets/images/logonovera.png" alt="Novera" class="main-logo">
-            </a>
-        </div>
+        <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
         <div class="nav-menu">
-            <a href="index.html" class="nav-link active">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link">Impact</a>
-            <a href="volunteer.html" class="nav-link">Join Us</a>
-            <a href="settings.html" class="nav-link">Settings</a>
+            <a href="index.html" class="nav-link active" data-en="Overview" data-ms="Utama">Overview</a>
+            <a href="process.html" class="nav-link" data-en="Process" data-ms="Proses">Process</a>
+            <a href="settings.html" class="nav-link" data-en="Settings" data-ms="Tetapan">Settings</a>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btn-en" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn" id="btn-ms" onclick="changeLang('ms')">MS</button>
         </div>
     </nav>
+
     <main>
-        <section class="mega-section visible">
-            <h1>Nature.<br><span style="opacity:0.25">Re-imagined.</span></h1>
-            <p class="hero-desc">Satu revolusi alat tulis premium yang diperbuat sepenuhnya daripada sisa daun kering. 100% organik, sifar penebangan pokok.</p>
-            <div class="grid">
-                <div class="card" style="grid-column: span 8;">
-                    <h3 style="font-size:1.8rem; margin-bottom:15px;">Misi Sifar Pokok.</h3>
-                    <p>Secara global, 15 bilion pokok ditebang setahun untuk kertas. Novera memecah kitaran ini dengan menggunakan biomas daun kering yang biasanya dibakar atau dibuang begitu sahaja.</p>
+        <section class="section">
+            <h1 class="reveal" data-en="Nature.<br>Re-imagined." data-ms="Alam.<br>Dicipta Semula.">Nature.<br>Re-imagined.</h1>
+            <p class="hero-desc reveal" data-en="Premium stationery from 100% leaf waste." data-ms="Alat tulis premium dari 100% sisa daun kering.">Premium stationery from 100% leaf waste.</p>
+            <div class="grid reveal">
+                <div class="card">
+                    <h3 data-en="Zero Trees" data-ms="Sifar Pokok">Zero Trees</h3>
+                    <p data-en="We save forests by using fallen leaves." data-ms="Kami selamatkan hutan dengan daun yang jatuh.">We save forests by using fallen leaves.</p>
                 </div>
-                <div class="card" style="grid-column: span 4; background:#000; color:#fff;">
-                    <h3>Pro Texture.</h3>
-                    <p style="opacity:0.7;">Sentuhan alam yang unik pada setiap helaian.</p>
+                <div class="card" style="background:#000; color:#fff;">
+                    <h3 data-en="Pure Texture" data-ms="Tekstur Asli">Pure Texture</h3>
+                    <p data-en="Every sheet is unique." data-ms="Setiap helaian adalah unik.">Every sheet is unique.</p>
                 </div>
             </div>
         </section>
-        <footer>© 2026 Novera Inc. Designed for the planet.</footer>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        window.addEventListener('load', () => { document.querySelector('.mega-section').classList.add('visible'); });
+        // Animasi GSAP (Paling Gempak)
+        gsap.to(".reveal", { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+
+        // Fungsi Tukar Bahasa
+        function changeLang(l) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + l).classList.add('active');
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + l);
+            });
+        }
     </script>
 </body>
 </html>
