@@ -5,10 +5,8 @@
   --secondary-bg: #f5f5f7;
   --text: #1d1d1f;
   --text-secondary: #86868b;
-  --accent: #0071e3; /* Apple Blue */
+  --accent: #0071e3; 
   --gold: #bfa15d;
-  --glass: rgba(255, 255, 255, 0.8);
-  /* Easing Apple yang ikonik: keluar masuk sangat natural */
   --apple-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
@@ -18,104 +16,66 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.47059;
-  letter-spacing: -0.022em;
+  overflow-x: hidden;
 }
 
-/* --- SIDEBAR: ULTRA-MINIMAL GLASS --- */
+/* --- PERMANENT SIDEBAR --- */
 .sidebar {
   width: 260px; height: 100vh; position: fixed;
-  background: var(--glass);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
-  border-right: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.08);
   padding: 40px 24px; z-index: 1000;
   display: flex; flex-direction: column;
 }
 
-.sidebar-logo {
-  font-size: 1.4rem; font-weight: 700; color: var(--text);
-  text-decoration: none; margin-bottom: 40px; padding-left: 12px;
-}
+.sidebar-logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; margin-bottom: 40px; }
 
 .nav-link {
   text-decoration: none; color: var(--text); opacity: 0.6;
-  font-size: 0.95rem; font-weight: 500; padding: 12px 16px;
+  font-size: 0.9rem; font-weight: 500; padding: 12px 16px;
   border-radius: 10px; display: block; transition: 0.2s var(--apple-ease);
 }
+.nav-link:hover, .nav-link.active { opacity: 1; background: rgba(0,0,0,0.05); }
 
-.nav-link:hover { opacity: 1; background: rgba(0,0,0,0.04); }
-.nav-link.active { opacity: 1; background: rgba(0,0,0,0.08); font-weight: 600; }
-
-.sidebar-account {
-  margin-top: auto; padding: 16px; background: rgba(0,0,0,0.03);
-  border-radius: 14px; text-align: center;
+/* --- SCROLL INDICATOR --- */
+.scroll-hint {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; opacity: 0.5;
+  animation: bounce 2s infinite;
 }
+.scroll-hint span { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);} 40% {transform: translateY(-10px) translateX(-50%);} }
 
-/* --- MAIN CONTENT & REVEAL --- */
-main { margin-left: 260px; width: calc(100% - 260px); }
+/* --- MAIN CONTENT --- */
+main { margin-left: 260px; }
 
 .mega-section {
-  padding: 120px 80px; min-height: 100vh;
+  padding: 100px 10%; min-height: 100vh; position: relative;
   display: flex; flex-direction: column; justify-content: center;
 }
 
-/* ANIMASI REVEAL: Bukan setakat naik, tapi scale sikit (Macam Unlock iPhone) */
-.reveal {
-  opacity: 0; transform: scale(0.96) translateY(30px);
-  animation: appleEntrance 1.4s var(--apple-ease) forwards;
-}
+.reveal { opacity: 0; transform: translateY(30px); animation: appleEntrance 1.2s var(--apple-ease) forwards; }
+@keyframes appleEntrance { to { opacity: 1; transform: translateY(0); } }
 
-@keyframes appleEntrance {
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
+h1.hero-title { font-size: 5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+.hero-desc { font-size: 1.6rem; color: var(--text-secondary); max-width: 700px; }
 
-/* --- TYPOGRAPHY: THE HERO --- */
-.hero-tag {
-  font-size: 0.9rem; font-weight: 700; color: var(--gold);
-  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;
-  display: block;
-}
-
-h1.hero-title {
-  font-size: 5.5rem; font-weight: 700; line-height: 1.02;
-  letter-spacing: -0.015em; margin-bottom: 30px;
-}
-
-.hero-desc {
-  font-size: 1.7rem; font-weight: 500; color: var(--text-secondary);
-  max-width: 800px; line-height: 1.3;
-}
-
-/* --- THE CARDS: BENTO BOX STYLE --- */
-.grid {
-  display: grid; grid-template-columns: repeat(12, 1fr);
-  gap: 24px; margin-top: 60px;
-}
-
+/* --- BENTO CARDS --- */
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-top: 40px; }
 .card {
   grid-column: span 6; background: var(--secondary-bg);
-  border-radius: 32px; padding: 50px;
-  transition: transform 0.6s var(--apple-ease);
-  overflow: hidden; position: relative;
+  border-radius: 30px; padding: 40px; transition: 0.4s var(--apple-ease);
 }
+.card:hover { transform: scale(1.01); background: #ebebed; }
 
-.card:hover { transform: scale(1.01); }
+/* --- SETTINGS STYLES --- */
+.settings-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.switch { position: relative; width: 50px; height: 28px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #e2e2e7; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #34c759; }
+input:checked + .slider:before { transform: translateX(22px); }
 
-.card h3 { font-size: 2rem; margin-bottom: 15px; }
-.card p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.5; }
-
-/* --- BUTTON: PILL SHAPE --- */
-.btn-apple {
-  background: var(--text); color: #fff; padding: 18px 36px;
-  border-radius: 40px; font-weight: 600; font-size: 1.05rem;
-  text-decoration: none; display: inline-block; margin-top: 40px;
-  transition: 0.3s var(--apple-ease);
-}
-
-.btn-apple:hover { transform: scale(1.04); opacity: 0.9; }
-
-/* --- LOGO: THE ICON --- */
-.logo-icon {
-  width: 100px; height: 100px; border-radius: 22%; /* Squircle */
-  margin-bottom: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
+.btn-apple { background: var(--text); color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; border: none; }
