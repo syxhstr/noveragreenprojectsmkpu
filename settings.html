@@ -2,36 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOVERA | Settings</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">NOVERA.</a>
+    <a href="index.html" class="sidebar-logo-text">NOVERA.</a>
     <ul class="nav-menu">
-      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Dashboard</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Systems</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link">🌿 <span>Network</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link active">⚙️ <span>Control Panel</span></a></li>
+      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Process</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link">🌿 <span>Join Us</span></a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link active">⚙️ <span>Settings</span></a></li>
     </ul>
   </aside>
 
-  <main class="reveal">
-    <h1>Control Panel.</h1>
-    <p class="big-text">Adjust system parameters and interface preferences.</p>
-
-    <div class="settings-group">
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <p>Interface: High-Contrast Gold</p>
-        <div class="btn-toggle on"></div>
+  <main>
+    <section class="mega-section">
+      <h1 class="mega-title">SET<br>UP.</h1>
+      <div class="card" style="max-width:800px;">
+        <h3>SYSTEM PREFERENCES</h3>
+        <p style="margin:20px 0;">3D Rendering: <span style="color:var(--accent)">ACTIVE</span></p>
+        <p style="margin-bottom:40px;">Dark Mode: <span style="color:var(--accent)">ECO-ON</span></p>
+        <button class="btn-mega" style="background:#e74c3c; color:white;">WIPE ALL DATA</button>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
-        <p>Hardware Acceleration (3D Tilt)</p>
-        <div class="btn-toggle on"></div>
-      </div>
-    </div>
-    <button class="btn-accent" style="background: #e74c3c; width: auto; padding: 10px 25px;">DELETE LOCAL DATA</button>
+    </section>
   </main>
 </body>
 </html>
