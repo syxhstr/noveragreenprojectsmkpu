@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NOVERA | Settings</title>
+  <meta charset="UTF-8"><title>Settings | NOVERA</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo-text">NOVERA.</a>
+    <a href="index.html" class="sidebar-logo">NOVERA.</a>
     <ul class="nav-menu">
       <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Process</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link">🌿 <span>Join Us</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link active">⚙️ <span>Settings</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>The Science</span></a></li>
+      <li class="nav-item"><a href="impact.html" class="nav-link">📊 <span>Impact Tracker</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link">🌿 <span>Join Network</span></a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link active">⚙️ <span>Control Center</span></a></li>
     </ul>
+    <div class="sidebar-account">
+        <span class="user-badge">ADMIN ACCESS</span>
+        <p class="user-name">MinimallyFolium</p>
+    </div>
   </aside>
-
   <main>
     <section class="mega-section">
-      <h1 class="mega-title">SET<br>UP.</h1>
-      <div class="card" style="max-width:800px;">
-        <h3>SYSTEM PREFERENCES</h3>
-        <p style="margin:20px 0;">3D Rendering: <span style="color:var(--accent)">ACTIVE</span></p>
-        <p style="margin-bottom:40px;">Dark Mode: <span style="color:var(--accent)">ECO-ON</span></p>
-        <button class="btn-mega" style="background:#e74c3c; color:white;">WIPE ALL DATA</button>
+      <h1 class="mega-title">SYSTEM<br>CONFIG.</h1>
+      
+      <div class="settings-box">
+        <h3>Display & Visuals</h3>
+        <div class="settings-row"><p>3D Tilt Rendering</p><span style="color:var(--accent)">ULTRA-HIGH</span></div>
+        <div class="settings-row"><p>Dynamic Animations</p><span>ENABLED</span></div>
+        <div class="settings-row"><p>Eco-Dark Mode</p><span>ON</span></div>
       </div>
+
+      <div class="settings-box">
+        <h3>Account & Security</h3>
+        <div class="settings-row"><p>Profile Encryption</p><span>AES-256</span></div>
+        <div class="settings-row"><p>Auto-Sync Data</p><span>ALWAYS</span></div>
+        <div class="settings-row"><p>Two-Factor Auth</p><span style="color:#e74c3c">REQUIRED</span></div>
+      </div>
+
+      <button class="btn-gold" style="background:#e74c3c; color:white;">TERMINATE ACCOUNT</button>
     </section>
   </main>
 </body>
