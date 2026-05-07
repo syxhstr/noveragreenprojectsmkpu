@@ -3,8 +3,9 @@
 :root {
   --primary: #020503;
   --secondary: #08120a;
-  --accent: #d4af37;
+  --accent: #d4af37; /* Emas Premium */
   --text: #f0f5f2;
+  --card-bg: #0d1a11;
   --bezier: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -14,105 +15,74 @@ body {
   background-color: var(--primary);
   color: var(--text);
   overflow-x: hidden;
+  display: flex;
 }
 
-/* SIDEBAR - UNIFORM UNTUK SEMUA */
+/* --- SIDEBAR KEKAL --- */
 .sidebar {
-  width: 280px; background: var(--secondary); height: 100vh;
+  width: 320px; background: var(--secondary); height: 100vh;
   position: fixed; padding: 50px 30px;
-  border-right: 1px solid rgba(212, 175, 55, 0.1);
+  border-right: 1px solid rgba(212, 175, 55, 0.15);
   display: flex; flex-direction: column; z-index: 1000;
 }
 
-.sidebar-logo-text { font-family: 'Playfair Display'; font-size: 2rem; color: var(--accent); text-decoration: none; font-weight: 900; margin-bottom: 40px; }
+.sidebar-logo { font-family: 'Playfair Display'; font-size: 2.2rem; color: var(--accent); text-decoration: none; font-weight: 900; margin-bottom: 50px; }
 
 .nav-menu { list-style: none; flex-grow: 1; }
-.nav-item { margin-bottom: 25px; }
-.nav-link { text-decoration: none; color: var(--text); opacity: 0.4; font-weight: 700; display: flex; align-items: center; gap: 15px; transition: 0.4s var(--bezier); }
+.nav-item { margin-bottom: 20px; }
+.nav-link { 
+  text-decoration: none; color: var(--text); opacity: 0.5; font-weight: 700; font-size: 1.1rem;
+  display: flex; align-items: center; gap: 15px; transition: 0.4s var(--bezier); 
+}
 .nav-link:hover, .nav-link.active { opacity: 1; color: var(--accent); transform: translateX(10px); }
 
-/* CONTENT LAYOUT */
-main { margin-left: 280px; }
+/* --- AKAUN BOX (TAK HILANG) --- */
+.sidebar-account {
+  background: rgba(212, 175, 55, 0.05); padding: 25px; border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.1); margin-top: auto;
+}
+.user-badge { font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; font-weight: 800; }
+.user-name { font-size: 1.2rem; font-weight: 800; margin: 5px 0 5px; }
+
+/* --- MAIN CONTENT --- */
+main { margin-left: 320px; width: calc(100% - 320px); }
 
 .mega-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 120px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.05);
-  position: relative;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 100px; border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+  opacity: 0; transform: translateY(40px); animation: fadeInUp 1.2s var(--bezier) forwards;
 }
 
-/* LOGO BESAR GEDABAK */
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* --- LOGO KING --- */
 .hero-logo {
-  width: 280px; height: 280px;
-  background: white; border-radius: 50%;
-  padding: 25px; border: 8px solid var(--accent);
-  margin-bottom: 50px;
-  filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.4));
-  animation: float 5s ease-in-out infinite;
-  object-fit: contain;
+  width: 250px; height: 250px; background: white; border-radius: 50%;
+  padding: 20px; border: 8px solid var(--accent); margin-bottom: 40px;
+  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
+  animation: float 6s ease-in-out infinite; object-fit: contain;
 }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-30px) rotate(5deg); }
-}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
 
 h1.mega-title {
-  font-family: 'Playfair Display';
-  font-size: clamp(5rem, 15vw, 12rem);
-  line-height: 0.8;
-  letter-spacing: -6px;
-  color: var(--accent);
-  margin-bottom: 40px;
-  text-transform: uppercase;
+  font-family: 'Playfair Display'; font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.85; letter-spacing: -4px; color: var(--accent); margin-bottom: 30px;
 }
 
-.mega-desc {
-  font-size: 2.2rem;
-  line-height: 1.3;
-  max-width: 1000px;
-  opacity: 0.8;
-  font-weight: 300;
-}
+.mega-desc { font-size: 1.8rem; line-height: 1.5; opacity: 0.8; max-width: 900px; }
 
-/* 3D CARDS */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 50px; margin-top: 60px; }
+/* --- CARDS & SETTINGS UI --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 60px; }
 .card {
-  background: #0d1a11; padding: 80px; border-radius: 50px;
-  border: 1px solid rgba(255,255,255,0.03);
-  transition: 0.7s var(--bezier);
-  perspective: 1000px;
+  background: var(--card-bg); padding: 60px; border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.03); transition: 0.6s var(--bezier);
 }
-.card:hover {
-  transform: translateY(-30px) rotateX(10deg) rotateY(-5deg);
-  border-color: var(--accent);
-  box-shadow: 0 60px 120px rgba(0,0,0,0.9);
-}
-.card h3 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
-.card p { font-size: 1.3rem; opacity: 0.6; line-height: 1.6; }
+.card:hover { transform: translateY(-20px); border-color: var(--accent); box-shadow: 0 40px 80px rgba(0,0,0,0.7); }
 
-/* FORM & BUTTONS */
-input, select { 
-  width: 100%; padding: 25px; background: var(--secondary); 
-  border: 2px solid rgba(212, 175, 55, 0.2); border-radius: 20px; 
-  color: white; font-size: 1.2rem; margin-bottom: 30px;
-}
-.btn-mega {
-  background: var(--accent); color: var(--primary);
-  padding: 30px 80px; border-radius: 100px; border: none;
-  font-weight: 900; font-size: 1.5rem; cursor: pointer;
-  text-decoration: none; display: inline-block; transition: 0.4s var(--bezier);
-}
-.btn-mega:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(212, 175, 55, 0.5); }
+.settings-box { background: var(--secondary); padding: 40px; border-radius: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); }
+.settings-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-/* MOBILE */
-@media (max-width: 1100px) {
-  .sidebar { width: 100%; height: auto; position: relative; padding: 20px; }
-  main { margin-left: 0; }
-  .mega-section { padding: 60px 30px; }
-  h1.mega-title { font-size: 5rem; }
-  .hero-logo { width: 180px; height: 180px; }
+.btn-gold {
+  background: var(--accent); color: var(--primary); padding: 20px 50px;
+  border-radius: 100px; border: none; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-block;
 }
