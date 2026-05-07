@@ -2,36 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NOVERA | Join Us</title>
+  <title>Join Network | NOVERA</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahan sikit untuk borang bagi nampak kemas dalam mega-layout */
+    form { width: 100%; max-width: 800px; margin-top: 50px; }
+    label { display: block; margin-bottom: 10px; font-weight: 800; color: var(--accent); letter-spacing: 1px; font-size: 0.8rem; }
+    input, select, textarea { 
+      width: 100%; padding: 25px; background: var(--secondary); 
+      border: 2px solid rgba(212, 175, 55, 0.2); border-radius: 20px; 
+      color: white; font-size: 1.1rem; margin-bottom: 40px;
+      transition: 0.4s var(--bezier);
+    }
+    input:focus, select:focus { border-color: var(--accent); outline: none; background: rgba(212, 175, 55, 0.05); }
+  </style>
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo-text">NOVERA.</a>
+    <a href="index.html" class="sidebar-logo">NOVERA.</a>
     <ul class="nav-menu">
       <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Process</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Join Us</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Settings</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>The Science</span></a></li>
+      <li class="nav-item"><a href="impact.html" class="nav-link">📊 <span>Impact Tracker</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Join Network</span></a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Control Center</span></a></li>
     </ul>
+    <div class="sidebar-account">
+      <span class="user-badge">ADMIN ACCESS</span>
+      <p class="user-name">MinimallyFolium</p>
+    </div>
   </aside>
 
   <main>
     <section class="mega-section">
-      <h1 class="mega-title">JOIN<br>US.</h1>
-      <p class="mega-desc">Pilih cara anda membantu. Derma daun kering atau sertai pasukan makmal kami.</p>
+      <h1 class="mega-title">JOIN THE<br>UPLINK.</h1>
+      <p class="mega-desc">Be part of the circular movement. Donate your biomass or apply for a position in our bio-lab.</p>
       
-      <div class="card" style="max-width:800px; margin-top:50px;">
-        <form action="thankyou.html">
-          <input type="text" placeholder="NAMA PENUH" required>
-          <select>
-            <option>PILIH KATEGORI</option>
-            <option>Penderma Daun (Biomass)</option>
-            <option>Sukarelawan Produksi</option>
-          </select>
-          <button type="submit" class="btn-mega" style="width:100%;">HANTAR DATA</button>
-        </form>
-      </div>
+      <form action="thankyou.html">
+        <label>FULL IDENTITY</label>
+        <input type="text" placeholder="e.g. Ahmad Firdaus" required>
+
+        <label>CONTRIBUTION TYPE</label>
+        <select required>
+          <option value="" disabled selected>Select your role...</option>
+          <option>Biomass Donor (Dry Leaves)</option>
+          <option>Production Assistant</option>
+          <option>Brand Partner</option>
+          <option>Investor</option>
+        </select>
+
+        <label>COMMUNICATION CHANNEL</label>
+        <input type="email" placeholder="email@address.com" required>
+
+        <button type="submit" class="btn-gold">INITIALIZE REGISTRATION</button>
+      </form>
     </section>
   </main>
 </body>
