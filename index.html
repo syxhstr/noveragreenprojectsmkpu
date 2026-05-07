@@ -3,57 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOVERA GREEN | Premium Leaf Paper</title>
+  <title>NOVERA | Premium Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-logo">NOVERA🌿</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="volunteer.html">Volunteer</a></li>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">NOVERA.</a>
+    
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link active">🏠 <span>Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a href="process.html" class="nav-link">🔄 <span>Process</span></a>
+      </li>
+      <li class="nav-item">
+        <a href="volunteer.html" class="nav-link">🌿 <span>Volunteer</span></a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">⚙️ <span>Settings</span></a>
+      </li>
     </ul>
-    <a href="volunteer.html" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Donate Leaves</a>
-  </nav>
 
-  <header class="hero">
-    <div class="fade-in">
-      <img src="assets/images/logonovera.png" class="logo" alt="Novera Logo">
-      <h1>Nature’s Waste, <br>Refined Into Art.</h1>
-      <p style="max-width: 700px; margin: 20px auto; font-size: 1.2rem; opacity: 0.8;">
-        Every year, millions of tons of dry leaves are burned, releasing CO2 into our air. 
-        <strong>NOVERA GREEN</strong> by <em>MinimallyFoliumTech</em> captures this waste and transforms it into 100% biodegradable, premium quality paper products.
+    <div class="account-section">
+      <p style="font-size: 0.8rem; opacity: 0.5;">SIGNED IN AS</p>
+      <p style="font-weight: 600; color: var(--accent);">Guest_User#01</p>
+      <a href="#" style="color: white; font-size: 0.7rem; text-decoration: none; opacity: 0.8;">Sign Out</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero-banner">
+      <img src="assets/images/logonovera.png" class="premium-logo" alt="Novera">
+      <h1 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 10px;">Future of Bio-Stationery.</h1>
+      <p style="opacity: 0.7; max-width: 600px; margin: 0 auto 30px;">
+        Engineering a circular economy through the power of dead leaves. 
+        MinimallyFoliumTech brings you the next generation of eco-luxury paper.
       </p>
-      <a href="volunteer.html" class="btn">Join The Revolution</a>
-    </div>
-  </header>
+      <a href="volunteer.html" style="background: var(--accent); color: var(--primary); padding: 12px 30px; border-radius: 10px; text-decoration: none; font-weight: 800;">Get Started Now</a>
+    </section>
 
-  <section class="container fade-in">
-    <div style="text-align: center; margin-bottom: 60px;">
-      <h2 style="font-family: 'Playfair Display'; font-size: 3rem;">Why It Matters</h2>
-    </div>
     <div class="grid">
       <div class="card">
-        <h3>💨 Zero Burning</h3>
-        <p>We provide a circular solution to prevent open burning in residential areas, improving local air quality instantly.</p>
+        <h3 style="color: var(--accent); margin-bottom: 10px;">Eco-Pulping Tech</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Our boiling process uses zero synthetic chemicals, making the wastewater 100% safe for irrigation.</p>
       </div>
       <div class="card">
-        <h3>💧 Water Efficient</h3>
-        <p>Our unique organic pulping process uses 40% less water compared to traditional wood-based paper mills.</p>
+        <h3 style="color: var(--accent); margin-bottom: 10px;">Carbon Offset</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7;">For every 100 sheets produced, we prevent approximately 2kg of CO2 from entering the atmosphere via burning.</p>
       </div>
       <div class="card">
-        <h3>📜 Heritage Quality</h3>
-        <p>The fibers from dry leaves create a unique, textured finish that is perfect for premium stationery and packaging.</p>
+        <h3 style="color: var(--accent); margin-bottom: 10px;">Community Impact</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Working with local volunteers to clean up residential areas while creating valuable materials.</p>
       </div>
     </div>
-  </section>
 
-  <footer style="padding: 100px 20px; background: var(--primary); color: white; text-align: center;">
-    <h2>MinimallyFoliumTech</h2>
-    <p style="opacity: 0.6; margin-top: 10px;">Engineering a Greener Tomorrow, One Leaf at a Time.</p>
-  </footer>
+    <section style="margin-top: 60px; padding: 40px; background: #142118; border-radius: 20px;">
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">The Road Ahead (2026-2027)</h2>
+        <p>MinimallyFoliumTech is expanding our collection hubs to 50 more locations. We are currently developing a leaf-based leather alternative (Folium-Leather) for sustainable fashion.</p>
+    </section>
+  </main>
 
 </body>
 </html>
