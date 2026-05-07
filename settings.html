@@ -2,78 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings | Novera</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS Tambahan khusus untuk layout Settings yang kompleks */
-        .settings-container {
-            background: var(--secondary-bg);
-            border-radius: 32px;
-            display: flex;
-            height: 600px;
-            overflow: hidden;
-            margin-top: 40px;
-            border: 1px solid var(--border);
-        }
-
-        .settings-nav {
-            width: 220px;
-            background: rgba(0, 0, 0, 0.02);
-            border-right: 1px solid var(--border);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .settings-content {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-            background: #ffffff;
-        }
-
-        .settings-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .settings-group-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 15px;
-            margin-top: 10px;
-        }
-
-        .sub-link {
-            padding: 10px 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        .sub-link.active {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .sub-link:hover:not(.active) {
-            background: rgba(0,0,0,0.05);
-        }
+        .settings-container { background: var(--secondary-bg); border-radius: 32px; display: flex; height: 500px; overflow: hidden; border: 1px solid var(--border); }
+        .settings-nav { width: 200px; background: rgba(0,0,0,0.02); border-right: 1px solid var(--border); padding: 20px; }
+        .settings-content { flex: 1; padding: 40px; background: #fff; overflow-y: auto; }
+        .settings-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
-
     <nav class="sidebar">
         <a href="index.html" class="logo-squircle">N</a>
         <div class="nav-menu">
@@ -84,69 +22,28 @@
             <a href="settings.html" class="nav-link active">Settings</a>
         </div>
     </nav>
-
     <main>
         <section class="section">
-            <span style="color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 0.1em;">SYSTEM CONTROL</span>
-            <h1 style="font-size: 48px;">Settings.</h1>
-
+            <h1>Settings.</h1>
             <div class="settings-container">
                 <div class="settings-nav">
-                    <a href="#" class="sub-link active">Appearance</a>
-                    <a href="#" class="sub-link">Notifications</a>
-                    <a href="#" class="sub-link">Privacy & Security</a>
-                    <a href="#" class="sub-link">Account</a>
-                    <a href="#" class="sub-link">Help</a>
+                    <p style="font-weight:600; font-size:14px; color:var(--accent);">Appearance</p>
+                    <p style="font-size:14px; margin-top:15px; opacity:0.5;">Account</p>
+                    <p style="font-size:14px; margin-top:15px; opacity:0.5;">Privacy</p>
                 </div>
-
                 <div class="settings-content">
-                    <div class="settings-group-title">Display</div>
-                    
                     <div class="settings-row">
-                        <div>
-                            <p style="font-weight: 600;">Eco-Dark Mode</p>
-                            <p style="font-size: 13px; color: var(--text-secondary);">Aktifkan rupa gelap untuk penjimatan tenaga.</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                        </label>
+                        <div><p style="font-weight:600;">Eco-Dark Mode</p></div>
+                        <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                     </div>
-
                     <div class="settings-row">
-                        <div>
-                            <p style="font-weight: 600;">Reduce Motion</p>
-                            <p style="font-size: 13px; color: var(--text-secondary);">Kurangkan animasi transisi skrin.</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="settings-group-title" style="margin-top: 30px;">Data</div>
-
-                    <div class="settings-row">
-                        <div>
-                            <p style="font-weight: 600;">High Fidelity Metrics</p>
-                            <p style="font-size: 13px; color: var(--text-secondary);">Kemaskini data impak secara masa nyata (real-time).</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
+                        <div><p style="font-weight:600;">Reduce Motion</p></div>
+                        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                     </div>
                 </div>
             </div>
         </section>
-
-        <footer>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <p>© 2026 Novera Inc. Hak Cipta Terpelihara.</p>
-                <p>Version 2.0.4 (Liquid Glass Engine)</p>
-            </div>
-        </footer>
+        <footer>© 2026 Novera Inc.</footer>
     </main>
-
 </body>
 </html>
