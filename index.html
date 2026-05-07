@@ -2,103 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Novera | Designed for the Future</title>
+    <title>Novera | Overview</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
     <nav class="sidebar">
         <img src="assets/images/logonovera.png" class="main-logo" alt="Novera">
         <div class="nav-menu">
-            <a href="index.html" class="nav-link active">Overview</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="impact.html" class="nav-link">Impact</a>
-            <a href="volunteer.html" class="nav-link">Join Us</a>
-            <a href="settings.html" class="nav-link">Settings</a>
+            <a href="index.html" class="nav-link active" data-en="Overview" data-ms="Utama">Overview</a>
+            <a href="process.html" class="nav-link" data-en="Process" data-ms="Proses">Process</a>
+            <a href="impact.html" class="nav-link" data-en="Impact" data-ms="Impak">Impact</a>
+            <a href="volunteer.html" class="nav-link" data-en="Join Us" data-ms="Sertai">Join Us</a>
+            <a href="settings.html" class="nav-link" data-en="Settings" data-ms="Tetapan">Settings</a>
+        </div>
+
+        <div class="lang-switcher">
+            <button class="lang-btn active" id="btn-en" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn" id="btn-ms" onclick="changeLang('ms')">BM</button>
         </div>
     </nav>
 
-    <div class="lang-pill">
-        <button class="lang-btn active" onclick="switchLang('en')">English</button>
-        <button class="lang-btn" onclick="switchLang('ms')">B. Melayu</button>
-    </div>
-
     <main>
-        <section class="hero-section">
-            <h1 class="hero-title" id="main-title">Leaves.<br><span style="color: var(--accent);">Re-engineered.</span></h1>
-            <p class="hero-sub" id="main-desc">Novera is not just paper. It is a biological breakthrough that repurposes 15 billion lost fibers into the world's first carbon-negative stationery.</p>
-        </section>
-
-        <div class="grid-bento">
-            <div class="bento-card" style="grid-column: span 12;">
-                <h3 id="impact-h">The Impact of Zero-Tree Policy</h3>
-                <p class="info-text" id="impact-p">Kertas tradisional memusnahkan ekosistem hutan secara kekal. Novera memintas kitaran ini dengan mengekstrak selulosa daripada sisa biomas daun kering yang biasanya dibakar oleh penduduk tempatan. Proses ini mengurangkan pelepasan metana dan karbon monoksida sebanyak 80% berbanding pembakaran terbuka, sekaligus memberikan pendapatan tambahan kepada komuniti pengumpul daun.</p>
-            </div>
-
-            <div class="bento-card">
-                <h3 id="process-h">Solar Thermal Extraction</h3>
-                <p class="info-text" id="process-p">Menggunakan teknologi pemanasan solar terkawal untuk memecahkan ikatan lignin tanpa menggunakan klorin atau peluntur sulfur. Ini menghasilkan kertas yang selamat untuk kulit dan 100% biodegradable.</p>
-            </div>
-
-            <div class="bento-card">
-                <h3 id="collab-h">Artisanal Precision</h3>
-                <p class="info-text" id="collab-p">Setiap helaian kertas Novera melalui proses penekanan hidraulik 2,000 PSI untuk mencapai kepadatan fiber yang setanding dengan kertas premium antarabangsa, sesuai untuk arkitek, pelukis, dan penulis tegar.</p>
-            </div>
+        <h1 class="hero-title" style="opacity:0; transform:translateY(30px);" 
+            data-en="Nature.<br>Re-imagined." data-ms="Alam.<br>Dicipta Semula.">Nature.<br>Re-imagined.</h1>
+        
+        <div class="bento-card">
+            <h3 data-en="100% Leaf Based" data-ms="100% Berasaskan Daun">100% Leaf Based</h3>
+            <p class="hero-sub" style="font-size: 1.2rem;" 
+               data-en="Our paper uses zero trees. We collect fallen leaves and transform them into premium fiber." 
+               data-ms="Kertas kami tidak menggunakan pokok. Kami mengumpul daun gugur dan menukarnya menjadi gentian premium.">
+               Our paper uses zero trees. We collect fallen leaves and transform them into premium fiber.
+            </p>
         </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // ANIMASI HERO (Apple Style)
-        gsap.from(".hero-title", { opacity: 0, y: 100, duration: 1.5, ease: "power4.out" });
-        gsap.from(".hero-sub", { opacity: 0, y: 50, duration: 1.5, delay: 0.5, ease: "power4.out" });
-
-        // ANIMASI SCROLL UNTUK BENTO
-        gsap.utils.toArray('.bento-card').forEach(card => {
-            gsap.from(card, {
-                scrollTrigger: { trigger: card, start: "top 90%" },
-                opacity: 0,
-                y: 100,
-                scale: 0.9,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-        });
-
-        // LANGUAGE SYSTEM (PRO)
-        const content = {
-            en: {
-                title: "Leaves.<br><span style='color: var(--accent);'>Re-engineered.</span>",
-                desc: "Novera is not just paper. It is a biological breakthrough that repurposes 15 billion lost fibers into the world's first carbon-negative stationery.",
-                impactH: "The Impact of Zero-Tree Policy",
-                impactP: "Traditional paper production permanently destroys forest ecosystems. Novera bypasses this by extracting cellulose from dry leaf biomass that is usually burned. This process reduces methane and carbon monoxide emissions by 80%.",
-                processH: "Solar Thermal Extraction",
-                processP: "Using controlled solar heat to break lignin bonds without chlorine or sulfur bleach. Safe for skin and 100% biodegradable."
-            },
-            ms: {
-                title: "Daun.<br><span style='color: var(--accent);'>Re-rekayasa.</span>",
-                desc: "Novera bukan sekadar kertas. Ia adalah kejayaan biologi yang menukar 15 bilion gentian terbuang menjadi alat tulis karbon-negatif pertama di dunia.",
-                impactH: "Impak Polisi Sifar-Pokok",
-                impactP: "Produksi kertas tradisional memusnahkan ekosistem hutan secara kekal. Novera memintas kitaran ini dengan mengekstrak selulosa daripada sisa biomas daun kering. Proses ini mengurangkan pelepasan karbon sebanyak 80%.",
-                processH: "Ekstraksi Thermal Solar",
-                processP: "Menggunakan haba solar terkawal untuk memecahkan lignin tanpa kimia berbahaya. Selamat untuk kulit dan 100% terbiodegradasi."
-            }
-        };
-
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            document.getElementById('main-title').innerHTML = content[lang].title;
-            document.getElementById('main-desc').innerText = content[lang].desc;
-            document.getElementById('impact-h').innerText = content[lang].impactH;
-            document.getElementById('impact-p').innerText = content[lang].impactP;
-            document.getElementById('process-h').innerText = content[lang].processH;
-            document.getElementById('process-p').innerText = content[lang].processP;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
