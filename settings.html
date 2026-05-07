@@ -4,33 +4,126 @@
   <meta charset="UTF-8">
   <title>Settings | Novera</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahan sikit CSS khas untuk page settings bagi nampak kemas */
+    .settings-group {
+      margin-bottom: 40px;
+    }
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .settings-item:last-child { border-bottom: none; }
+    
+    .item-info h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+    .item-info p { font-size: 0.9rem; color: var(--text-secondary); }
+
+    /* Toggle Switch Gaya iOS */
+    .switch {
+      position: relative; display: inline-block; width: 50px; height: 28px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #e2e2e7; transition: .4s; border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 24px; width: 24px; left: 2px; bottom: 2px;
+      background-color: white; transition: .4s; border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    input:checked + .slider { background-color: #34c759; } /* Hijau Apple */
+    input:checked + .slider:before { transform: translateX(22px); }
+  </style>
 </head>
 <body>
-  <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">Novera.</a>
-    <ul class="nav-menu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="process.html" class="nav-link">Our Process</a></li>
-      <li><a href="volunteer.html" class="nav-link">Join Us</a></li>
-      <li><a href="settings.html" class="nav-link active">Settings</a></li>
-    </ul>
-  </aside>
+  <nav class="sidebar">
+    <a href="index.html" class="sidebar-logo">Novera</a>
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link">Overview</a>
+      <a href="process.html" class="nav-link">Process</a>
+      <a href="impact.html" class="nav-link">Impact</a>
+      <a href="volunteer.html" class="nav-link">Join Us</a>
+      <a href="settings.html" class="nav-link active">Settings</a>
+    </div>
+    <div class="sidebar-account">
+      <p class="user-name">MinimallyFolium</p>
+      <p class="user-status">Verified Member</p>
+    </div>
+  </nav>
 
   <main>
     <section class="mega-section reveal">
+      <span class="hero-tag">System Control</span>
       <h1 class="hero-title">Settings.</h1>
-      
-      <div class="card" style="max-width: 600px; margin-bottom: 20px;">
-        <h3>Appearance</h3>
-        <p>Current Theme: Light Mode</p>
-      </div>
+      <p class="hero-desc">Manage your account preferences and customize your Novera experience.</p>
 
-      <div class="card" style="max-width: 600px; margin-bottom: 20px;">
-        <h3>Notifications</h3>
-        <p>Email alerts for local leaf collection: <b>ON</b></p>
-      </div>
+      <div class="grid">
+        <div class="card" style="grid-column: span 12;">
+          <div class="settings-group">
+            <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Appearance</h3>
+            
+            <div class="settings-item">
+              <div class="item-info">
+                <h4>Eco-Dark Mode</h4>
+                <p>Save energy with a darker interface.</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
 
-      <a href="#" class="btn-apple" style="background:#ff3b30">Sign Out</a>
+            <div class="settings-item">
+              <div class="item-info">
+                <h4>Reduce Motion</h4>
+                <p>Simplify animations for a faster feel.</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Notifications</h3>
+          <div class="settings-item">
+            <div class="item-info">
+              <h4>Leaf Collection Alerts</h4>
+              <p>Get notified when we are near your area.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--gold);">Security</h3>
+          <div class="settings-item">
+            <div class="item-info">
+              <h4>Two-Factor Auth</h4>
+              <p>Protect your Novera ID.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 12; border: 1px solid rgba(255, 59, 48, 0.2);">
+            <h3 style="color: #ff3b30; margin-bottom: 10px;">Account Actions</h3>
+            <p style="margin-bottom: 20px;">Once you delete your data, it cannot be recovered.</p>
+            <a href="#" class="btn-apple" style="background: #ff3b30; margin-top: 0;">Delete All Data</a>
+        </div>
+      </div>
     </section>
   </main>
 </body>
