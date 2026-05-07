@@ -2,61 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Us | NOVERA</title>
+  <title>NOVERA | Join Us</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Styling khusus untuk borang supaya nampak hidup */
-    input, select, textarea { 
-      width: 100%; padding: 20px; background: rgba(255,255,255,0.03); 
-      border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; 
-      color: white; margin: 10px 0 30px; font-size: 1rem;
-      transition: 0.3s var(--bezier);
-    }
-    input:focus { border-color: var(--accent); background: rgba(212, 175, 55, 0.05); outline: none; }
-    label { font-weight: 700; color: var(--accent); font-size: 0.9rem; letter-spacing: 1px; }
-    
-    .form-card {
-      max-width: 700px; margin: 0 auto; background: var(--secondary);
-      padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05);
-    }
-  </style>
 </head>
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">NOVERA.</a>
+    <a href="index.html" class="sidebar-logo-text">NOVERA.</a>
     <ul class="nav-menu">
-      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Utama</span></a></li>
-      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Proses Kami</span></a></li>
-      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Sertai Kami</span></a></li>
-      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Tetapan</span></a></li>
+      <li class="nav-item"><a href="index.html" class="nav-link">🏠 <span>Home</span></a></li>
+      <li class="nav-item"><a href="process.html" class="nav-link">🔄 <span>Process</span></a></li>
+      <li class="nav-item"><a href="volunteer.html" class="nav-link active">🌿 <span>Join Us</span></a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link">⚙️ <span>Settings</span></a></li>
     </ul>
   </aside>
 
-  <main class="reveal">
-    <h1>Jom Jadi<br><span>Hero Alam.</span></h1>
-    <p class="big-text">Tak perlu jadi saintis untuk selamatkan bumi. Pilih cara anda ingin membantu kami menukar sisa daun menjadi produk premium.</p>
-
-    <div class="form-card">
-      <form action="thankyou.html">
-        <label>Nama Penuh Anda</label>
-        <input type="text" placeholder="Contoh: Ali Bin Abu" required>
-        
-        <label>Apa Yang Anda Ingin Lakukan?</label>
-        <select required>
-            <option value="" disabled selected>Pilih satu kategori...</option>
-            <option>Saya nak derma daun kering (Biomass)</option>
-            <option>Saya nak jadi sukarelawan makmal</option>
-            <option>Saya nak beli produk (Pre-order)</option>
-            <option>Lain-lain kerjasama</option>
-        </select>
-        
-        <label>Nombor Telefon / WhatsApp</label>
-        <input type="tel" placeholder="012-3456789" required>
-
-        <button type="submit" class="btn-accent" style="width: 100%;">HANTAR PERMOHONAN</button>
-      </form>
-    </div>
+  <main>
+    <section class="mega-section">
+      <h1 class="mega-title">JOIN<br>US.</h1>
+      <p class="mega-desc">Pilih cara anda membantu. Derma daun kering atau sertai pasukan makmal kami.</p>
+      
+      <div class="card" style="max-width:800px; margin-top:50px;">
+        <form action="thankyou.html">
+          <input type="text" placeholder="NAMA PENUH" required>
+          <select>
+            <option>PILIH KATEGORI</option>
+            <option>Penderma Daun (Biomass)</option>
+            <option>Sukarelawan Produksi</option>
+          </select>
+          <button type="submit" class="btn-mega" style="width:100%;">HANTAR DATA</button>
+        </form>
+      </div>
+    </section>
   </main>
 </body>
 </html>
