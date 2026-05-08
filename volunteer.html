@@ -2,39 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Join Us | Novera</title>
+    <title>Join Us | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    <nav class="sidebar">
-        <img src="assets/images/logonovera.png" class="main-logo" alt="Novera">
-        <div class="nav-menu">
-            <a href="index.html" class="nav-link" data-en="Overview" data-ms="Utama">Overview</a>
-            <a href="process.html" class="nav-link" data-en="Process" data-ms="Proses">Process</a>
-            <a href="impact.html" class="nav-link" data-en="Impact" data-ms="Impak">Impact</a>
-            <a href="volunteer.html" class="nav-link active" data-en="Join Us" data-ms="Sertai">Join Us</a>
-            <a href="settings.html" class="nav-link" data-en="Settings" data-ms="Tetapan">Settings</a>
-        </div>
-        <div class="lang-switcher">
-            <button class="lang-btn active" id="btn-en" onclick="changeLang('en')">EN</button>
-            <button class="lang-btn" id="btn-ms" onclick="changeLang('ms')">BM</button>
-        </div>
-    </nav>
-
-    <main>
-        <h1 class="hero-title" style="opacity:0;" data-en="Join Us." data-ms="Sertai Kami.">Join Us.</h1>
-        
-        <div class="bento-card" style="max-width: 600px;">
+    <nav class="top-nav">...</nav>
+    <main class="section-padding">
+        <h2 class="section-title" data-en="Join the Movement." data-ms="Sertai Gerakan.">Join the Movement.</h2>
+        <div class="bento-card full" style="max-width: 700px; margin: auto;">
             <form action="thankyou.html">
-                <input type="text" class="setting-item" style="width:100%; background:transparent; border-bottom:1px solid #333; color:white; border-top:none; border-left:none; border-right:none; padding:20px 0;" placeholder="Full Name" required>
-                <input type="email" class="setting-item" style="width:100%; background:transparent; border-bottom:1px solid #333; color:white; border-top:none; border-left:none; border-right:none; padding:20px 0;" placeholder="Email" required>
-                <br><br>
-                <button type="submit" style="background:white; color:black; padding:15px 40px; border-radius:30px; border:none; font-weight:700; cursor:pointer;" data-en="Send Application" data-ms="Hantar Permohonan">Send Application</button>
+                <div class="input-group">
+                    <input type="text" class="input-apple" data-en-placeholder="Full Name" data-ms-placeholder="Nama Penuh" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" class="input-apple" placeholder="Email" required>
+                </div>
+                <button type="submit" class="btn-apple" style="width: 100%; border: none; cursor: pointer;" data-en="Submit Application" data-ms="Hantar Permohonan">Submit Application</button>
             </form>
         </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
