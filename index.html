@@ -2,42 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Novera | Overview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoveraGreen | Overview</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
-    <nav class="sidebar">
-        <img src="assets/images/logonovera.png" class="main-logo" alt="Novera">
-        <div class="nav-menu">
-            <a href="index.html" class="nav-link active" data-en="Overview" data-ms="Utama">Overview</a>
-            <a href="process.html" class="nav-link" data-en="Process" data-ms="Proses">Process</a>
-            <a href="impact.html" class="nav-link" data-en="Impact" data-ms="Impak">Impact</a>
-            <a href="volunteer.html" class="nav-link" data-en="Join Us" data-ms="Sertai">Join Us</a>
-            <a href="settings.html" class="nav-link" data-en="Settings" data-ms="Tetapan">Settings</a>
-        </div>
-
-        <div class="lang-switcher">
-            <button class="lang-btn active" id="btn-en" onclick="changeLang('en')">EN</button>
-            <button class="lang-btn" id="btn-ms" onclick="changeLang('ms')">BM</button>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <img src="assets/images/logonovera.png" class="nav-logo" alt="NoveraGreen">
+                <span class="nav-divider"></span>
+                <div class="by-text">
+                    <span>by</span>
+                    <img src="assets/images/minimallyfoliumtech.png" class="sub-logo" alt="minimallyfoliumtech">
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active" data-en="Overview" data-ms="Utama">Overview</a>
+                <a href="process.html" data-en="Process" data-ms="Proses">Process</a>
+                <a href="impact.html" data-en="Impact" data-ms="Impak">Impact</a>
+                <a href="volunteer.html" data-en="Join Us" data-ms="Sertai">Join Us</a>
+                <a href="settings.html" data-en="Settings" data-ms="Tetapan">Settings</a>
+            </div>
+            <div class="lang-pill">
+                <span onclick="changeLang('en')" id="en-btn">EN</span>
+                <span onclick="changeLang('ms')" id="ms-btn">BM</span>
+            </div>
         </div>
     </nav>
 
-    <main>
-        <h1 class="hero-title" style="opacity:0; transform:translateY(30px);" 
-            data-en="Nature.<br>Re-imagined." data-ms="Alam.<br>Dicipta Semula.">Nature.<br>Re-imagined.</h1>
-        
-        <div class="bento-card">
-            <h3 data-en="100% Leaf Based" data-ms="100% Berasaskan Daun">100% Leaf Based</h3>
-            <p class="hero-sub" style="font-size: 1.2rem;" 
-               data-en="Our paper uses zero trees. We collect fallen leaves and transform them into premium fiber." 
-               data-ms="Kertas kami tidak menggunakan pokok. Kami mengumpul daun gugur dan menukarnya menjadi gentian premium.">
-               Our paper uses zero trees. We collect fallen leaves and transform them into premium fiber.
-            </p>
+    <section class="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="noveradryleaves.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
         </div>
-    </main>
+        <div class="hero-content">
+            <h1 class="main-title" data-en="Passionate<br>about Progress." data-ms="Ikhlas<br>dalam Kemajuan.">Passionate<br>about Progress.</h1>
+            <p class="sub-title" data-en="Creating the world's first carbon-negative stationery from 100% leaf waste." data-ms="Mencipta alat tulis karbon-negatif pertama dunia daripada 100% sisa daun.">Creating the world's first carbon-negative stationery.</p>
+            <a href="#more" class="apple-btn" data-en="Explore Novera" data-ms="Terokai Novera">Explore Novera</a>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
