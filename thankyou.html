@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | NoveraGreen</title>
+    <title>Success | NoveraGreen</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 0 20px;">
-        <h1 style="font-size: 5rem; font-weight: 700; margin-bottom: 20px;" data-en="Application<br>Received." data-ms="Permohonan<br>Diterima.">Application<br>Received.</h1>
-        <p style="font-size: 1.5rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px;" data-en="Thank you for your interest in NoveraGreen. Our team will review your application and contact you via email within 48 hours." data-ms="Terima kasih atas minat anda terhadap NoveraGreen. Pasukan kami akan menyemak permohonan anda dan menghubungi anda melalui emel dalam masa 48 jam.">Thank you for your interest. We will contact you shortly.</p>
-        <a href="index.html" class="apple-btn" data-en="Back to Overview" data-ms="Kembali ke Utama">Back to Overview</a>
-    </main>
+<body style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div class="hero-content">
+        <div id="success-icon" style="font-size: 5rem; color: var(--accent); margin-bottom: 20px;">✓</div>
+        <h1 style="font-size: 4rem;" data-en="You're In." data-ms="Anda Dah Sertai.">You're In.</h1>
+        <p style="margin-bottom: 30px;" data-en="Application received. We'll contact you within 48 hours." data-ms="Permohonan diterima. Kami akan hubungi anda dalam 48 jam.">Application received.</p>
+        <a href="index.html" class="apple-btn" data-en="Return Home" data-ms="Kembali Utama">Return Home</a>
+    </div>
 
+    <script>
+        // Animasi sikit bagi nampak mahal
+        gsap.from("#success-icon", { scale: 0, duration: 1, ease: "elastic.out(1, 0.3)" });
+        gsap.from("h1, p, a", { opacity: 0, y: 20, stagger: 0.2, delay: 0.5 });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
