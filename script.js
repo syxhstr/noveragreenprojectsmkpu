@@ -1,29 +1,45 @@
-// 1. GSAP Animations
-window.addEventListener('load', () => {
-    gsap.to(".hero-content", { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" });
+// GSAP Reveal Animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero Animation
+    gsap.from(".main-title", { opacity: 0, y: 50, duration: 1.2, ease: "power4.out" });
+    gsap.from(".sub-title", { opacity: 0, y: 30, duration: 1.2, delay: 0.3, ease: "power4.out" });
     
+    // Scroll Animations for Bento Cards
     gsap.utils.toArray('.bento-card').forEach(card => {
-        gsap.to(card, {
-            scrollTrigger: { trigger: card, start: "top 90%" },
-            opacity: 1, y: 0, duration: 1, ease: "power3.out"
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power3.out"
         });
     });
 });
 
-// 2. Language System
+// Language Switcher Logic
 function changeLang(lang) {
+    // Update UI active state
     document.querySelectorAll('.lang-pill span').forEach(s => s.classList.remove('active'));
     document.getElementById(lang + '-btn').classList.add('active');
 
+    // Switch text content
     document.querySelectorAll('[data-en]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang);
     });
     
-    localStorage.setItem('selectedLang', lang);
+    // Switch placeholders
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
+
+    localStorage.setItem('noveraLang', lang);
 }
 
-// Persist Language on Load
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selectedLang') || 'en';
+// Persist Language on Page Load
+window.onload = () => {
+    const savedLang = localStorage.getItem('noveraLang') || 'en';
     changeLang(savedLang);
-});
+};
