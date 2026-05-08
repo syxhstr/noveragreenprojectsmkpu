@@ -1,75 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
 
 :root {
     --bg: #000000;
-    --nav-bg: rgba(22, 22, 23, 0.8);
-    --card-bg: #1c1c1e;
-    --accent: #0071e3;
+    --nav-bg: rgba(22, 22, 23, 0.75);
+    --accent: #00a19c; /* Petronas Green */
+    --apple-blue: #0071e3;
     --text: #f5f5f7;
     --text-dim: #86868b;
     --glass: blur(20px) saturate(180%);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* --- TOP NAV (APPLE STYLE) --- */
+/* --- NAVIGATION (CO-BRANDING) --- */
 .top-nav {
-    position: fixed; top: 0; width: 100%; height: 52px;
+    position: fixed; top: 0; width: 100%; height: 55px;
     background: var(--nav-bg); backdrop-filter: var(--glass);
-    z-index: 9999; display: flex; justify-content: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: center;
 }
 
-.nav-container { width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.nav-container { width: 100%; max-width: 1200px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
 
-/* Co-Branding */
 .brand-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.nav-logo { height: 18px; filter: brightness(0) invert(1); }
-.nav-divider { width: 1px; height: 14px; background: rgba(255, 255, 255, 0.3); }
-.by-text { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--text-dim); }
-.sub-logo { height: 12px; opacity: 0.7; filter: brightness(0) invert(1); }
+.logo-main { height: 20px; filter: invert(1); font-weight: 700; color: white; letter-spacing: 1px; }
+.divider { width: 1px; height: 15px; background: rgba(255,255,255,0.3); }
+.logo-sub { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; }
 
-.nav-links a { color: #f5f5f7; text-decoration: none; font-size: 12px; margin: 0 15px; opacity: 0.8; transition: 0.3s; }
-.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-links a { color: var(--text); text-decoration: none; font-size: 12px; margin: 0 12px; opacity: 0.7; transition: 0.3s; }
+.nav-links a.active, .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-.lang-pill { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 2px 10px; font-size: 10px; cursor: pointer; display: flex; gap: 8px; }
-.lang-pill span { opacity: 0.4; transition: 0.3s; padding: 2px 0; }
-.lang-pill span.active { opacity: 1; font-weight: bold; color: #fff; }
+.lang-pill { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 4px 12px; font-size: 10px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
+.lang-pill span { opacity: 0.4; margin: 0 3px; }
+.lang-pill span.active { opacity: 1; font-weight: 700; color: var(--accent); }
 
-/* --- HERO & VIDEO (PETRONAS STYLE) --- */
-.hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; padding: 0 10%; }
-.video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-.bg-video { width: 100%; height: 100%; object-fit: cover; }
-.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); }
+/* --- HERO & VIDEO --- */
+.hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; padding: 0 8%; overflow: hidden; }
+.video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.video-bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
+.overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); z-index: 0; }
 
-.hero-content { max-width: 800px; }
-.main-title { font-size: 5rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
-.sub-title { font-size: 1.5rem; color: var(--text-dim); margin-bottom: 40px; }
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.main-title { font-size: 4.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; }
+.sub-title { font-size: 1.4rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px; }
 
-/* --- GRID & CARDS --- */
-main { padding: 100px 10%; }
-.bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+/* --- BENTO GRID --- */
+.section-padding { padding: 120px 8%; }
+.bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 25px; margin-top: 50px; }
 .bento-card { 
-    background: var(--card-bg); border-radius: 28px; padding: 40px; 
-    grid-column: span 6; border: 1px solid rgba(255,255,255,0.05);
-    opacity: 0; transform: translateY(30px);
+    background: #1c1c1e; border-radius: 24px; padding: 40px; 
+    grid-column: span 6; border: 1px solid rgba(255,255,255,0.05); 
+    transition: 0.5s ease;
 }
 .bento-card.full { grid-column: span 12; }
+.bento-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-/* UI ELEMENTS */
-.apple-btn { background: var(--accent); color: white; border: none; padding: 14px 28px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
-.input-field { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 20px; border-radius: 15px; color: #fff; margin-bottom: 15px; }
+h2.section-title { font-size: 3rem; margin-bottom: 20px; }
+.info-long { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 30px; }
 
-/* SETTINGS SWITCH */
-.setting-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #333; }
-.switch { width: 50px; height: 28px; background: #333; border-radius: 20px; position: relative; cursor: pointer; transition: 0.3s; }
-.switch.on { background: #34c759; }
-.switch::after { content: ''; position: absolute; width: 24px; height: 24px; background: #fff; border-radius: 50%; top: 2px; left: 2px; transition: 0.3s; }
-.switch.on::after { left: 24px; }
+/* --- BUTTONS & FORMS --- */
+.btn-apple { 
+    background: var(--accent); color: white; padding: 15px 35px; 
+    border-radius: 30px; text-decoration: none; font-weight: 600; 
+    display: inline-block; transition: 0.3s;
+}
+.btn-apple:hover { transform: scale(1.05); background: #00b8b2; }
+
+.input-group { margin-bottom: 20px; }
+.input-apple { 
+    width: 100%; background: #1c1c1e; border: 1px solid #333; 
+    padding: 20px; border-radius: 15px; color: white; font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .main-title { font-size: 3rem; }
+    .bento-card { grid-column: span 12; }
+}
