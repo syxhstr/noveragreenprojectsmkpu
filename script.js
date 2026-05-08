@@ -1,12 +1,23 @@
-// Tunggu semua content siap load baru jalan script
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. DAFTARKAN PLUGIN GSAP
-    // Kita guna ScrollTrigger untuk detect bila user scroll
+    // --- 1. TAMBAH KAT SINI (SEMAK SETTINGS) ---
+    const reduceMotion = localStorage.getItem('reduceMotion') === 'true';
+    
+    if (reduceMotion) {
+        // Kalau user tutup animasi kat Settings, kita paksa semua benda muncul terus
+        gsap.set(".hero-content, .animate-card, .section-title", { 
+            opacity: 1, 
+            y: 0,
+            visibility: "visible" 
+        });
+        // Kita "return" supaya kod animasi kat bawah ni tak jalan
+        return; 
+    }
+
+    // --- 2. KOD ANIMASI ASAL KAU (Hanya jalan kalau reduceMotion = false) ---
     gsap.registerPlugin(ScrollTrigger);
 
-    // 2. ANIMASI HERO (MASUK MULA-MULA)
-    // Teks besar kat depan akan naik dari bawah & fade in
+    // Hero Animation
     gsap.from(".hero-content", {
         opacity: 0, 
         y: 80, 
@@ -14,26 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power4.out"
     });
 
-    // 3. ANIMASI BENTO CARDS (SCROLL ANIMATION)
-    // Macam video kau, kotak-kotak tu akan timbul satu-satu bila kita scroll
+    // Bento Cards Animation
     const cards = gsap.utils.toArray('.animate-card');
-    
     cards.forEach((card, index) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: "top 85%", // Mula animasi bila kotak tu 85% nampak kat skrin
-                toggleActions: "play none none none" // Jalan sekali je
+                start: "top 85%",
+                toggleActions: "play none none none"
             },
             opacity: 0,
             y: 60,
             duration: 1.2,
             ease: "power3.out",
-            delay: index * 0.1 // Buat efek "stagger" (kotak masuk bergilir-gilir)
+            delay: index * 0.1
         });
     });
 
-    // 4. ANIMASI TITLE SETIAP SECTION
+    // Section Titles Animation
     gsap.utils.toArray('.section-title').forEach(title => {
         gsap.from(title, {
             scrollTrigger: {
@@ -46,50 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power2.out"
         });
     });
-
-    // 5. SMOOTH SCROLL UNTUK NAV LINKS
-    // Bila tekan menu, dia tak melompat, tapi slide
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
 });
 
-// 6. MULTI-LANGUAGE ENGINE (BM / EN)
+// --- 3. FUNGSI BAHASA (Letak luar dari DOMContentLoaded) ---
 function changeLang(lang) {
-    // Tukar status butang EN/BM (active class)
     document.querySelectorAll('.lang-pill span').forEach(span => {
         span.classList.remove('active');
     });
-    document.getElementById(lang + '-btn').classList.add('active');
+    const btn = document.getElementById(lang + '-btn');
+    if(btn) btn.classList.add('active');
 
-    // Cari semua element yang ada attribute data-en atau data-ms
     const elements = document.querySelectorAll('[data-en]');
-    
     elements.forEach(el => {
-        // Ambil teks ikut bahasa yang dipilih
         const newText = el.getAttribute(`data-${lang}`);
-        
-        // Animasi sikit masa tukar teks biar nampak pro
-        gsap.to(el, {
-            opacity: 0, 
-            duration: 0.2, 
-            onComplete: () => {
-                el.innerHTML = newText;
-                gsap.to(el, { opacity: 1, duration: 0.2 });
-            }
-        });
+        el.innerHTML = newText;
     });
 
-    // Simpan pilihan bahasa dalam browser supaya bila refresh tak hilang
     localStorage.setItem('selectedLang', lang);
 }
 
-// 7. AUTO-LOAD BAHASA TERAKHIR
+// Guna window.onload untuk pastikan bahasa di-load betul
 window.onload = () => {
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     changeLang(savedLang);
