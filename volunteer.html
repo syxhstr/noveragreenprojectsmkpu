@@ -2,25 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Us | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <nav class="top-nav">...</nav>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <img src="assets/images/logonovera.png" class="logo-img" alt="NoveraGreen">
+                <span class="nav-divider"></span>
+                <span class="sub-brand">by MinimallyFoliumTech</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-en="Overview" data-ms="Utama">Overview</a>
+                <a href="process.html" data-en="Process" data-ms="Proses">Process</a>
+                <a href="impact.html" data-en="Impact" data-ms="Impak">Impact</a>
+                <a href="volunteer.html" class="active" data-en="Join Us" data-ms="Sertai">Join Us</a>
+                <a href="settings.html" data-en="Settings" data-ms="Tetapan">Settings</a>
+            </div>
+            <div class="lang-pill">
+                <span onclick="changeLang('en')" id="en-btn">EN</span> / <span onclick="changeLang('ms')" id="ms-btn">BM</span>
+            </div>
+        </div>
+    </nav>
+
     <main class="section-padding">
-        <h2 class="section-title" data-en="Join the Movement." data-ms="Sertai Gerakan.">Join the Movement.</h2>
-        <div class="bento-card full" style="max-width: 700px; margin: auto;">
-            <form action="thankyou.html">
-                <div class="input-group">
+        <h2 style="font-size: 3.5rem; margin-top: 40px;" data-en="Join the Movement." data-ms="Sertai Gerakan Kami.">Join the Movement.</h2>
+        <p class="info-long" data-en="We believe in collective action for environmental restoration. By joining NoveraGreen, you are contributing to a community-driven circular economy that empowers local collectors and protects our remaining forests." data-ms="Kami percaya pada tindakan kolektif untuk pemulihan alam sekitar. Dengan menyertai NoveraGreen, anda menyumbang kepada ekonomi kitaran yang memperkasakan komuniti tempatan.">We believe in collective action for environmental restoration...</p>
+
+        <div class="bento-grid">
+            <div class="bento-card full" style="max-width: 800px; margin: auto;">
+                <h3 data-en="Application Form" data-ms="Borang Permohonan">Application Form</h3>
+                <form action="thankyou.html">
                     <input type="text" class="input-apple" data-en-placeholder="Full Name" data-ms-placeholder="Nama Penuh" placeholder="Full Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" class="input-apple" placeholder="Email" required>
-                </div>
-                <button type="submit" class="btn-apple" style="width: 100%; border: none; cursor: pointer;" data-en="Submit Application" data-ms="Hantar Permohonan">Submit Application</button>
-            </form>
+                    <input type="email" class="input-apple" placeholder="Email Address" required>
+                    <textarea class="input-apple" style="height: 150px;" data-en-placeholder="Why do you want to join Novera?" data-ms-placeholder="Kenapa anda ingin menyertai Novera?" placeholder="Why do you want to join Novera?"></textarea>
+                    <button type="submit" class="apple-btn" style="width: 100%;" data-en="Submit Application" data-ms="Hantar Permohonan">Submit Application</button>
+                </form>
+            </div>
         </div>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
