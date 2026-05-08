@@ -2,18 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <nav class="top-nav">...</nav>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <img src="assets/images/logonovera.png" class="logo-img" alt="NoveraGreen">
+                <span class="nav-divider"></span>
+                <span class="sub-brand">by MinimallyFoliumTech</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-en="Overview" data-ms="Utama">Overview</a>
+                <a href="process.html" data-en="Process" data-ms="Proses">Process</a>
+                <a href="impact.html" data-en="Impact" data-ms="Impak">Impact</a>
+                <a href="volunteer.html" data-en="Join Us" data-ms="Sertai">Join Us</a>
+                <a href="settings.html" class="active" data-en="Settings" data-ms="Tetapan">Settings</a>
+            </div>
+            <div class="lang-pill">
+                <span onclick="changeLang('en')" id="en-btn">EN</span> / <span onclick="changeLang('ms')" id="ms-btn">BM</span>
+            </div>
+        </div>
+    </nav>
+
     <main class="section-padding">
-        <h2 class="section-title" data-en="System Preferences." data-ms="Tetapan Sistem.">System Preferences.</h2>
-        <div class="bento-card full">
-            <p data-en="Region: Malaysia" data-ms="Wilayah: Malaysia">Region: Malaysia</p>
-            <p data-en="Animation: High Performance (GSAP Enabled)" data-ms="Animasi: Prestasi Tinggi (GSAP Dibenarkan)">Animation: High Performance</p>
+        <h2 style="font-size: 3.5rem; margin-top: 40px;" data-en="System Settings." data-ms="Tetapan Sistem.">System Settings.</h2>
+        
+        <div class="bento-grid">
+            <div class="bento-card full">
+                <h3 data-en="Display & Experience" data-ms="Paparan & Pengalaman">Display & Experience</h3>
+                <p data-en="Optimize how you interact with the NoveraGreen digital ecosystem." data-ms="Optimumkan cara anda berinteraksi dengan ekosistem digital NoveraGreen.">Optimize how you interact with the NoveraGreen digital ecosystem.</p>
+                <hr style="border: 0.5px solid #333; margin: 30px 0;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                    <span data-en="High Performance Motion (GSAP)" data-ms="Gerakan Prestasi Tinggi (GSAP)">High Performance Motion (GSAP)</span>
+                    <span style="color: var(--accent);">Enabled</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                    <span data-en="Bilingual Mode" data-ms="Mod Dwibahasa">Bilingual Mode</span>
+                    <span style="color: var(--accent);">Active</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                    <span data-en="Region" data-ms="Wilayah">Region</span>
+                    <span>Malaysia</span>
+                </div>
+            </div>
         </div>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
