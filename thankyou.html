@@ -2,21 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thank You | Novera</title>
+    <title>Thank You | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh;">
-    <main style="margin-left:0; text-align:center;">
-        <h1 class="hero-title" id="t-title" style="font-size: 8rem;">Done.</h1>
-        <p class="hero-sub" style="margin: 0 auto;">Permohonan anda telah selamat sampai ke makmal Novera. Kita jumpa di masa depan.</p>
-        <br><br>
-        <a href="index.html" class="apple-btn">Go Home</a>
+<body>
+    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center;">
+        <h1 class="main-title" data-en="Application Received." data-ms="Permohonan Diterima.">Application Received.</h1>
+        <p class="sub-title" data-en="We are reviewing your profile. Expect a response within 48 hours." data-ms="Kami sedang menyemak profil anda. Jangkakan maklum balas dalam masa 48 jam.">We will contact you shortly.</p>
+        <a href="index.html" class="btn-apple" data-en="Return Home" data-ms="Kembali ke Utama">Return Home</a>
     </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        gsap.from(".hero-title", { opacity: 0, scale: 0.5, duration: 1.5, ease: "elastic.out(1, 0.3)" });
-        gsap.from(".hero-sub", { opacity: 0, y: 20, delay: 0.8 });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
