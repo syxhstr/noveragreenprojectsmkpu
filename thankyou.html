@@ -9,17 +9,15 @@
 </head>
 <body style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
     <div class="hero-content">
-        <div id="success-icon" style="font-size: 5rem; color: var(--accent); margin-bottom: 20px;">✓</div>
-        <h1 style="font-size: 4rem;" data-en="You're In." data-ms="Anda Dah Sertai.">You're In.</h1>
-        <p style="margin-bottom: 30px;" data-en="Application received. We'll contact you within 48 hours." data-ms="Permohonan diterima. Kami akan hubungi anda dalam 48 jam.">Application received.</p>
-        <a href="index.html" class="apple-btn" data-en="Return Home" data-ms="Kembali Utama">Return Home</a>
+        <div id="check" style="font-size: 5rem; color: var(--petronas-green); margin-bottom: 20px;">✓</div>
+        <h1 style="font-size: 4rem;">Application Received.</h1>
+        <p style="margin-bottom: 30px; color: var(--text-dim);">Our team will review your profile and contact you within 48 hours.</p>
+        <a href="index.html" class="apple-btn">Return to Overview</a>
     </div>
 
     <script>
-        // Animasi sikit bagi nampak mahal
-        gsap.from("#success-icon", { scale: 0, duration: 1, ease: "elastic.out(1, 0.3)" });
+        gsap.from("#check", { scale: 0, duration: 1, ease: "elastic.out(1, 0.3)" });
         gsap.from("h1, p, a", { opacity: 0, y: 20, stagger: 0.2, delay: 0.5 });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
