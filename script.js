@@ -1,36 +1,29 @@
-// 1. ANIMASI GSAP (Apple Reveal)
+// 1. GSAP Animations
 window.addEventListener('load', () => {
-    gsap.to(".hero-title", { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" });
-    gsap.to(".bento-card", { 
-        opacity: 1, 
-        y: 0, 
-        duration: 1, 
-        stagger: 0.2, 
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: ".bento-card",
-            start: "top 85%"
-        }
+    gsap.to(".hero-content", { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" });
+    
+    gsap.utils.toArray('.bento-card').forEach(card => {
+        gsap.to(card, {
+            scrollTrigger: { trigger: card, start: "top 90%" },
+            opacity: 1, y: 0, duration: 1, ease: "power3.out"
+        });
     });
 });
 
-// 2. SISTEM TUKAR BAHASA
+// 2. Language System
 function changeLang(lang) {
-    // Update butang UI
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('btn-' + lang).classList.add('active');
+    document.querySelectorAll('.lang-pill span').forEach(s => s.classList.remove('active'));
+    document.getElementById(lang + '-btn').classList.add('active');
 
-    // Cari semua element yang ada data-en dan data-ms
     document.querySelectorAll('[data-en]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang);
     });
-
-    // Simpan pilihan user dalam browser (localStorage)
-    localStorage.setItem('novera_lang', lang);
+    
+    localStorage.setItem('selectedLang', lang);
 }
 
-// Load bahasa pilihan user bila buka page
+// Persist Language on Load
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('novera_lang') || 'en';
+    const savedLang = localStorage.getItem('selectedLang') || 'en';
     changeLang(savedLang);
 });
