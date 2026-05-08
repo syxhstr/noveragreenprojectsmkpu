@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoveraGreen | Passionate about Progress</title>
-    
     <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -16,19 +14,19 @@
     <nav class="top-nav">
         <div class="nav-container">
             <a href="#hero" class="brand-group">
-                <img src="assets/images/logonovera.png" class="logo-main-display" alt="NoveraGreen Logo">
-                <span class="nav-divider"></span>
-                <span class="sub-brand">by MinimallyFoliumTech</span>
+                <img src="assets/images/logonovera.png" class="logo-image" alt="NoveraGreen">
+                <span class="divider"></span>
+                <span class="logo-sub">by MinimallyFoliumTech</span>
             </a>
             <div class="nav-links">
-                <a href="#hero" data-en="Overview" data-ms="Utama">Overview</a>
-                <a href="#process" data-en="Engineering" data-ms="Kejuruteraan">Engineering</a>
-                <a href="#impact" data-en="Sustainability" data-ms="Kelestarian">Sustainability</a>
+                <a href="#hero" class="active" data-en="Overview" data-ms="Utama">Overview</a>
+                <a href="#engineering" data-en="Engineering" data-ms="Kejuruteraan">Engineering</a>
+                <a href="#sustainability" data-en="Sustainability" data-ms="Kelestarian">Sustainability</a>
                 <a href="volunteer.html" data-en="Join Us" data-ms="Sertai">Join Us</a>
+                <a href="settings.html" data-en="Settings" data-ms="Tetapan">Settings</a>
             </div>
-            <div class="lang-pill">
-                <span onclick="changeLang('en')" id="en-btn" class="active">EN</span> / 
-                <span onclick="changeLang('ms')" id="ms-btn">BM</span>
+            <div class="lang-switch">
+                <span onclick="changeLang('en')" id="en-btn" class="active">EN</span> / <span onclick="changeLang('ms')" id="ms-btn">BM</span>
             </div>
         </div>
     </nav>
@@ -36,57 +34,105 @@
     <section id="hero" class="hero">
         <div class="video-bg">
             <video autoplay muted loop playsinline><source src="assets/videos/noveradryleaves.mp4" type="video/mp4"></video>
-            <div class="overlay"></div>
+            <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <h1 class="reveal-text" data-en="Passionate<br>about Progress." data-ms="Ikhlas<br>dalam Kemajuan.">Passionate<br>about Progress.</h1>
-            <p class="reveal-text" data-en="Advancing the circular economy through high-performance, carbon-negative bio-materials engineered from 100% urban leaf waste." data-ms="Memacu ekonomi kitaran melalui bio-bahan karbon-negatif berprestasi tinggi yang direkayasa daripada 100% sisa daun bandar.">Advancing the circular economy through high-performance bio-materials.</p>
+            <div class="hero-branding">
+                <img src="assets/images/logonovera.png" class="logo-big" alt="noveragreen">
+                <div class="branding-text">
+                    <span class="branding-title">novera<span class="branding-leaf">green</span></span>
+                    <a href="http://google.com" class="branding-sub">by MinimallyFoliumTech</a>
+                </div>
+            </div>
+            <h1 class="hero-title" data-en="Passionate<br>about Progress." data-ms="Ikhlas<br>dalam Kemajuan.">Passionate<br>about Progress.</h1>
+            <p class="hero-sub" data-en="Engineering the future of materials through sustainable, carbon-negative solutions derived from 100% urban leaf waste." data-ms="Merekayasa masa depan bahan melalui penyelesaian karbon-negatif mampan yang berasal daripada 100% sisa daun bandar.">Engineering the future of materials through carbon-negative solutions.</p>
         </div>
     </section>
 
-    <section id="process" class="section-padding">
-        <h2 class="section-title" data-en="The Science of Novera." data-ms="Sains Di Sebalik Novera.">The Science of Novera.</h2>
-        
+    <section id="engineering" class="section-padding">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Bio-Steam Hydrolysis" data-ms="Hidrolisis Bio-Stim">Bio-Steam Hydrolysis</h2>
+            <p class="section-sub" data-en="Our advanced engineering replaces harsh chemicals with solar-thermal energy to delignify urban leaf waste, preserving fiber integrity." data-ms="Kejuruteraan termaju kami menggantikan bahan kimia berbahaya dengan tenaga solar-termal untuk delignifikasi sisa daun, mengekalkan integriti gentian.">Our advanced engineering delignifies urban leaf waste.</p>
+        </div>
         <div class="bento-grid">
             <div class="bento-card full animate-card">
-                <h3 data-en="Proprietary Bio-Steam Hydrolysis" data-ms="Hidrolisis Bio-Stim Proprietari">Proprietary Bio-Steam Hydrolysis</h3>
-                <p data-en="At the heart of NoveraGreen lies our breakthrough Bio-Steam Hydrolysis (BSH) technology. Traditional paper manufacturing relies on the 'Kraft Process'—a chemical-intensive method using sodium hydroxide and sodium sulfide to dissolve lignin. Our BSH technology replaces these hazardous chemicals with a solar-thermal closed-loop system. By applying modulated atmospheric pressure and saturated steam, we gently delignify urban leaf waste. This process preserves the intrinsic strength of cellulose micro-fibrils, ensuring the final product possesses a tensile strength comparable to virgin wood pulp, without the environmental cost." data-ms="Teras inovasi NoveraGreen ialah teknologi Hidrolisis Bio-Stim (BSH). Berbeza dengan pembuatan kertas tradisional yang menggunakan bahan kimia berbahaya, BSH menggunakan sistem gelung tertutup solar-termal. Proses ini mengekalkan kekuatan mikro-fibril selulosa, memastikan produk akhir mempunyai kekuatan tegangan setanding pulpa kayu dara.">At the heart of NoveraGreen lies our breakthrough Bio-Steam Hydrolysis...</p>
+                <h3 class="card-title" data-en="Proprietary closed-loop system" data-ms="Sistem gelung tertutup proprietari">Proprietary closed-loop system</h3>
+                <p class="card-body" data-en="Traditional paper production consumes excessive caustic chemicals. The Kraft process requires significant energy and produces hazardous byproducts. NoveraGreen flips this with a closed-loop solar-thermal steam process. We dissolve lignin molecular bonds naturally, ensuring our only runoff is agricultural-grade fertilizer. This closed system preserves active carbon sinks." data-ms="Pengeluaran kertas tradisional menggunakan bahan kimia kaustik yang berlebihan. NoveraGreen mengubahnya dengan proses stim solar-termal gelung tertutup proprietari yang melarutkan ikatan molekul lignin secara semula jadi.">Traditional paper production consumes caustic chemicals. Our process naturally dissolves lignin bonds.</p>
             </div>
-
-            <div class="bento-card animate-card">
-                <h3 data-en="Precision Molecular Compaction" data-ms="Pemampatan Molekul Tepat">Precision Molecular Compaction</h3>
-                <p data-en="Every Novera sheet is a result of 2000 PSI hydraulic compaction. This high-pressure environment forces the bio-fibers to interlock at a molecular level, creating a smooth, non-porous surface. This eliminates the need for synthetic sizing agents or plastic coatings. The result is a high-fidelity writing experience that supports rapid ink absorption with zero feathering, making it ideal for everything from professional drafting to luxury calligraphy." data-ms="Setiap helaian Novera adalah hasil pemampatan hidraulik 2000 PSI. Persekitaran bertekanan tinggi ini memaksa bio-gentian untuk berpaut pada tahap molekul, menghasilkan permukaan yang licin tanpa perlu salutan plastik.">Every Novera sheet is a result of 2000 PSI hydraulic compaction...</p>
+            <div class="bento-card third animate-card">
+                <i class="card-icon fa-solid fa-compress"></i>
+                <h3 class="card-title" data-en="2000 PSI Precision" data-ms="Ketepatan 2000 PSI">2000 PSI Precision</h3>
+                <p class="card-body" data-en="Extracted bio-fibers are hydraulic pressed. This results in a superior, water-resistant writing surface compatible with premium inks." data-ms="Bio-gentian yang diekstrak ditekan secara hidraulik, menghasilkan permukaan tulisan yang kalis air dan serasi dengan dakwat premium.">Extracted bio-fibers are hydraulic pressed. Water-resistant writing surface.</p>
             </div>
-
-            <div class="bento-card animate-card">
-                <h3 data-en="Natural Polymer Bonding" data-ms="Ikatan Polimer Semula Jadi">Natural Polymer Bonding</h3>
-                <p data-en="We utilize the leaf's innate natural resins as a primary binding agent. During our thermal curing stage, these natural polymers are activated to create a water-resistant barrier. Unlike conventional stationery that utilizes PFAS (per- and polyfluoroalkyl substances) for durability, Novera remains 100% biodegradable. Our bio-stationery will naturally decompose into nutrient-rich organic matter within 60 to 90 days in a standard composting environment." data-ms="Kami menggunakan resin semula jadi daun sebagai agen pengikat utama. Semasa peringkat pematangan haba, polimer semula jadi ini diaktifkan untuk mencipta penghalang kalis air yang mesra alam.">We utilize the leaf's innate natural resins as a primary binding agent...</p>
+            <div class="bento-card half-full animate-card card-stat">
+                <div class="stat-number">15<span class="stat-unit">x</span></div>
+                <h3 class="card-title" data-en="Lower Water Consumption" data-ms="Penggunaan Air Lebih Rendah">Lower Water Consumption</h3>
+                <p class="card-body" data-en="Compared to wood pulp mills, our proprietary BSH technology utilizes 15 times less water per metric ton of fiber produced. We decoupled stationery from the destruction of trees." data-ms="Berbanding kilang pulpa kayu, teknologi BSH proprietari kami menggunakan 15 kali kurang air bagi setiap tan metrik gentian yang dihasilkan.">Lower water consumption per metric ton of fiber. decoupled from trees.</p>
             </div>
         </div>
     </section>
 
-    <section id="impact" class="section-padding" style="background: #080808;">
-        <h2 class="section-title" data-en="Impact & Sustainability." data-ms="Impak & Kelestarian.">Impact & Sustainability.</h2>
+    <section id="sustainability" class="section-padding" style="background: #080808; background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Measurable Impact" data-ms="Impak Terukur">Measurable Impact</h2>
+            <p class="section-sub" data-en="Sustainability is encoded in our operations, providing documented carbon capture and social uplift." data-ms="Kelestarian tertanam dalam operasi kami, menyediakan tangkapan karbon terkurang dan peningkatan sosial.">Documented carbon capture and social uplift.</p>
+        </div>
         <div class="bento-grid">
-            
+            <div class="bento-card third animate-card card-stat">
+                <div class="stat-number">-1.8<span class="stat-unit">t</span></div>
+                <h3 class="card-title" data-en="CO2 Equiv. Sequestered" data-ms="Tangkapan CO2 Equiv.">CO2 Equiv. Sequestered</h3>
+                <p class="card-body" data-en="For every metric ton of novera Green stationery produced, we sequester 1.8 metric tons of CO2 equivalent, intercepting urban waste from decomposition." data-ms="Bagi setiap tan metrik alat tulis novera Green, kami menangkap 1.8 tan metrik CO2 equivalent, memintas sisa daun bandar daripada pereputan.">Interception of urban waste, sequestering 1.8 metric tons of CO2 equivalent.</p>
+            </div>
             <div class="bento-card animate-card">
-                <h3 data-en="Carbon Sequestration" data-ms="Penyimpanan Karbon">Carbon Sequestration</h3>
-                <p data-en="Urban leaf waste is a significant source of methane—a greenhouse gas 25 times more potent than CO2—when left to rot in landfills. NoveraGreen intercepts this waste stream, effectively locking carbon into a stable, physical form. Our Lifecycle Assessment (LCA) indicates that for every metric ton of Novera material produced, we sequester approximately 1.8 tons of CO2 equivalent, making our entire operation carbon-negative from 'cradle-to-gate'." data-ms="Sisa daun bandar adalah sumber gas metana yang besar jika dibiarkan reput. NoveraGreen memintas sisa ini dan menyimpan karbon dalam bentuk fizikal yang stabil.">Urban leaf waste is a significant source of methane...</p>
+                <h3 class="card-title" data-en="Social Uplift Program" data-ms="Program Peningkatan Sosial">Social Uplift Program</h3>
+                <p class="card-body" data-en="Sustainability is also social. We decentralize feedstock collection by empowering local farmers and urban communities. Our socio-economic engine provides a 15% income increase for collectors during non-harvest seasons, turning biological liability (urban waste) into a premium economic asset." data-ms="Kelestarian juga sosial. Kami menyahpusatkan pengutipan daun dengan memperkasakan komuniti tempatan, menyediakan peningkatan pendapatan 15% semasa musim bukan menuai.">Socio-economic engine, empowering local communities.biological liability becomes premium asset.</p>
             </div>
-
-            <div class="bento-card animate-card" style="background: var(--accent);">
-                <h1 style="font-size: 5rem; color: white; margin-bottom: 10px;">-2.5t</h1>
-                <h4 style="color: white; margin-bottom: 15px;">CO2 per 1000 Units</h4>
-                <p style="color: rgba(255,255,255,0.8);" data-en="Our production cycle doesn't just reduce emissions; it actively removes them from the urban carbon cycle." data-ms="Kitaran pengeluaran kami bukan sahaja mengurangkan pelepasan; ia secara aktif mengeluarkannya daripada kitaran karbon bandar.">Actively removing CO2 from the urban cycle.</p>
+            <div class="bento-card third animate-card card-callout">
+                <div class="callout-title" data-en="80%" data-ms="80%">80%</div>
+                <p class="callout-body" data-en="Deforestation Intercepted" data-ms="Penyahhutanan Dipintas">Deforestation Intercepted</p>
             </div>
-
-            <div class="bento-card full animate-card">
-                <h3 data-en="The Circular Socio-Economic Model" data-ms="Model Sosio-Ekonomi Kitaran">The Circular Socio-Economic Model</h3>
-                <p data-en="Sustainability is not just environmental; it is social. NoveraGreen partners with municipal councils to formalize urban leaf collection. We provide training and specialized equipment to local community workers, resulting in a documented 18% increase in household income for our collection partners. By turning an 'urban liability' (fallen leaves) into a 'premium asset', we create a self-sustaining economic loop that benefits both the planet and its people." data-ms="Kelestarian bukan sahaja tentang alam sekitar; ia juga tentang sosial. NoveraGreen bekerjasama dengan majlis perbandaran untuk memformalkan pengutipan daun bandar, memberikan peningkatan 18% dalam pendapatan isi rumah pekerja komuniti.">Sustainability is not just environmental; it is social...</p>
+            <div class="bento-card half-full animate-card card-callout" style="background: #444; border: 1px solid #666; margin-top: 10px; margin-bottom: 30px;">
+                <p class="callout-body" data-en="Replace 1 million tons of wood pulp by 2030." data-ms="Gantikan 1 juta tan pulpa kayu menjelang 2030.">Replace 1 million tons of wood pulp.</p>
             </div>
         </div>
     </section>
 
+    <section id="settings" class="section-padding" style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+        <div class="bento-card fullanimate-card">
+            <h2 class="section-title" data-en="System Preferences" data-ms="Tetapan Sistem">System Preferences</h2>
+            <div class="input-apple">
+                <strong data-en="Reduce Motion Effects" data-ms="Kurangkan Kesan Gerakan">Reduce Motion Effects</strong>
+                <p style="font-size: 0.9rem; color: #888;" data-en="Optimize performance by disabling all ScrollTrigger animations." data-ms="Optimumkan prestasi dengan melumpuhkan semua animasi ScrollTrigger.">Disable all ScrollTrigger animations.</p>
+                <input type="checkbox" id="motion-toggle" style="width: 25px; height: 25px; accent-color: var(--accent); margin-top: 20px;">
+            </div>
+            <div class="input-apple" style="margin-top: 20px;">
+                <strong data-en="Regional Data" data-ms="Data Wilayah">Regional Data</strong>
+                <p style="color: var(--accent);">Malaysia (Petronas Standard)</p>
+            </div>
+            <div class="input-apple" style="margin-top: 20px;">
+                <strong data-en="Clear Site Cache" data-ms="Padam Cache Laman">Clear Site Cache</strong>
+                <p style="font-size: 0.9rem; color: #888; margin-bottom: 15px;" data-en="Reset bilingual and motion preferences to system defaults." data-ms="Set semula semua tetapan bahasa dan gerakan ke lalai sistem.">Reset preferences.</p>
+                <button onclick="localStorage.clear(); alert('Preferences reset!'); window.location.reload();" class="apple-btn" style="background: #ff3b30; padding: 10px 20px; font-size: 0.8rem;" data-en="Reset Now" data-ms="Set Semula Sekarang">Reset Now</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Logik settings interactable
+        const motionToggle = document.getElementById('motion-toggle');
+
+        // Load saved setting
+        if(localStorage.getItem('reduceMotion') === 'true') {
+            motionToggle.checked = true;
+        }
+
+        // Simpan bila user klik
+        motionToggle.addEventListener('change', () => {
+            localStorage.setItem('reduceMotion', motionToggle.checked);
+            alert(motionToggle.checked ? "Motion effects disabled." : "Motion effects enabled.");
+            window.location.reload(); 
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
