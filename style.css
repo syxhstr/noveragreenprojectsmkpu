@@ -154,3 +154,77 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     .bento-grid-2 { grid-template-columns: 1fr; }
     .nav-links { display: none; /* Add hamburger menu logic later if needed */ }
 }
+
+/* --- HAMBURGER MENU ICON (Sembunyi kat Desktop) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1002; /* Pastikan dia paling atas */
+}
+
+.bar {
+    width: 30px;
+    height: 2px;
+    background-color: var(--ivory);
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   RESPONSIVE FIX & MOBILE MENU (MAX 768PX)
+========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Navbar Slim down */
+    .glass-nav {
+        height: 60px;
+        width: 95%;
+        top: 15px;
+    }
+
+    .main-logo { height: 60px !important; } /* Logo kecik sikit di mobile */
+    .sub-brand { display: none; } /* Sorok teks ni supaya tak serabut skrin */
+    
+    /* 2. Tunjuk butang Hamburger */
+    .hamburger { display: flex; }
+
+    /* 3. Tukar Nav Links jadi Fullscreen Menu Dropdown */
+    .nav-links {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100vh; /* Penuh satu skrin */
+        background: rgba(6, 17, 9, 0.95); /* Hijau gelap pekat sikit */
+        backdrop-filter: blur(25px); /* Efek kaca tebal */
+        -webkit-backdrop-filter: blur(25px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px; /* Jarak antara menu jauh sikit */
+        transform: translateY(-100%); /* Sembunyi kat atas dulu */
+        transition: transform 0.4s ease-in-out;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        transform: translateY(0); /* Menu turun bila class 'active' ditambah */
+    }
+
+    .nav-links a {
+        font-size: 1.5rem; /* Besarkan font untuk senang tekan pakai jari */
+        font-weight: 500;
+    }
+
+    /* 4. Animasi Hamburger jadi bentuk 'X' bila ditekan */
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* --- FIX LAIN UNTUK MOBILE --- */
+    .hero h1 { font-size: 2.8rem; }
+    .bento-grid-2, .bento-grid-3 { grid-template-columns: 1fr; }
+    .section-padding { padding: 80px 0; }
+    #leaf-container { display: none; } /* Matikan daun animasi kat phone supaya tak lag */
+}
