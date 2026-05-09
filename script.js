@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- HAMBURGER MENU SCRIPT ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-item, .nav-btn');
+
+    if(hamburger) {
+        // Bila butang hamburger ditekan
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Bila user tekan link (contoh: Objektif), menu akan tutup sendiri
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+    
     gsap.registerPlugin(ScrollTrigger);
 
     // 1. Hero Reveal
