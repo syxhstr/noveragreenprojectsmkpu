@@ -58,7 +58,7 @@ body {
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
-.main-logo { height: 35px; }
+.main-logo { height: 75px; }
 .novera-text { font-weight: 700; letter-spacing: 1px; }
 
 .nav-links { display: flex; gap: 25px; align-items: center; }
