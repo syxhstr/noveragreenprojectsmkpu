@@ -1,71 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. GSAP Scroll Reveal
     gsap.registerPlugin(ScrollTrigger);
 
+    // 1. Hero Reveal
+    gsap.from(".reveal-hero", { opacity: 0, y: 40, duration: 1.5, ease: "power4.out", delay: 0.2 });
+
+    // 2. Scroll Reveal for all cards
     gsap.utils.toArray('.reveal').forEach(elem => {
         gsap.fromTo(elem, 
             { opacity: 0, y: 50 },
             { 
                 opacity: 1, y: 0, 
-                duration: 1.2, 
-                ease: "power4.out",
+                duration: 1, 
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: elem,
-                    start: "top 85%",
+                    start: "top 85%", // Mula animasi bila element masuk 85% dari skrin bawah
                 }
             }
         );
     });
 
-    // 2. Floating Particles (Daun)
-    const container = document.getElementById('leaf-container');
-    for (let i = 0; i < 20; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        container.appendChild(leaf);
-        
-        // Random Position & Animation
-        gsap.set(leaf, {
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            rotation: Math.random() * 360
-        });
+    // 3. Parallax Effect for Hero Video (Apple/Petronas vibe)
+    gsap.to(".parallax-bg", {
+        yPercent: 30,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
 
-        gsap.to(leaf, {
-            y: "+=100",
-            x: "+=50",
-            rotation: "+=180",
-            duration: 5 + Math.random() * 10,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
+    // 4. Floating Premium Particles (Leaves)
+    const container = document.getElementById('leaf-container');
+    if (container) {
+        for (let i = 0; i < 15; i++) {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            container.appendChild(leaf);
+            
+            gsap.set(leaf, {
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                rotation: Math.random() * 360,
+                scale: 0.5 + Math.random() * 1
+            });
+
+            gsap.to(leaf, {
+                y: "+=150",
+                x: "+=50",
+                rotation: "+=180",
+                duration: 6 + Math.random() * 8,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+        }
     }
 });
-
-// Tambah kod ni dalam document.addEventListener('DOMContentLoaded', ... )
-
-const vForm = document.getElementById('volunteerForm');
-if (vForm) {
-    vForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Animasi keluar borang
-        gsap.to("#form-content", {
-            opacity: 0,
-            y: -20,
-            duration: 0.5,
-            onComplete: () => {
-                document.getElementById('form-content').style.display = 'none';
-                const tyContent = document.getElementById('thank-you-content');
-                tyContent.style.display = 'block';
-                
-                // Animasi masuk Thank You
-                gsap.fromTo(tyContent, 
-                    { opacity: 0, scale: 0.9 },
-                    { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" }
-                );
-            }
-        });
-    });
-}
