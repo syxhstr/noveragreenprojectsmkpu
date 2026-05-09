@@ -1,55 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. DAFTAR GSAP
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. HERO ANIMATION (Sekali jalan masa load)
-    gsap.to(".hero-branding", { opacity: 1, y: -20, duration: 1.2, ease: "power3.out", delay: 0.5 });
-    gsap.to(".hero-title", { opacity: 1, y: -30, duration: 1, ease: "power4.out", delay: 0.8 });
-    gsap.to(".hero-sub", { opacity: 1, y: -30, duration: 1, ease: "power4.out", delay: 1.1 });
+    // 2. ANIMASI HERO (Masuk masa page load)
+    gsap.from(".animate-hero", {
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        delay: 0.2
+    });
 
-    // 2. SCROLL ANIMATION (Sentiasa Hidup / Repeat)
-    // Untuk Section Headers
-    gsap.utils.toArray('.section-header').forEach(header => {
-        gsap.to(header, {
+    // 3. ANIMASI SCROLL (Cards & Text)
+    // Timbul dengan elegan bila di-scroll
+    const scrollElements = gsap.utils.toArray('.animate-scroll');
+    
+    scrollElements.forEach((el) => {
+        gsap.from(el, {
             scrollTrigger: {
-                trigger: header,
-                start: "top 90%",
-                // "play" masa turun, "reverse" masa naik balik
-                toggleActions: "play reverse play reverse" 
+                trigger: el,
+                start: "top 85%", // Mula bila 85% elemen kelihatan
+                toggleActions: "play reverse play reverse" // Sentiasa "hidup"
             },
-            opacity: 1,
-            y: -20,
-            duration: 0.8
+            y: 40,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out"
         });
     });
 
-    // Untuk Bento Cards
-    gsap.utils.toArray('.animate-card').forEach(card => {
-        gsap.to(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                toggleActions: "play reverse play reverse"
-            },
-            opacity: 1,
-            y: -30,
-            duration: 0.8,
-            ease: "power2.out"
+    // 4. FLOATING LEAVES PARTICLES (BINTIK EMAS JATUH)
+    const particleContainer = document.getElementById("particle-container");
+    const leafCount = 30; // Jumlah daun serentak
+    
+    for(let i = 0; i < leafCount; i++) {
+        createLeaf();
+    }
+
+    function createLeaf() {
+        const leaf = document.createElement("div");
+        leaf.classList.add("leaf");
+        
+        // Randomize posisi, saiz, dan opacity
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * -100; // Mula dari atas skrin
+        const scale = 0.5 + Math.random() * 1.5;
+        const duration = 10 + Math.random() * 20; // Jatuh dengan perlahan (10-30 saat)
+        const delay = Math.random() * 10;
+        
+        leaf.style.left = `${startX}px`;
+        leaf.style.top = `${startY}px`;
+        leaf.style.transform = `scale(${scale})`;
+        
+        particleContainer.appendChild(leaf);
+        
+        // Animasi GSAP untuk daun jatuh dan berpusing
+        gsap.to(leaf, {
+            y: window.innerHeight + 100, // Jatuh sampai bawah skrin
+            x: startX + (Math.random() * 200 - 100), // Goyang kiri kanan sikit
+            rotation: Math.random() * 360, // Berpusing
+            duration: duration,
+            delay: delay,
+            ease: "none",
+            onComplete: () => {
+                // Bila dah sampai bawah, buang daun ni dan buat daun baru (Infinite loop)
+                leaf.remove();
+                createLeaf();
+            }
         });
-    });
+    }
 });
-
-// 3. LANGUAGE SWITCHER
-function changeLang(lang) {
-    document.querySelectorAll('.lang-switch span').forEach(s => s.classList.remove('active'));
-    document.getElementById(lang + '-btn').classList.add('active');
-
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${lang}`);
-    });
-    localStorage.setItem('selected_lang', lang);
-}
-
-window.onload = () => {
-    const saved = localStorage.getItem('selected_lang') || 'en';
-    changeLang(saved);
-};
