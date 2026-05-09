@@ -114,3 +114,53 @@ h1 { font-family: 'Playfair Display', serif; font-size: 4rem; line-height: 1.1; 
     border-radius: 0 80% 0 80%;
     opacity: 0.2;
 }
+
+/* Volunteer Page Specific */
+.form-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.form-desc {
+    margin-bottom: 30px;
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.input-group { margin-bottom: 20px; }
+
+input, select {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--warm-ivory);
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.full-width { width: 100%; border: none; cursor: pointer; }
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+}
