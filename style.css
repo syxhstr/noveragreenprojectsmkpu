@@ -238,10 +238,12 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
 }
 
 .bar {
-    width: 30px;
-    height: 2px;
-    background-color: var(--ivory);
-    transition: all 0.3s ease;
+    width: 100%;
+    height: 3px; /* Tebalkan sikit jadi 3px biar nampak solid */
+    background-color: #C5A059 !important; /* Paksa guna warna Gold Novera */
+    border-radius: 10px;
+    display: block !important; /* Pastikan dia memang wujud sebagai blok */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* =========================================
@@ -339,9 +341,10 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
 
 .bar {
     width: 100%;
-    height: 2px;
-    background-color: var(--gold);
+    height: 3px; /* Tebalkan sikit jadi 3px biar nampak solid */
+    background-color: #C5A059 !important; /* Paksa guna warna Gold Novera */
     border-radius: 10px;
+    display: block !important; /* Pastikan dia memang wujud sebagai blok */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
