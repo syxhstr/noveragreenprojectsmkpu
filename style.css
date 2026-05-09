@@ -53,12 +53,35 @@ body {
 }
 
 .nav-content {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 30px;
+    height: 60px; /* Navbar slim gila */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    top: 5px; /* Kita adjust kedudukan brand sikit */
+}
+
+.main-logo {
+    height: 85px !important; /* Logo lagi tinggi dari navbar! */
+    width: auto;
+    /* Kita guna transform supaya dia tak tolak dinding navbar */
+    transform: translateY(10px); 
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+.brand-text {
+    transform: translateY(5px); /* Bagi teks pun turun sikit ikut logo */
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
-.main-logo { height: 75px; }
+.main-logo { height: 100px; }
 .novera-text { font-weight: 700; letter-spacing: 1px; }
 
 .nav-links { display: flex; gap: 25px; align-items: center; }
