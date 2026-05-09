@@ -1,62 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Register Plugin GSAP
+    gsap.registerPlugin(ScrollTrigger);
 
-    // --- HAMBURGER MENU SCRIPT ---
+    // ==========================================
+    // 2. HAMBER MENU LOGIC (MOBILE)
+    // ==========================================
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-item, .nav-btn');
+    const links = document.querySelectorAll('.nav-links a');
 
     if(hamburger) {
-        // Bila butang hamburger ditekan
         hamburger.addEventListener('click', () => {
+            const isOpening = !navLinks.classList.contains('active');
+            
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+
+            if (isOpening) {
+                // Animasi teks menu masuk satu-satu (Premium Vibe)
+                gsap.to(links, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 0.2
+                });
+            } else {
+                // Reset kedudukan bila tutup
+                gsap.set(links, { opacity: 0, y: 20 });
+            }
         });
 
-        // Bila user tekan link (contoh: Objektif), menu akan tutup sendiri
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
+        // Tutup menu bila klik mana-mana link
+        links.forEach(link => {
+            link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+                gsap.set(links, { opacity: 0, y: 20 });
             });
         });
     }
+
+    // ==========================================
+    // 3. ANIMATIONS (HERO & SCROLL REVEAL)
+    // ==========================================
     
-    gsap.registerPlugin(ScrollTrigger);
+    // Hero Content Reveal
+    gsap.from(".reveal-hero", { 
+        opacity: 0, 
+        y: 30, 
+        duration: 1.2, 
+        ease: "power3.out", 
+        delay: 0.3 
+    });
 
-    // 1. Hero Reveal
-    gsap.from(".reveal-hero", { opacity: 0, y: 40, duration: 1.5, ease: "power4.out", delay: 0.2 });
-
-    // 2. Scroll Reveal for all cards
+    // Scroll Reveal untuk setiap Card (Apple style)
     gsap.utils.toArray('.reveal').forEach(elem => {
         gsap.fromTo(elem, 
             { opacity: 0, y: 50 },
             { 
-                opacity: 1, y: 0, 
+                opacity: 1, 
+                y: 0, 
                 duration: 1, 
-                ease: "power3.out",
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: elem,
-                    start: "top 85%", // Mula animasi bila element masuk 85% dari skrin bawah
+                    start: "top 85%",
+                    toggleActions: "play none none none"
                 }
             }
         );
     });
 
-    // 3. Parallax Effect for Hero Video (Apple/Petronas vibe)
-    gsap.to(".parallax-bg", {
-        yPercent: 30,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        }
-    });
-
-    // 4. Floating Premium Particles (Leaves)
+    // ==========================================
+    // 4. FLOATING PARTICLES (DAUN TERBANG)
+    // ==========================================
     const container = document.getElementById('leaf-container');
-    if (container) {
+    if (container && window.innerWidth > 768) { // Daun hanya terbang kat Desktop (Save battery mobile)
         for (let i = 0; i < 15; i++) {
             const leaf = document.createElement('div');
             leaf.className = 'leaf';
@@ -66,14 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,
                 rotation: Math.random() * 360,
-                scale: 0.5 + Math.random() * 1
+                scale: 0.5 + Math.random() * 0.8
             });
 
             gsap.to(leaf, {
-                y: "+=150",
-                x: "+=50",
-                rotation: "+=180",
-                duration: 6 + Math.random() * 8,
+                y: "+=100",
+                x: "+=30",
+                rotation: "+=90",
+                duration: 5 + Math.random() * 5,
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut"
