@@ -3,39 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai Kami | NoveraGreen</title>
+    <title>Sertai NoveraGreen | Volunteer</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="nav-container">
-            <a href="index.html" class="brand-group">
-                <img src="assets/images/logonovera.png" class="logo-img" alt="Logo">
-                <span class="logo-sub">by MinimallyFoliumTech</span>
-            </a>
+<body class="volunteer-page">
+
+    <div id="leaf-container"></div>
+
+    <nav class="navbar">
+        <div class="nav-content glass">
+            <div class="brand">
+                <img src="assets/images/logonovera.png" alt="Logo" class="main-logo">
+                <span class="sub-brand">by MinimallyFoliumTech</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Utama</a>
-                <a href="volunteer.html" class="active">Sertai Kami</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="volunteer.html" class="nav-btn">Sertai Kami</a>
             </div>
         </div>
     </nav>
 
-    <main class="section-padding">
-        <h2 class="section-title">Join the Green Movement.</h2>
-        <div class="bento-grid">
-            <div class="bento-card full" style="max-width: 800px; margin: auto;">
-                <h3>Sertai Pergerakan Hijau Kami</h3>
-                <p>Isi borang di bawah untuk menjadi sebahagian daripada komuniti kelestarian NoveraGreen.</p>
+    <main class="form-wrapper">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/videos/noveradryleaves.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="form-container glass reveal" id="registration-box">
+            <div id="form-content">
+                <p class="tagline gold-text">BE PART OF THE CHANGE</p>
+                <h2 class="playfair">Sertai Pergerakan Hijau</h2>
+                <p class="form-desc">Isi butiran di bawah. Kami akan hubungi anda dalam masa terdekat untuk proses pengumpulan daun.</p>
                 
-                <form action="index.html" style="margin-top: 40px;">
-                    <input type="text" placeholder="Nama Penuh" style="width:100%; padding:20px; margin-bottom:20px; border-radius:15px; border:none; background:rgba(255,255,255,0.03); color:white;" required>
-                    <input type="email" placeholder="Alamat Emel" style="width:100%; padding:20px; margin-bottom:20px; border-radius:15px; border:none; background:rgba(255,255,255,0.03); color:white;" required>
-                    <input type="tel" placeholder="No. Telefon" style="width:100%; padding:20px; margin-bottom:20px; border-radius:15px; border:none; background:rgba(255,255,255,0.03); color:white;" required>
-                    <button type="submit" class="gold-btn" style="width: 100%;" onclick="alert('Pendaftaran Berjaya!')">Daftar Sekarang</button>
+                <form id="volunteerForm">
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder="Nama Penuh">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder="Alamat Emel">
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="phone" required placeholder="No. Telefon">
+                    </div>
+                    <div class="input-group">
+                        <select id="interest">
+                            <option value="" disabled selected>Pilih Peranan</option>
+                            <option value="volunteer">Sukarelawan Pengumpulan</option>
+                            <option value="contributor">Penyumbang Daun Kering</option>
+                            <option value="investor">Pelabur Projek</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-gold full-width">Hantar Permohonan</button>
                 </form>
+            </div>
+
+            <div id="thank-you-content" style="display: none; text-align: center; padding: 40px 0;">
+                <div class="success-icon">🌿</div>
+                <h2 class="playfair gold-text">Terima Kasih!</h2>
+                <p>Permohonan anda telah berjaya dihantar. Mari kita hijaukan bumi bersama NoveraGreen.</p>
+                <br>
+                <a href="index.html" class="cta-gold">Kembali ke Utama</a>
             </div>
         </div>
     </main>
 
+    <script src="script.js"></script>
 </body>
 </html>
