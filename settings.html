@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetapan Akaun | NOVERA GREEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div id="particle-container"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="brand">NOVERA <span class="gold-text">GREEN</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Utama</a>
+                <a href="volunteer.html">Sertai Kami</a>
+                <a href="settings.html" class="gold-text">Tetapan</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section-padding" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 800px;">
+            <div class="glass-panel animate-scroll">
+                
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;">Profil <span class="gold-text">Pengguna</span></h2>
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(253, 251, 247, 0.1);">
+                    <div class="avatar-circle">A</div>
+                    <div style="flex-grow: 1;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Ahmad Sukarelawan</h3>
+                        <p class="body-text" style="font-size: 0.9rem;">ahmad.green@email.com</p>
+                        <p class="gold-text" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">Akaun Berdaftar</p>
+                    </div>
+                    <div>
+                        <button class="gold-btn" style="padding: 10px 20px; font-size: 0.9rem;">Kemaskini Profil</button>
+                    </div>
+                </div>
+
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;">Tetapan <span class="gold-text">Sistem</span></h2>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div>
+                        <strong style="font-size: 1.1rem;">Kurangkan Animasi Visual</strong>
+                        <p class="body-text" style="font-size: 0.9rem;">Matikan daun terapung dan efek skrol.</p>
+                    </div>
+                    <input type="checkbox" id="motion-toggle" style="width: 20px; height: 20px; accent-color: var(--gold); cursor: pointer;">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <strong style="font-size: 1.1rem;">Padam Cache Laman Laman</strong>
+                        <p class="body-text" style="font-size: 0.9rem;">Selesaikan masalah paparan (Clear Cache).</p>
+                    </div>
+                    <button onclick="localStorage.clear(); alert('Cache berjaya dipadam.'); window.location.reload();" class="gold-btn" style="padding: 10px 20px; font-size: 0.9rem; border-color: rgba(253, 251, 247, 0.3); color: var(--ivory);">Padam Cache</button>
+                </div>
+                
+                <div style="text-align: right;">
+                    <a href="index.html" style="color: rgba(255, 100, 100, 0.8); text-decoration: none; font-size: 0.9rem; transition: 0.3s;">Log Keluar Akaun</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Logik ringkas untuk butang kurangkan animasi
+        const motionToggle = document.getElementById('motion-toggle');
+        
+        if(localStorage.getItem('reduceMotion') === 'true') {
+            motionToggle.checked = true;
+        }
+
+        motionToggle.addEventListener('change', () => {
+            localStorage.setItem('reduceMotion', motionToggle.checked);
+            alert("Tetapan disimpan. Sila muat semula (refresh) untuk melihat perubahan.");
+        });
+    </script>
+</body>
+</html>
