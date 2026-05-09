@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
-    // 2. HAMBER MENU LOGIC (MOBILE)
+    // 2. HAMBURGER MENU LOGIC (MOBILE ONLY)
     // ==========================================
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
 
             if (isOpening) {
-                // Animasi teks menu masuk satu-satu (Premium Vibe)
+                // Animasi masuk cuma untuk mobile skrin
                 gsap.to(links, {
                     opacity: 1,
                     y: 0,
@@ -27,17 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     delay: 0.2
                 });
             } else {
-                // Reset kedudukan bila tutup
-                gsap.set(links, { opacity: 0, y: 20 });
+                // Reset balik ke bawah bila tutup (Mobile sahaja)
+                gsap.to(links, { opacity: 0, y: 20, duration: 0.3 });
             }
         });
 
-        // Tutup menu bila klik mana-mana link
+        // Tutup menu bila klik link (HANYA JIKA DI MOBILE)
         links.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                gsap.set(links, { opacity: 0, y: 20 });
+                if (window.innerWidth <= 768) { 
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    // Kita set balik jadi halimunan supaya next time buka dia boleh stagger lagi
+                    gsap.set(links, { opacity: 0, y: 20 });
+                }
             });
         });
     }
@@ -55,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.3 
     });
 
-    // Scroll Reveal untuk setiap Card (Apple style)
+    // Scroll Reveal untuk setiap Card
     gsap.utils.toArray('.reveal').forEach(elem => {
         gsap.fromTo(elem, 
             { opacity: 0, y: 50 },
@@ -74,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 4. FLOATING PARTICLES (DAUN TERBANG)
+    // 4. FLOATING PARTICLES (DAUN TERBANG - DESKTOP ONLY)
     // ==========================================
     const container = document.getElementById('leaf-container');
-    if (container && window.innerWidth > 768) { // Daun hanya terbang kat Desktop (Save battery mobile)
+    if (container && window.innerWidth > 768) {
         for (let i = 0; i < 15; i++) {
             const leaf = document.createElement('div');
             leaf.className = 'leaf';
