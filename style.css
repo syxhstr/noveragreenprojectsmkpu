@@ -427,50 +427,37 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     .hamburger { display: none !important; }
 }
 
-/* --- PREMIUM BACK BUTTON --- */
+/* GANTI KOD .back-home LAMA DENGAN NI */
 .back-home {
     position: fixed;
     top: 30px;
     left: 30px;
-    z-index: 2000;
+    z-index: 9999; /* Pastikan paling depan */
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    border-radius: 50px;
-    color: var(--ivory);
+    gap: 12px;
+    color: #C5A059 !important; /* Paksa warna Gold */
     text-decoration: none;
     font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
     font-size: 0.9rem;
-    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03); /* Glass effect sikit */
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .back-home:hover {
-    background: rgba(197, 160, 89, 0.2);
-    transform: translateX(-5px); /* Efek haptic sikit */
-    border-color: var(--gold);
+    background: rgba(197, 160, 89, 0.1);
+    transform: translateX(-5px);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
 }
 
 .back-home svg {
-    stroke: var(--gold);
+    stroke: #C5A059; /* Arrow jadi warna gold */
     transition: transform 0.3s ease;
-}
-
-.back-home:hover svg {
-    transform: translateX(-3px);
-}
-
-/* Responsive: Kecilkan sikit kat mobile */
-@media (max-width: 768px) {
-    .back-home {
-        top: 20px;
-        left: 20px;
-        padding: 8px 15px;
-        font-size: 0.8rem;
-    }
 }
