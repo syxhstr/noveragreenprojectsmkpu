@@ -301,3 +301,23 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     .section-padding { padding: 80px 0; }
     #leaf-container { display: none; } /* Matikan daun animasi kat phone supaya tak lag */
 }
+
+/* --- FORCE DESKTOP VISIBILITY (Settlekan masalah link hilang) --- */
+@media (min-width: 769px) {
+    .nav-links a {
+        opacity: 1 !important; /* Paksa nampak */
+        visibility: visible !important; /* Paksa muncul */
+        transform: none !important; /* Batalkan kesan gerak-gerak GSAP */
+    }
+    
+    .nav-links {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+        position: static !important; /* Pastikan dia duduk tempat asal */
+        height: auto !important;
+        background: transparent !important; /* Buang warna hitam mobile */
+        pointer-events: auto !important;
+    }
+}
