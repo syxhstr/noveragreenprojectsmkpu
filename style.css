@@ -82,3 +82,13 @@ body {
 /* BUTTONS & FORMS */
 .gold-btn { background: var(--gold); color: var(--forest-green); padding: 16px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; border: none; cursor: pointer; transition: 0.3s; font-size: 14px;}
 .gold-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+/* --- TAMBAHAN UNTUK BACKGROUND MANTRAP --- */
+.floating-particle {
+    position: fixed;
+    background: var(--gold);
+    border-radius: 20% 70% 20% 70%; /* Bentuk macam daun sikit */
+    pointer-events: none; /* Supaya tak kacau mouse click */
+    z-index: 1;
+    filter: blur(1px);
+}
