@@ -151,8 +151,81 @@ button.submit-btn { width: 100%; background: var(--gold); color: var(--forest-ba
 button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
 
 @media (max-width: 768px) {
-    .bento-grid-2 { grid-template-columns: 1fr; }
-    .nav-links { display: none; /* Add hamburger menu logic later if needed */ }
+    /* Navbar slim di mobile */
+    .glass-nav {
+        height: 65px;
+        width: 92%;
+        top: 15px;
+    }
+
+    .main-logo { height: 55px !important; }
+
+    /* --- PREMIUM FULLSCREEN MENU --- */
+    .nav-links {
+        position: fixed;
+        top: 0; 
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* Guna gradient supaya tak nampak solid hitam */
+        background: radial-gradient(circle at center, rgba(13, 46, 27, 0.98), rgba(6, 17, 9, 1));
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        /* Sembunyikan terus (Fix isu hitam kat atas) */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-20px); 
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Style Teks Menu (Apple Vibe) */
+    .nav-links a {
+        font-family: 'Playfair Display', serif; /* Guna font premium */
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--ivory);
+        text-decoration: none;
+        letter-spacing: 1px;
+        opacity: 0; /* Untuk animasi GSAP */
+        transform: translateY(20px);
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--gold);
+    }
+
+    /* Butang Sertai dalam Mobile */
+    .nav-links .nav-btn {
+        background: var(--gold);
+        color: var(--forest-base) !important;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.2rem;
+        padding: 15px 40px;
+        border-radius: 50px;
+        margin-top: 20px;
+    }
+
+    /* Tunjuk Hamburger */
+    .hamburger { 
+        display: flex; 
+        padding: 10px;
+    }
+
 }
 
 /* --- HAMBURGER MENU ICON (Sembunyi kat Desktop) --- */
