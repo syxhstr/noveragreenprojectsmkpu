@@ -321,3 +321,96 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
         pointer-events: auto !important;
     }
 }
+
+/* ========================================================
+   MASTER FIX: NAVIGATION & MOBILE MENU (PASTE AT BOTTOM)
+   ======================================================== */
+
+/* 1. Reset Hamburger & Bar */
+.hamburger {
+    display: none; /* Sembunyi kat desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold);
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2. Animasi Tukar ke 'X' bila menu buka */
+.hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* 3. Mobile Menu Styling (Skrin bawah 768px) */
+@media (max-width: 768px) {
+    .hamburger { display: flex; } /* Tunjuk butang ☰ */
+
+    .nav-links {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100vh;
+        background: radial-gradient(circle at center, rgba(13, 46, 27, 0.98), rgba(6, 17, 9, 1));
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        
+        /* State asal: Sembunyi */
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.5s ease;
+    }
+
+    .nav-links.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--ivory);
+        text-decoration: none;
+        opacity: 0; /* Akan dikawal oleh GSAP */
+        transform: translateY(20px);
+    }
+}
+
+/* 4. Desktop Protection (Skrin atas 769px) */
+/* Ini ubat untuk masalah 'Link Hilang Kat PC' */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        height: auto !important;
+        background: transparent !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+
+    .nav-links a {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .hamburger { display: none !important; }
+}
