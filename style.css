@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;700&display=swap');
 
 :root {
     /* BACKGROUND TEXTURISED (APPLE/PETRONAS) */
@@ -6,11 +6,12 @@
     --bg-gradient: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
     --bg-texture: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36z8gAFWAAKAAA5gAQD6AAAAA='); /* Fine noise texture */
 
+    --forest-green: #0a1c13;
+    --ivory-white: #fdfbf7;
+    --gold: #c5a059;
+    --gold-dim: rgba(197, 160, 89, 0.5);
+
     --nav-bg: rgba(0, 0, 0, 0.8);
-    --accent: #00a19c; /* Petronas Green */
-    --apple-blue: #0071e3;
-    --text: #f5f5f7;
-    --text-dim: #86868b;
     --glass: blur(20px) saturate(180%);
 }
 
@@ -21,56 +22,63 @@ body {
     background-image: var(--bg-texture), var(--bg-gradient);
     background-repeat: repeat, no-repeat;
     background-attachment: scroll, fixed;
-    color: var(--text);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--ivory-white);
+    font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
 }
 
-/* --- NAVIGATION (Sentiasa Sticky/Fixed) --- */
+/* --- NAVIGATION (Sticky/Fixed) --- */
 .top-nav {
     position: fixed; top: 0; width: 100%; height: 60px;
     background: var(--nav-bg); backdrop-filter: var(--glass);
-    z-index: 10000; border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 10000; border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; justify-content: center;
 }
 
 .nav-container { width: 100%; max-width: 1200px; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
 
 .brand-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-/* PENTING: Untuk text fallback kalau logo tak jumpa */
-.logo-fallback { font-weight: 700; color: white; display: none; } 
-.nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.3); }
-.logo-sub { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+.logo-img { height: 22px; filter: brightness(0) invert(1); } 
+.logo-sub { font-size: 10px; color: var(--ivory-white); text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; font-weight: bold; }
 
-.nav-links a { color: var(--text); text-decoration: none; font-size: 13px; margin: 0 15px; opacity: 0.6; transition: 0.3s; }
-.nav-links a.active, .nav-links a:hover { opacity: 1; color: var(--accent); }
+.nav-links a { color: var(--ivory-white); text-decoration: none; font-size: 13px; margin: 0 15px; opacity: 0.6; transition: 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--gold); }
 
-.lang-pill { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 5px 15px; font-size: 11px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-.lang-pill span.active { color: var(--accent); font-weight: 700; }
+.lang-pill { color: var(--ivory-white); font-size: 11px; font-weight: bold;}
+.lang-pill span { opacity: 0.5; margin: 0 3px; cursor: pointer;}
+.lang-pill span.active { opacity: 1; color: var(--gold); }
 
 /* --- HERO & VIDEO (Sentiasa Melekat & Beranimasi) --- */
-.hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; padding: 0 10%; }
+.hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0 20px;}
 .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+/* PENTING: Untuk video kau */
 .video-bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 100%); z-index: 0; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); }
 
-.hero-content { position: relative; z-index: 10; max-width: 800px; }
-.hero-content h1 { font-size: 5rem; font-weight: 700; line-height: 1.1; margin-bottom: 25px; letter-spacing: -3px; }
-.hero-content p { font-size: 1.5rem; color: var(--text-dim); margin-bottom: 40px; }
+/* BINGKAI KACA HERO */
+.hero-glass { 
+    position: relative; z-index: 10; width: 100%; max-width: 900px; 
+    background: rgba(255, 255, 255, 0.03); backdrop-filter: var(--glass);
+    border-radius: 40px; padding: 80px 50px; text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.hero-glass h1 { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700; line-height: 1.1; margin-bottom: 25px; letter-spacing: -3px; }
+.hero-glass h1 span.gold-text { color: var(--gold); }
+.hero-glass p.subtitle { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; font-weight: bold; color: var(--ivory-white); opacity: 0.5; margin-bottom: 20px;}
+.hero-glass p.body-text { font-size: 1.4rem; color: var(--ivory-white); opacity: 0.8; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
 /* --- CONTENT BOXES (Bento Style) --- */
 .section-padding { padding: 140px 10%; min-height: 100vh; }
-.section-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -2px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -2px; }
 
 .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 25px; margin-top: 40px; }
-.bento-card { background: #1c1c1e; border-radius: 28px; padding: 50px; grid-column: span 6; border: 1px solid rgba(255,255,255,0.05); }
+/* KOTAK BENTO KACA */
+.bento-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: var(--glass); border-radius: 30px; padding: 60px; grid-column: span 6; border: 1px solid rgba(255, 255, 255, 0.05); }
 .bento-card.full { grid-column: span 12; }
-.bento-card h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); }
-.bento-card p { font-size: 1.1rem; color: var(--text-dim); line-height: 1.8; }
+.bento-card h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--gold); }
+.bento-card p { font-size: 1.1rem; color: var(--ivory-white); opacity: 0.8; line-height: 1.8; }
 
 /* BUTTONS & FORMS */
-.apple-btn { background: var(--accent); color: white; padding: 18px 40px; border-radius: 35px; text-decoration: none; font-weight: 600; display: inline-block; border: none; cursor: pointer; transition: 0.3s; }
-.apple-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
-
-.input-apple { width: 100%; background: #2c2c2e; border: 1px solid #3d3d3f; padding: 20px; border-radius: 16px; color: white; margin-bottom: 20px; font-size: 1rem; }
+.gold-btn { background: var(--gold); color: var(--forest-green); padding: 16px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; border: none; cursor: pointer; transition: 0.3s; font-size: 14px;}
+.gold-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
