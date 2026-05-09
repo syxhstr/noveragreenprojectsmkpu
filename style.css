@@ -39,45 +39,68 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Navbar */
+/* 1. Paksa Navbar jadi Slim */
 .glass-nav {
     position: fixed;
-    top: 20px; left: 50%;
+    top: 20px;
+    left: 50%;
     transform: translateX(-50%);
-    width: 90%; max-width: 1200px;
-    z-index: 1000;
-    background: rgba(6, 17, 9, 0.4);
+    width: 95%;
+    max-width: 1200px;
+    height: 70px; /* Kunci tinggi navbar kat sini */
+    background: rgba(6, 17, 9, 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 50px;
+    border-radius: 100px;
+    z-index: 1000;
 }
 
+/* 2. Nav Content kena ada 'relative' supaya kita boleh 'float' kan logo */
 .nav-content {
-    height: 60px; /* Navbar slim gila */
+    position: relative;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-end; /* Tolak menu ke kanan */
     padding: 0 40px;
 }
 
+/* 3. TEKNIK MAGIC: Floating Brand Section */
 .brand {
+    position: absolute; /* Ni kunci dia! Dia takkan tolak dinding navbar */
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%); /* Center secara vertical */
     display: flex;
     align-items: center;
     gap: 15px;
-    position: relative;
-    top: 5px; /* Kita adjust kedudukan brand sikit */
+    pointer-events: auto;
 }
 
+/* 4. Logo Besarkan Kat Sini */
 .main-logo {
-    height: 85px !important; /* Logo lagi tinggi dari navbar! */
+    height: 100px !important; /* Kau nak 100px kan? Haa amik ni */
     width: auto;
-    /* Kita guna transform supaya dia tak tolak dinding navbar */
-    transform: translateY(10px); 
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); /* Bagi nampak 3D sikit */
+    transition: 0.3s ease;
 }
 
+.main-logo:hover {
+    transform: scale(1.1); /* Hover effect ala Apple */
+}
+
+/* 5. Teks 'by MinimallyFoliumTech' */
 .brand-text {
-    transform: translateY(5px); /* Bagi teks pun turun sikit ikut logo */
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-brand {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
