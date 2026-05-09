@@ -1,67 +1,45 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai Kami | NOVERA GREEN</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Join Us | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
-    <div id="particle-container"></div>
-
-    <nav class="glass-nav">
-        <div class="nav-content">
-            <a href="index.html" style="text-decoration: none; color: inherit;">
-                <div class="brand">NOVERA <span class="gold-text">GREEN</span></div>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-group">
+                <img src="assets/images/logonovera.png" class="logo-img" style="height:25px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <span class="logo-fallback" style="font-weight:bold; color:white;">NOVERAGREEN</span>
+                <span class="nav-divider"></span>
+                <span class="sub-brand">by MinimallyFoliumTech</span>
             </a>
             <div class="nav-links">
-                <a href="index.html">Utama</a>
-                <a href="volunteer.html" class="gold-text">Sertai Kami</a>
-                <a href="settings.html">Tetapan</a>
+                <a href="index.html">Overview</a>
+                <a href="index.html#process">Process</a>
+                <a href="volunteer.html" class="active">Join Us</a>
+                <a href="index.html#settings">Settings</a>
             </div>
         </div>
     </nav>
 
-    <section class="section-padding" style="min-height: 100vh; display: flex; align-items: center;">
-        <div class="container" style="width: 100%;">
-            <div class="grid-2">
-                <div class="glass-panel animate-scroll">
-                    <h2 class="section-title">Bersama Membina<br><span class="gold-text">Masa Depan.</span></h2>
-                    <div class="gold-line"></div>
-                    <p class="body-text">
-                        Sama ada anda ingin melabur dalam inovasi hijau kami, menjadi sukarelawan komuniti, atau menjalin kerjasama korporat, peranan anda amat penting dalam menyokong matlamat kelestarian global.
-                    </p>
-                    <p class="body-text" style="margin-top: 20px;">
-                        Setiap pendaftaran akan diproses dengan teliti. Eksekutif kami akan menghubungi anda dalam tempoh 48 jam waktu bekerja.
-                    </p>
-                </div>
-
-                <div class="glass-panel animate-scroll">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px;">Borang Penyertaan</h3>
-                    <form action="thankyou.html">
-                        <input type="text" class="glass-input" placeholder="Nama Penuh" required>
-                        <input type="email" class="glass-input" placeholder="Alamat Emel" required>
-                        <input type="tel" class="glass-input" placeholder="No. Telefon" required>
-                        
-                        <select class="glass-input" required>
-                            <option value="" disabled selected>Pilih Peranan Anda...</option>
-                            <option value="investor">Pelabur (Investor)</option>
-                            <option value="volunteer">Sukarelawan (Volunteer)</option>
-                            <option value="corporate">Rakan Korporat</option>
-                            <option value="other">Lain-lain</option>
-                        </select>
-                        
-                        <button type="submit" class="gold-btn" style="width: 100%; margin-top: 10px;">Hantar Permohonan</button>
-                    </form>
-                </div>
+    <main class="section-padding">
+        <h2 class="section-title" data-en="Be Part of the Future." data-ms="Jadilah Sebahagian daripada Masa Depan.">Be Part of the Future.</h2>
+        <div class="bento-grid">
+            <div class="bento-card full animate-card" style="max-width: 700px; margin: auto;">
+                <h3 data-en="Stakeholder Application" data-ms="Permohonan Pihak Berkepentingan">Stakeholder Application</h3>
+                <form action="thankyou.html">
+                    <input type="text" class="input-apple" data-en-placeholder="Full Name" data-ms-placeholder="Nama Penuh" placeholder="Full Name" required>
+                    <input type="email" class="input-apple" placeholder="Email Address" required>
+                    <input type="tel" class="input-apple" placeholder="Phone Number" required>
+                    <button type="submit" class="apple-btn" style="width: 100%; border: none; cursor: pointer;" data-en="Submit Application" data-ms="Hantar Permohonan">Submit Application</button>
+                </form>
             </div>
         </div>
-    </section>
-
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
