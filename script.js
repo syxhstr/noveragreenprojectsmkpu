@@ -42,3 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Tambah kod ni dalam document.addEventListener('DOMContentLoaded', ... )
+
+const vForm = document.getElementById('volunteerForm');
+if (vForm) {
+    vForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Animasi keluar borang
+        gsap.to("#form-content", {
+            opacity: 0,
+            y: -20,
+            duration: 0.5,
+            onComplete: () => {
+                document.getElementById('form-content').style.display = 'none';
+                const tyContent = document.getElementById('thank-you-content');
+                tyContent.style.display = 'block';
+                
+                // Animasi masuk Thank You
+                gsap.fromTo(tyContent, 
+                    { opacity: 0, scale: 0.9 },
+                    { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" }
+                );
+            }
+        });
+    });
+}
