@@ -187,6 +187,23 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
         text-transform: capitalize;
         transition: 0.3s;
     }
+
+    .nav-links .nav-btn {
+        background: #C5A059; /* Warna Gold */
+        color: #061109 !important; /* Tulisan Gelap */
+        padding: 18px 45px;
+        border-radius: 100px;
+        font-family: 'DM Sans', sans-serif; /* Font butang lain sikit dari menu */
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+        opacity: 0; /* Untuk GSAP */
+        transform: translateY(20px);
+    }
+    
 }
 
     /* ==========================================
