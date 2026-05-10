@@ -3,36 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai Kami | Novera Green</title>
+    <title>Sertai Novera Green</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="navbar">
-        <a href="index.html"><img src="assets/images/logonovera.png" class="main-logo" alt="Logo"></a>
-        <a href="index.html" class="gold-btn" style="padding: 10px 20px; font-size: 0.8rem;">KEMBALI</a>
-    </nav>
-
-    <div style="padding-top: 150px; display: flex; justify-content: center; align-items: center; min-height: 100vh; width: 90%; margin: 0 auto;">
-        <div class="glass-card" style="max-width: 600px; width: 100%; text-align: center;">
-            <h2 style="font-family: 'Playfair Display'; color: var(--gold); font-size: 2.5rem; margin-bottom: 20px;">Sertai Kami</h2>
-            <p style="margin-bottom: 30px; opacity: 0.8;">Isi maklumat di bawah untuk menjadi sebahagian daripada revolusi hijau.</p>
-            
-            <form id="volunteerForm">
-                <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
-                <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
-                <select class="luxury-input" style="background: var(--forest);">
-                    <option>Pilih Peranan</option>
-                    <option>Sukarelawan</option>
-                    <option>Penyumbang Daun</option>
-                </select>
-                <button type="submit" class="gold-btn" style="width: 100%;">HANTAR SEKARANG</button>
-            <form action="thankyou.html" method="GET">
-    <button type="submit" class="gold-btn">Hantar</button>
-</form>
+<body class="sub-page">
+    <nav class="navbar"><div class="nav-container"><a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a></div></nav>
+    <section class="form-section">
+        <div class="glass-card reveal">
+            <h2 class="section-title">Sertai Pergerakan Kami</h2>
+            <form action="thank-you.html" method="GET" class="volunteer-form">
+                <label>Nama Penuh</label><input type="text" required>
+                <label>Emel</label><input type="email" required>
+                <label>Sumbangan (Daun/Tenaga)</label>
+                <select><option>Sumbangan Daun Kering</option><option>Sukarelawan</option></select>
+                <button type="submit" class="gold-btn">Hantar Permohonan</button>
+            </form>
         </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
+    </section>
 </body>
 </html>
