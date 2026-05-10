@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><title>Terima Kasih | Novera Green</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"><title>Terima Kasih | Novera</title><link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="centered-layout">
-    <div class="glass-card reveal-thanks" style="max-width:400px; text-align:center;">
-        <div style="font-size:40px; margin-bottom:15px;">🌿</div>
-        <h1 class="title-gold" style="font-size:1.8rem;">Permohonan Diterima!</h1>
-        <p>Terima kasih kerana menyokong Novera Green. Kita akan hubungi anda segera.</p>
-        <br>
-        <a href="index.html" class="nav-btn" style="text-decoration:none; display:inline-block;">KEMBALI KE UTAMA</a>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
+    <div class="glass-card thanks-card" style="text-align: center; max-width: 500px;">
+        <div style="font-size: 60px; margin-bottom: 20px;">🌿</div>
+        <h1 class="title-gold">Permohonan Diterima!</h1>
+        <p style="opacity: 0.8; margin-bottom: 30px;">Terima kasih kerana menyokong Novera Green. Kami akan hubungi anda segera untuk tindakan lanjut.</p>
+        <a href="index.html" class="action-btn">KEMBALI KE UTAMA</a>
     </div>
-    <script>gsap.from(".reveal-thanks", {opacity:0, y:20, duration:1, ease:"expo.out"});</script>
+    <script>gsap.from(".thanks-card", { opacity: 0, scale: 0.8, duration: 1.2, ease: "expo.out" });</script>
 </body>
 </html>
