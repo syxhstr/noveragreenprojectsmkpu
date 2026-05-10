@@ -1,51 +1,28 @@
-// Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. HAMBURGER NAV LOGIC
+// 1. HAMBURGER LOGIC
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+if(hamburger) {
+    hamburger.onclick = () => {
         navLinks.classList.toggle('active');
-    });
+        hamburger.classList.toggle('active');
+    };
 }
 
-// Close mobile menu when clicking a link
+// Close menu when clicking link
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
+    link.onclick = () => {
         navLinks.classList.remove('active');
-    });
+        hamburger.classList.remove('active');
+    };
 });
 
-// 2. GSAP PAGE REVEAL
-window.addEventListener('load', () => {
-    const tl = gsap.timeline();
-    
-    tl.from('.navbar', {
-        y: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out"
-    })
-    .from('.reveal-hero', {
-        opacity: 0,
-        y: 60,
-        duration: 1.5,
-        ease: "power3.out"
-    }, "-=0.8");
-});
-
-// 3. SCROLL REVEAL FOR ALL GLASS CARDS
+// 2. GSAP REVEAL ANIMATIONS
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
-        { 
-            y: 100, 
-            opacity: 0,
-            scale: 0.95
-        },
+        { y: 100, opacity: 0, scale: 0.95 },
         { 
             y: 0, 
             opacity: 1, 
@@ -61,28 +38,24 @@ gsap.utils.toArray('.reveal').forEach(elem => {
     );
 });
 
-// 4. PARALLAX EFFECT FOR HERO VIDEO
+// 3. PARALLAX VIDEO
 gsap.to('.parallax-bg', {
     scrollTrigger: {
         trigger: ".hero",
         start: "top top",
-        end: "bottom top",
         scrub: true
     },
-    y: 150,
-    ease: "none"
+    y: 150
 });
 
-// 5. SMOOTH SCROLLING FOR ANCHORS
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+// 4. NAVBAR SCROLL EFFECT
+window.onscroll = () => {
+    const nav = document.querySelector('.glass-nav');
+    if (window.scrollY > 100) {
+        nav.style.background = "rgba(6, 17, 9, 0.95)";
+        nav.style.height = "75px";
+    } else {
+        nav.style.background = "rgba(6, 17, 9, 0.85)";
+        nav.style.height = "85px";
+    }
+};
