@@ -2,25 +2,24 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <title>Sertai Kami | NoveraGreen</title>
+    <title>Volunteer | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="sub-page">
-    <nav class="navbar glass-nav">
+<body>
+    <nav class="glass-nav">
         <div class="nav-content">
-            <div class="brand"><img src="assets/images/logonovera.png" class="main-logo"></div>
-            <div class="nav-links"><a href="index.html">Kembali ke Utama</a></div>
+            <div class="brand"><img src="assets/images/logonovera.png" alt="Logo"></div>
+            <ul class="nav-links"><li><a href="index.html">Kembali ke Utama</a></li></ul>
         </div>
     </nav>
-    <section class="section-island" style="margin-top: 150px;">
-        <div class="card glass reveal">
-            <h1 class="playfair gold-text">Daftar Sukarelawan</h1>
-            <p>Isi borang di bawah untuk menyertai komuniti hijau kami.</p>
-            <form action="thankyou.html" class="volunteer-form" style="margin-top: 30px;">
-                <input type="text" placeholder="Nama Penuh" required class="form-input">
-                <input type="email" placeholder="E-mel" required class="form-input">
-                <textarea placeholder="Kenapa anda ingin sertai?" class="form-input"></textarea>
-                <button type="submit" class="nav-btn" style="border:none; cursor:pointer; width:100%;">Hantar Permohonan</button>
+    <section class="hero">
+        <div class="hero-glass-box reveal" style="width: 100%; max-width: 600px; margin: 0 auto;">
+            <h2 class="playfair gold-text" style="font-size: 2.5rem; margin-bottom: 30px;">Sertai Kami</h2>
+            <form action="thankyou.html" class="volunteer-form">
+                <div class="form-group"><input type="text" placeholder="Nama Penuh" required></div>
+                <div class="form-group"><input type="email" placeholder="E-mel" required></div>
+                <div class="form-group"><textarea placeholder="Tuliskan sumbangan anda..." rows="5"></textarea></div>
+                <button type="submit" class="nav-btn" style="border:none; width:100%; cursor:pointer;">Hantar Permohonan</button>
             </form>
         </div>
     </section>
