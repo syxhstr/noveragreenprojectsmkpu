@@ -1,34 +1,72 @@
-<nav class="glass-nav">
-    <img src="assets/images/logonovera.png" class="main-logo">
-    <a href="index.html" class="nav-btn" style="padding: 10px 20px; font-size: 10px;">KEMBALI KE UTAMA</a>
-</nav>
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertai Kami | Novera Green</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="form-page">
 
-<main class="volunteer-main">
-    <div class="hero-overlay" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 50px; border-radius: 40px; width: 100%; max-width: 600px;">
-        <h2 class="hero-title" style="font-size: 2rem;">Sertai Pergerakan</h2>
-        
-        <form>
-            <div class="role-grid">
-                <label class="role-card" onclick="selectRole(this)">
-                    <input type="radio" name="role" value="volunteer">
-                    <span style="font-size: 2rem;">🌿</span><br><b>SUKARELAWAN</b>
-                </label>
-                <label class="role-card" onclick="selectRole(this)">
-                    <input type="radio" name="role" value="donate">
-                    <span style="font-size: 2rem;">📦</span><br><b>SUMBANG DAUN</b>
-                </label>
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="brand">
+                <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
             </div>
-            
-            <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
-            <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
-            <button type="submit" class="nav-btn" style="width: 100%; padding: 20px;">HANTAR PERMOHONAN</button>
-        </form>
-    </div>
-</main>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-btn" style="font-size: 10px; padding: 10px 20px;">KEMBALI KE UTAMA</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<script>
-    function selectRole(elem) {
-        document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
-        elem.classList.add('selected');
-    }
-</script>
+    <main class="volunteer-container">
+        <div class="glass-card" style="max-width: 550px; width: 90%; margin: 0 auto; text-align: center;">
+            <h1 class="title-gold" style="font-size: 2rem; margin-bottom: 10px;">Sertai Pergerakan Kami</h1>
+            <p style="opacity: 0.6; margin-bottom: 30px;">Pilih cara anda untuk menyokong kelestarian alam.</p>
+
+            <form action="#">
+                <div class="role-selection">
+                    <label class="card-option" id="opt-volunteer" onclick="selectRole('volunteer')">
+                        <input type="radio" name="role" value="volunteer" id="radio-volunteer" required style="display:none;">
+                        <span style="font-size: 30px; display: block; margin-bottom: 10px;">🌿</span>
+                        <span style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Sukarelawan</span>
+                    </label>
+
+                    <label class="card-option" id="opt-donate" onclick="selectRole('donate')">
+                        <input type="radio" name="role" value="donate" id="radio-donate" style="display:none;">
+                        <span style="font-size: 30px; display: block; margin-bottom: 10px;">📦</span>
+                        <span style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Sumbang Daun</span>
+                    </label>
+                </div>
+
+                <div class="input-group" style="margin-top: 25px;">
+                    <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
+                    <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
+                    <input type="tel" placeholder="No. Telefon (Pilihan)" class="luxury-input">
+                </div>
+
+                <button type="submit" class="nav-btn" style="width: 100%; padding: 20px; font-size: 1rem; margin-top: 20px;">HANTAR PERMOHONAN</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function selectRole(role) {
+            // Buang class active dari semua kad
+            document.getElementById('opt-volunteer').classList.remove('active');
+            document.getElementById('opt-donate').classList.remove('active');
+            
+            // Tambah active pada kad yang dipilih
+            if(role === 'volunteer') {
+                document.getElementById('opt-volunteer').classList.add('active');
+                document.getElementById('radio-volunteer').checked = true;
+            } else {
+                document.getElementById('opt-donate').classList.add('active');
+                document.getElementById('radio-donate').checked = true;
+            }
+        }
+    </script>
+
+</body>
+</html>
