@@ -1,39 +1,44 @@
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. HAMBURGER MENU LOGIC
-const hamburger = document.getElementById('hamburger-menu');
-const navMenu = document.getElementById('nav-menu');
+// 1. HAMBURGER NAV LOGIC
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('mobile-active');
-    
-    // Animate hamburger bars to 'X'
-    const bars = hamburger.querySelectorAll('.bar');
-    bars[0].classList.toggle('rotate-down');
-    bars[1].classList.toggle('fade-out');
-    bars[2].classList.toggle('rotate-up');
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
 });
 
-// 2. HERO ANIMATIONS (GSAP)
+// 2. GSAP PAGE REVEAL
 window.addEventListener('load', () => {
     const tl = gsap.timeline();
     
-    tl.from('.reveal-hero', {
+    tl.from('.navbar', {
+        y: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+    })
+    .from('.reveal-hero', {
         opacity: 0,
         y: 60,
         duration: 1.5,
-        ease: "power4.out"
-    })
-    .from('.navbar', {
-        y: -100,
-        opacity: 0,
-        duration: 1,
         ease: "power3.out"
-    }, "-=1");
+    }, "-=0.8");
 });
 
-// 3. SCROLL REVEAL (Semua Kad Glass)
+// 3. SCROLL REVEAL FOR ALL GLASS CARDS
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
         { 
@@ -45,12 +50,11 @@ gsap.utils.toArray('.reveal').forEach(elem => {
             y: 0, 
             opacity: 1, 
             scale: 1,
-            duration: 1.2, 
+            duration: 1.5, 
             ease: "expo.out",
             scrollTrigger: {
                 trigger: elem,
                 start: "top 90%",
-                end: "top 70%",
                 toggleActions: "play none none reverse"
             }
         }
@@ -65,13 +69,20 @@ gsap.to('.parallax-bg', {
         end: "bottom top",
         scrub: true
     },
-    y: 200,
+    y: 150,
     ease: "none"
 });
 
-// 5. AUTO-CLOSE MOBILE MENU ON LINK CLICK
-document.querySelectorAll('.nav-item').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('mobile-active');
+// 5. SMOOTH SCROLLING FOR ANCHORS
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
     });
 });
