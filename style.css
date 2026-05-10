@@ -5,10 +5,29 @@
     box-sizing: border-box;
 }
 
+/* --- GLOBAL FONT (Sopan) --- */
 body {
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'DM Sans', sans-serif; /* Font asas satu website */
     background: #0b1a13;
-    overflow-x: hidden;
+    color: white;
+}
+
+/* Tajuk Besar (Hanya untuk tajuk) */
+h1, h2, h3, .hero-title, .section-title {
+    font-family: 'Playfair Display', serif !important;
+}
+
+/* Tulisan Kecil (Target spesifik supaya tak lari) */
+p, li, a, .hero-description, .bento-item p {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 400;
+}
+
+/* --- NAVBAR FIX (Khas untuk Navbar sahaja) --- */
+.nav-links a {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 /* --- 2. NAVBAR (KOTAK KABUR ATAS) --- */
