@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertai Kami | Novera Green</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background: radial-gradient(circle at center, #1a2e25 0%, #0b1a13 100%);">
+<body style="background: radial-gradient(circle at center, #11261d 0%, var(--forest) 100%); min-height: 100vh; display: flex; flex-direction: column;">
     
-    <nav class="navbar">
-        <img src="assets/images/logonovera.png" style="height: 45px;">
-        <a href="index.html" class="gold-btn" style="padding: 10px 25px; font-size: 0.7rem;">KEMBALI KE UTAMA</a>
+    <nav class="navbar" style="position: absolute;">
+        <a href="index.html"><img src="assets/images/logonovera.png" class="main-logo" alt="Logo"></a>
+        <a href="index.html" class="gold-btn" style="padding: 10px 25px; font-size: 0.8rem;">KEMBALI KE UTAMA</a>
     </nav>
 
-    <main class="container" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-        <div class="glass-card" style="width: 100%; max-width: 600px; margin-top: 50px;">
-            <h2 style="text-align: center; margin-bottom: 10px;">Sertai Revolusi Hijau</h2>
-            <p style="text-align: center; opacity: 0.6; margin-bottom: 40px;">Lengkapkan butiran anda di bawah.</p>
+    <main class="container" style="flex: 1; display: flex; align-items: center; justify-content: center; padding-top: 150px;">
+        <div class="glass-card reveal" style="width: 100%; max-width: 600px; padding: 50px;">
+            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">Sertai Kami</h2>
+            <p style="text-align: center; opacity: 0.7; margin-bottom: 40px;">Lengkapkan butiran anda di bawah untuk menjadi sebahagian daripada Novera Green.</p>
             
             <form action="thankyou.html">
-                <input type="text" placeholder="Nama Penuh" class="luxury-input" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:20px; outline:none;" required>
-                <input type="email" placeholder="E-mel" class="luxury-input" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:20px; outline:none;" required>
+                <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
+                <input type="email" placeholder="Alamat E-mel" class="luxury-input" required>
+                <input type="tel" placeholder="Nombor Telefon" class="luxury-input" required>
                 
-                <select style="width:100%; background:var(--forest); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:30px;">
-                    <option>Sukarelawan</option>
-                    <option>Penyumbang Daun Kering</option>
-                    <option>Pelabur</option>
+                <select class="luxury-input" style="background-color: var(--forest); cursor: pointer;" required>
+                    <option value="" disabled selected>Pilih Peranan Anda...</option>
+                    <option value="sukarelawan">Sukarelawan Pengumpulan</option>
+                    <option value="penyumbang">Penyumbang Daun Kering</option>
                 </select>
 
-                <button type="submit" class="gold-btn" style="width: 100%; border: none; cursor: pointer;">Hantar Permohonan</button>
+                <button type="submit" class="gold-btn" style="width: 100%; margin-top: 20px;">Hantar Permohonan</button>
             </form>
         </div>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
