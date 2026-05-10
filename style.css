@@ -1,254 +1,85 @@
-/* MASTER STYLESHEET: NOVERA GREEN 
-   THEME: DEEP FOREST GREEN, WARM IVORY, GOLD ACCENT
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
-
 :root {
     --forest: #061109;
-    --forest-light: #0d2113;
     --ivory: #fdfbf7;
     --gold: #c5a059;
-    --gold-bright: #e0b975;
-    --glass: rgba(255, 255, 255, 0.07);
+    --gold-glow: rgba(197, 160, 89, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.12);
-    --nav-glass: rgba(6, 17, 9, 0.8);
-    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 1. RESET & BASE */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-    background-color: var(--forest);
-    color: var(--ivory);
-    font-family: 'DM Sans', sans-serif;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background-color: var(--forest); 
+    color: var(--ivory); 
+    font-family: 'DM Sans', sans-serif; 
     overflow-x: hidden;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
-/* Fix for purple/blue links */
-a, a:visited, a:active {
-    color: inherit !important;
-    text-decoration: none !important;
-}
-
-/* 2. LIQUID GLASS NAVBAR */
+/* NAVBAR LIQUID GLASS */
 .glass-nav {
-    position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
-    height: 90px;
-    background: var(--nav-glass);
-    backdrop-filter: blur(40px) saturate(180%);
+    position: fixed; top: 25px; left: 50%; transform: translateX(-50%);
+    width: 90%; max-width: 1200px; height: 85px;
+    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid var(--gold);
-    border-radius: 100px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    padding: 0 45px;
+    border: 1px solid var(--gold); border-radius: 100px;
+    z-index: 9999; display: flex; align-items: center; padding: 0 40px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.nav-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.main-logo { height: 50px; }
+.brand-sub { font-size: 10px; display: block; margin-top: -5px; opacity: 0.7; }
 
-.brand img { height: 55px; transition: var(--transition); }
-.brand img:hover { transform: scale(1.05); }
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 35px;
-    align-items: center;
-}
-
-.nav-links a {
-    font-weight: 500;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: 0.3s ease;
-}
-
+.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+.nav-links a { font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold) !important; }
 
-.nav-btn {
-    background: var(--gold);
-    color: var(--forest) !important;
-    padding: 14px 30px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
-    transition: var(--transition);
+.nav-btn { 
+    background: var(--gold); color: var(--forest) !important; 
+    padding: 12px 25px; border-radius: 50px; font-weight: 700;
+    box-shadow: 0 10px 20px var(--gold-glow);
 }
 
-.nav-btn:hover {
-    background: var(--gold-bright);
-    transform: translateY(-3px);
-}
+/* HAMBURGER */
+.hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
+.hamburger span { width: 28px; height: 3px; background: var(--gold); transition: 0.4s; }
 
-/* 3. HAMBURGER BAR */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 7px;
-    cursor: pointer;
-    z-index: 10000;
-}
+/* HERO */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, var(--forest), transparent); z-index: -1; }
+.hero-content h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 20px; }
 
-.hamburger span {
-    width: 30px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 5px;
-    transition: var(--transition);
-}
-
-/* 4. HERO SECTION WITH LIQUID GLASS */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    transform: scale(1.1);
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(6,17,9,0.95) 0%, rgba(6,17,9,0.6) 50%, transparent 100%);
-    z-index: -1;
-}
-
-.hero-glass-box {
-    background: var(--glass);
-    backdrop-filter: blur(25px);
-    border: 1px solid var(--glass-border);
-    padding: 60px;
-    border-radius: 40px;
-    max-width: 800px;
-}
-
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1.1;
-    margin-bottom: 25px;
-}
-
-/* 5. SECTIONS & BENTO GRID */
-.section-island {
-    width: 92%;
-    max-width: 1350px;
-    margin: 120px auto;
-    padding: 100px 60px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(197, 160, 89, 0.1);
-    border-radius: 70px;
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.bento-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; }
-.bento-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+/* SECTIONS & CARDS */
+.section-island { width: 90%; max-width: 1300px; margin: 100px auto; padding: 100px 50px; border-radius: 80px; background: rgba(255,255,255,0.02); border: 1px solid rgba(197,160,89,0.15); }
+.section-title { font-size: 3.5rem; text-align: center; margin-bottom: 60px; }
 
 .glass-card {
-    background: var(--glass) !important;
-    backdrop-filter: blur(40px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(50px) saturate(210%) !important;
+    -webkit-backdrop-filter: blur(50px) saturate(210%) !important;
     border: 1px solid var(--glass-border);
-    border-radius: 45px;
-    padding: 50px;
-    transition: var(--transition);
+    border-radius: 40px; padding: 50px; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card:hover {
-    transform: translateY(-15px);
-    border-color: var(--gold);
-    background: rgba(255, 255, 255, 0.12) !important;
-}
+.glass-card:hover { transform: translateY(-15px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
 
-/* 6. PROCESS STEPS */
-.process-step {
-    padding-left: 30px;
-    border-left: 2px solid var(--gold);
-    margin-bottom: 40px;
-}
+.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
 
-.process-step h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--gold);
-    margin-bottom: 10px;
-}
+/* UTILS */
+.playfair { font-family: 'Playfair Display', serif; }
+.gold-text { color: var(--gold); }
 
-/* 7. FORM STYLING */
-.volunteer-form { display: flex; flex-direction: column; gap: 20px; }
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 18px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    color: var(--ivory);
-    font-family: inherit;
-}
-
-/* 8. DEVICE ALL FRIENDLY (MOBILE) */
+/* MOBILE RESPONSIVE */
 @media (max-width: 1024px) {
     .hamburger { display: flex; }
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 300px;
-        background: rgba(6, 17, 9, 0.98);
-        backdrop-filter: blur(30px);
-        flex-direction: column;
-        justify-content: center;
-        transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        border-left: 1px solid var(--gold);
+        position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
+        background: rgba(6,17,9,0.98); backdrop-filter: blur(20px);
+        flex-direction: column; justify-content: center; transition: 0.5s;
     }
     .nav-links.active { right: 0; }
     .section-island { padding: 60px 25px; border-radius: 40px; }
-    .hero-glass-box { padding: 30px; }
-    .hero { padding: 0 5%; }
+    .bento-grid { grid-template-columns: 1fr; }
 }
-
-/* UTILS */
-.gold-text { color: var(--gold); }
-.playfair { font-family: 'Playfair Display', serif; }
