@@ -2,44 +2,27 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai NoveraGreen</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <title>Sertai Kami | NoveraGreen</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-
-    <a href="index.html" class="back-home">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="19" y1="12" x2="5" y2="12"></line>
-        <polyline points="12 19 5 12 12 5"></polyline>
-    </svg>
-    <span>Kembali</span>
-</a>
-
-    <div id="leaf-container"></div>
-
-    <main class="container" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 100px;">
-        <div class="card glass" style="width: 100%; max-width: 600px;">
-            <h2 class="playfair gold-text mb-4 text-center">Sertai Pergerakan Hijau</h2>
-            <p class="text-center mb-5" style="opacity: 0.8;">Isi butiran di bawah. Jadikan sumbangan daun anda sebagai satu nilai baharu.</p>
-            
-            <form action="thankyou.html" method="GET">
-                <input type="text" required placeholder="Nama Penuh">
-                <input type="email" required placeholder="Alamat Emel">
-                <input type="tel" required placeholder="No. Telefon">
-                <select required>
-                    <option value="" disabled selected>Pilih Peranan Anda</option>
-                    <option value="volunteer">Sukarelawan</option>
-                    <option value="contributor">Penyumbang Daun Kering</option>
-                </select>
-                <button type="submit" class="submit-btn">Hantar Permohonan</button>
+<body class="sub-page">
+    <nav class="navbar glass-nav">
+        <div class="nav-content">
+            <div class="brand"><img src="assets/images/logonovera.png" class="main-logo"></div>
+            <div class="nav-links"><a href="index.html">Kembali ke Utama</a></div>
+        </div>
+    </nav>
+    <section class="section-island" style="margin-top: 150px;">
+        <div class="card glass reveal">
+            <h1 class="playfair gold-text">Daftar Sukarelawan</h1>
+            <p>Isi borang di bawah untuk menyertai komuniti hijau kami.</p>
+            <form action="thankyou.html" class="volunteer-form" style="margin-top: 30px;">
+                <input type="text" placeholder="Nama Penuh" required class="form-input">
+                <input type="email" placeholder="E-mel" required class="form-input">
+                <textarea placeholder="Kenapa anda ingin sertai?" class="form-input"></textarea>
+                <button type="submit" class="nav-btn" style="border:none; cursor:pointer; width:100%;">Hantar Permohonan</button>
             </form>
         </div>
-    </main>
-
-    <script src="script.js"></script>
+    </section>
 </body>
 </html>
