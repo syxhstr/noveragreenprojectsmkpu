@@ -1,52 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
 :root {
-    --bg: #040a05;
+    --bg: #040805;
     --gold: #c5a059;
     --apple-glass: rgba(255, 255, 255, 0.03);
     --border: rgba(197, 160, 89, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.7; }
 
 /* NAV - APPLE STYLE */
 .glass-nav {
-    position: fixed; top: 0; width: 100%; height: 60px;
-    background: rgba(4, 10, 5, 0.8); backdrop-filter: saturate(180%) blur(20px);
+    position: fixed; top: 0; width: 100%; height: 70px;
+    background: rgba(4, 8, 5, 0.85); backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid var(--border); z-index: 9999;
     display: flex; align-items: center; justify-content: center;
 }
-.nav-content { width: 90%; max-width: 1200px; display: flex; justify-content: space-between; align-items: center; }
-.main-logo { height: 32px; width: auto; transition: 0.3s; }
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: #aaa; text-decoration: none; transition: 0.3s; }
-.nav-links a:hover { color: var(--gold); }
+.nav-content { width: 92%; max-width: 1400px; display: flex; justify-content: space-between; align-items: center; }
+.main-logo { height: 35px !important; width: auto; flex-shrink: 0; }
+.brand { display: flex; flex-direction: column; }
+.brand-sub { font-size: 9px; color: var(--gold); font-weight: 700; letter-spacing: 1px; }
 
-/* HERO - THE INTRO */
-.hero { height: 100vh; width: 100%; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
-.hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); line-height: 1; font-weight: 700; }
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+.nav-links a { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #fff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+.nav-btn { background: var(--gold); color: #000 !important; padding: 10px 20px; border-radius: 50px; opacity: 1 !important; }
 
-/* BENTO CARDS (OBJECTIVE 1,2,3) */
-.objective-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 100px 5%;
-}
-.big-card {
-    background: var(--apple-glass); border: 1px solid var(--border);
-    padding: 60px; border-radius: 40px; position: relative; overflow: hidden;
-    transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.big-card:hover { background: rgba(197, 160, 89, 0.05); transform: translateY(-10px); }
-.card-num { font-size: 80px; font-weight: 700; color: var(--gold); opacity: 0.2; position: absolute; top: 20px; right: 40px; }
-.big-card h3 { font-size: 24px; margin-bottom: 20px; color: var(--gold); }
+/* HERO */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.6); }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1.1; margin-bottom: 20px; }
+.gold-text { color: var(--gold); }
 
-/* FOOTER */
-footer { padding: 60px 5%; border-top: 1px solid var(--border); text-align: center; color: #666; font-size: 12px; }
+/* CONTENT & CARDS */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.section-island { padding: 120px 0; }
+.glass-card { background: var(--apple-glass); backdrop-filter: blur(40px); border: 1px solid var(--border); border-radius: 35px; padding: 60px; }
+.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 30px; }
 
-/* MOBILE FIX */
-@media (max-width: 768px) {
+/* KAD BERASINGAN (OBJECTIVE & IMPACT) */
+.objective-grid, .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+.big-card { background: var(--apple-glass); border: 1px solid var(--border); padding: 40px; border-radius: 30px; transition: 0.5s; position: relative; }
+.big-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+.card-num { font-size: 50px; font-weight: 700; color: var(--gold); opacity: 0.2; position: absolute; top: 20px; right: 30px; }
+
+/* PROCESS ITEMS */
+.process-item { margin-bottom: 40px; border-left: 2px solid var(--gold); padding-left: 25px; }
+.process-item h3 { color: var(--gold); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+
+/* ALL DEVICE FRIENDLY */
+@media (max-width: 900px) {
     .nav-links { display: none; }
-    .objective-grid { grid-template-columns: 1fr; }
-    .big-card { padding: 40px; }
+    .glass-card { padding: 30px; }
+    .hero-title { font-size: 3rem; }
 }
