@@ -1,43 +1,22 @@
-/* --- 1. RESET ASAS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- 1. RESET & FONT MUKTAMAD --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Paksa font DM Sans untuk semua teks biasa */
+html, body, p, li, a, span, label, input, button {
+    font-family: 'DM Sans', sans-serif !important;
 }
 
-/* --- GLOBAL FONT (Sopan) --- */
-body {
-    font-family: 'DM Sans', sans-serif; /* Font asas satu website */
-    background: #0b1a13;
-    color: white;
-}
-
-/* Tajuk Besar (Hanya untuk tajuk) */
+/* Paksa font Playfair untuk semua tajuk */
 h1, h2, h3, .hero-title, .section-title {
     font-family: 'Playfair Display', serif !important;
 }
 
-/* Tulisan Kecil (Target spesifik supaya tak lari) */
-p, li, a, .hero-description, .bento-item p {
-    font-family: 'DM Sans', sans-serif !important;
-    font-weight: 400;
-}
-
-/* --- NAVBAR FIX (Khas untuk Navbar sahaja) --- */
-.nav-links a {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-/* --- 2. NAVBAR (KOTAK KABUR ATAS) --- */
+/* --- 2. NAVBAR (Kanan & Glass) --- */
 .navbar {
     position: fixed;
-    top: 20px;
-    left: 50%;
+    top: 20px; left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
+    width: 90%; max-width: 1200px;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
@@ -49,89 +28,73 @@ p, li, a, .hero-description, .bento-item p {
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Paksa Logo kiri, Menu kanan */
+    justify-content: space-between; /* Logo kiri, Menu kanan */
     align-items: center;
 }
 
-.main-logo {
-    height: 35px; /* Kecilkan logo kat navbar */
-    width: auto;
-}
+.main-logo { height: 35px; width: auto; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
+.nav-links { display: flex; list-style: none; gap: 25px; }
 
 .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    text-decoration: none; color: white;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
 }
 
-/* --- 3. HERO SECTION (VIDEO PENUH SKRIN) --- */
+/* --- 3. HERO (Center Fix) --- */
 .hero {
     position: relative;
-    height: 100vh; /* WAJIB: Penuh skrin */
+    height: 100vh; /* Penuh skrin PC/Phone */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background: #0b1a13;
 }
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    min-width: 100%; min-height: 100%;
     object-fit: cover;
     z-index: -2;
 }
 
 .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: -1;
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.5); z-index: -1;
 }
 
-/* Kotak Content (Logo Besar & Teks) */
-.hero-content {
-    text-align: center;
-    z-index: 10;
-    color: white;
-}
+.hero-content { text-align: center; z-index: 10; color: white; padding: 0 20px; }
 
 .hero-center-logo img {
-    height: 120px; /* Saiz logo besar tengah video */
+    height: clamp(80px, 15vw, 130px);
     margin-bottom: 20px;
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif !important;
     font-size: clamp(2rem, 8vw, 4.5rem);
-    line-height: 1.1;
-    margin-bottom: 15px;
+    line-height: 1.1; margin-bottom: 15px;
 }
 
 .hero-description {
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-    margin-bottom: 30px;
-    opacity: 0.9;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    margin-bottom: 30px; opacity: 0.9;
 }
 
-/* --- 4. RESPONSIVE PHONE --- */
+.gold-btn {
+    display: inline-block;
+    background: #c5a059; color: black;
+    padding: 15px 35px; border-radius: 50px;
+    text-decoration: none; font-weight: 700;
+}
+
+/* --- 4. PHONE RESPONSIVE --- */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Sorok menu PC kat phone */
+    .nav-links { display: none; } /* Sorok menu PC kat phone dulu */
     .hero { height: 100svh; }
-    .hero-center-logo img { height: 80px; }
+    .hero-content { margin-top: 50px; }
 }
