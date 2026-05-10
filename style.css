@@ -1,186 +1,77 @@
-/* --- ROOT & FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-
-:root {
-    --forest: #0b1a13;
-    --ivory: #fdfbf7;
-    --gold: #c5a059;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(197, 160, 89, 0.2);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-body { 
-    background-color: var(--forest); 
-    color: var(--ivory); 
-    font-family: 'DM Sans', sans-serif; 
-    overflow-x: hidden;
-}
-
-/* --- NAVBAR (LIQUID GLASS EFFECT) --- */
-.navbar {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.05); /* Transparan */
-    backdrop-filter: blur(20px); /* Efek Blur Kaca */
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 1000;
-}
-
-.main-logo { height: 100px; width: auto; transition: 0.3s; }
-
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { 
-    color: var(--ivory); 
-    text-decoration: none; 
-    font-size: 0.9rem; 
-    letter-spacing: 1px; 
-    transition: 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-
-/* --- ROUNDED GLASS CARD (Base untuk semua section) --- */
-.glass-card {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
-    border-radius: 40px; /* Rounded card base */
-    padding: 50px;
-    margin-bottom: 40px;
-    transition: 0.4s ease;
-}
-
-.glass-card:hover { border-color: var(--gold); }
-
-/* --- BUTTON PREMIUM --- */
-.gold-btn {
-    background: var(--gold);
-    color: var(--forest);
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-block;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-}
-.gold-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-/* --- FORM STYLING (Untuk Volunteer Page) --- */
-.luxury-input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    color: white;
-    outline: none;
-}
-.luxury-input:focus { border-color: var(--gold); }
-
-/* Mobile Burger */
-.burger { display: none; cursor: pointer; }
-.burger div { width: 25px; height: 2px; background: var(--gold); margin: 5px; transition: 0.3s; }
-
-@media (max-width: 900px) {
-    .burger { display: block; }
-    .nav-links {
-        position: fixed; right: -100%; top: 0; height: 100vh; width: 70%;
-        background: var(--forest); flex-direction: column; justify-content: center;
-        align-items: center; transition: 0.5s;
-    }
-    .nav-links.active { right: 0; }
-}
-
-/* --- FIX FONT GLOBAL --- */
-h1, h2, h3, .section-title {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 700;
-}
-
-p, span, li, a, .bento-item p {
+/* --- 1. FIX FONT (TULISAN KECIL & TAJUK) --- */
+body, p, span, li, a, .hero-description {
     font-family: 'DM Sans', sans-serif !important;
+    letter-spacing: 0.5px;
 }
 
-/* --- FIX HERO (FULLSCREEN & CENTER) --- */
+h1, h2, h3, .section-title, .hero-title {
+    font-family: 'Playfair Display', serif !important;
+}
+
+/* --- 2. NAVBAR (TOLAK KE KANAN) --- */
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Logo kiri, Links kanan */
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links-right {
+    margin-left: auto; /* Paksa menu ke kanan */
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+/* --- 3. HERO (FIX VIDEO & CENTER CONTENT) --- */
 .hero {
-    height: 100vh; /* Penuh saiz skrin */
+    height: 100vh;
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: center; /* Tolak kotak content ke tengah secara melintang */
-    align-items: center;     /* Tolak kotak content ke tengah secara menegak */
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    text-align: center;
+    background-color: #0b1a13; /* Warna fallback jika video tak load */
 }
 
-/* Kotak Induk Content */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pastikan video cover penuh, tak nampak hitam */
+    z-index: 1;
+}
+
 .hero-content {
     position: relative;
-    z-index: 10;
-    width: 90%;
-    max-width: 800px;
-    /* Jangan letak position absolute/fixed kat sini! */
-}
-
-/* Logo Atas Teks */
-.hero-center-logo {
-    margin-bottom: 25px; /* Jarak antara logo dan teks */
+    z-index: 2; /* Duduk atas video */
+    text-align: center;
+    color: white;
+    width: 100%;
 }
 
 .hero-center-logo img {
-    height: clamp(80px, 15vw, 150px); /* Saiz fleksibel */
-    width: auto;
-    filter: drop-shadow(0 0 20px rgba(197,160,89,0.3)); /* Glow emas sikit */
+    height: 100px;
+    margin-bottom: 20px;
 }
 
-/* Tajuk (H1) */
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    line-height: 1.1;
-    margin-bottom: 10px;
-    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.2;
 }
 
-/* Penerangan (P) */
 .hero-description {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 40px; /* Jarak bawah 40px untuk butang */
-    opacity: 0.9;
+    font-size: 1.1rem;
+    margin: 20px auto 35px;
+    max-width: 500px;
 }
 
-/* Video Background Muktamad */
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Video penuh background */
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    filter: brightness(0.4); /* Gelapkan video sikit */
-}
-
-/* Biar Navbar Sentiasa Di Atas (Liquid Glass) */
-.navbar {
-    position: fixed;
-    top: 20px;
-    z-index: 1000;
+/* --- 4. OBJEKTIF UTAMA FONT FIX --- */
+#objective .bento-item p {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
