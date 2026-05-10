@@ -1,111 +1,47 @@
-/* --- 1. RESET & FONT MUKTAMAD --- */
+/* --- RESET --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0b1a13; color: white; overflow-x: hidden; }
 
-/* Paksa font DM Sans untuk semua teks biasa */
-html, body, p, li, a, span, label, input, button {
-    font-family: 'DM Sans', sans-serif !important;
-}
+/* FONT MUKTAMAD */
+html body, p, li, a, span { font-family: 'DM Sans', sans-serif !important; }
+h1, h2, h3, .hero-title, .section-title { font-family: 'Playfair Display', serif !important; }
 
-/* Paksa font Playfair untuk semua tajuk */
-h1, h2, h3, .hero-title, .section-title {
-    font-family: 'Playfair Display', serif !important;
-}
-
-/* --- RESET & FONT MUKTAMAD --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body { 
-    background-color: #0b1a13; 
-    overflow-x: hidden;
-}
-
-/* Paksa Font Keluar */
-h1, h2, .hero-title, .section-title {
-    font-family: 'Playfair Display', serif !important;
-}
-
-p, a, li, span, .hero-description {
-    font-family: 'DM Sans', sans-serif !important;
-}
-
-/* --- NAVBAR (MENU KE KANAN) --- */
+/* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 20px; left: 50%;
-    transform: translateX(-50%);
-    width: 90%; max-width: 1200px;
-    z-index: 9999; /* Paling atas sekali */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 100px;
-    padding: 12px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    width: 90%; max-width: 1200px; z-index: 1000;
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px);
+    border-radius: 100px; padding: 12px 30px; border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.main-logo { height: 35px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { text-decoration: none; color: white; font-size: 11px; font-weight: 700; text-transform: uppercase; }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between; /* Logo kiri, Menu kanan */
-    align-items: center;
-}
-
-.main-logo { height: 35px; width: auto; }
-
-.nav-links { display: flex; list-style: none; gap: 25px; }
-
-.nav-links a {
-    text-decoration: none; color: white;
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1px;
-}
-
-/* --- HERO (VIDEO BACKGROUND FIX) --- */
+/* HERO */
 .hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    position: relative; height: 100vh; width: 100%;
+    display: flex; justify-content: center; align-items: center; overflow: hidden;
 }
+.hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: -1; }
+.hero-content { text-align: center; z-index: 10; padding: 0 20px; }
+.hero-center-logo img { height: 100px; margin-bottom: 20px; }
+.hero-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 10px; }
+.gold-btn { background: #c5a059; color: black; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; }
 
-.hero-video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover; /* Biar video penuh skrin */
-    z-index: -2; /* Video paling belakang */
-}
+/* CONTENT SPACING */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding-top: 50px; }
+.glass-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
+.section-title { font-size: 2rem; margin-bottom: 20px; color: #c5a059; }
+.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.bento-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; }
+.bento-item h3 { margin-bottom: 10px; color: #c5a059; }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* Gelapkan sikit biar teks nampak */
-    z-index: -1;
-}
+footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem; }
 
-.hero-content {
-    text-align: center;
-    z-index: 10;
-    color: white;
-}
-
-.hero-center-logo img {
-    height: clamp(80px, 15vw, 120px);
-    margin-bottom: 20px;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    line-height: 1.1;
-}
-
-/* --- FIX VOLUNTEER REDIRECT --- */
-/* Pastikan button dalam form volunteer.html ada type="submit" */
-
-/* --- 4. PHONE RESPONSIVE --- */
+/* PHONE */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Sorok menu PC kat phone dulu */
-    .hero { height: 100svh; }
-    .hero-content { margin-top: 50px; }
+    .nav-links { display: none; }
+    .hero-title { font-size: 2rem; }
 }
