@@ -1,62 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
 
 :root {
-    --earth-deep: #0a140f;
+    --bg: #08120c;
     --gold: #d4af37;
-    --liquid-glass: rgba(255, 255, 255, 0.05);
-    --border: rgba(212, 175, 55, 0.3);
+    --yellow: #ffff00;
+    --border: rgba(212, 175, 55, 0.2);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background: radial-gradient(circle at center, #13251d 0%, var(--earth-deep) 100%); 
-    color: #fff; font-family: 'Inter', sans-serif; line-height: 1.6;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; }
 
-/* NAVBAR LIQUID GLASS - DYNAMIC ISLAND STYLE */
+/* LIQUID GLASS NAV */
 .glass-nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1000px; height: 70px;
-    background: rgba(10, 20, 15, 0.7); 
-    backdrop-filter: blur(30px) saturate(150%); /* Liquid Effect */
-    border: 1.5px solid var(--border); border-radius: 100px;
-    z-index: 9999; display: flex; align-items: center; padding: 0 30px;
+    width: 95%; max-width: 1100px; height: 75px;
+    background: rgba(15, 25, 20, 0.4); 
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    border: 1px solid var(--border); border-radius: 100px;
+    z-index: 999; display: flex; align-items: center; padding: 0 40px;
 }
 
-.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.main-logo { height: 32px; width: auto; }
+.brand-group { display: flex; flex-direction: column; }
+.main-logo { height: 28px; }
+.brand-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; }
 
-/* NAVBAR TEXT HIGHLIGHTED */
-.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-.nav-links a { 
-    font-size: 12px; font-weight: 700; /* Highlighted */
-    text-transform: uppercase; letter-spacing: 1.5px; 
-    color: #fff; text-decoration: none; transition: 0.3s;
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; margin-left: auto; }
+.nav-links a { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #fff; text-decoration: none; letter-spacing: 1px; }
+
+/* SERTAI KAMI HOVER -> PURE YELLOW */
+.nav-btn { background: var(--gold); color: #000 !important; padding: 12px 25px; border-radius: 50px; transition: 0.3s; }
+.nav-btn:hover { background: var(--yellow) !important; transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 255, 0, 0.4); }
+
+/* HERO */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.3); }
+.hero-title { font-size: clamp(3rem, 10vw, 7rem); font-weight: 800; line-height: 0.9; letter-spacing: -3px; }
+.hero-title span { color: var(--gold); }
+
+/* BENTO SYSTEM (MOBILE FRIENDLY) */
+.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.bento-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 40px; border-radius: 30px; position: relative; }
+.num { font-size: 50px; font-weight: 800; color: var(--gold); opacity: 0.2; position: absolute; top: 10px; right: 20px; }
+
+.glass-card { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 40px; padding: 60px; margin-bottom: 40px; }
+.title-gold { font-size: 2.5rem; font-weight: 800; color: var(--gold); margin-bottom: 20px; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-title { letter-spacing: -1px; }
+    .glass-card { padding: 30px; }
 }
-.nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
-
-/* MOBILE FRIENDLY ADJUSTMENTS */
-@media (max-width: 850px) {
-    .nav-links { display: none; } /* Mobile hide links */
-    .glass-nav { width: 95%; height: 60px; top: 10px; }
-    .hero-title { font-size: 3rem !important; }
-    .objective-grid, .impact-grid { grid-template-columns: 1fr !important; }
-    .glass-card { padding: 30px !important; }
-}
-
-/* TYPOGRAPHY & CARDS */
-.title-gold { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 3rem; margin-bottom: 25px; }
-.glass-card { 
-    background: var(--liquid-glass); backdrop-filter: blur(40px); 
-    border: 1px solid var(--border); border-radius: 40px; padding: 60px; margin-bottom: 40px;
-}
-
-.objective-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.big-card { 
-    background: rgba(255,255,255,0.02); border: 1px solid var(--border); 
-    padding: 40px; border-radius: 30px; position: relative; transition: 0.4s;
-}
-.big-card:hover { background: rgba(212, 175, 55, 0.05); transform: translateY(-10px); }
-.card-num { font-size: 60px; font-weight: 700; color: var(--gold); opacity: 0.1; position: absolute; top: 10px; right: 20px; }
-
-.nav-btn { background: var(--gold); color: #000 !important; padding: 12px 24px; border-radius: 50px; }
