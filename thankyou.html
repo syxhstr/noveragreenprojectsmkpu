@@ -3,25 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terima Kasih | NoveraGreen</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Terima Kasih | Novera Green</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #061109;
+            --gold: #C5A059;
+            --ivory: #F8F5F0;
+        }
+
+        body {
+            background-color: var(--forest);
+            color: var(--ivory);
+            font-family: 'DM Sans', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .thank-you-card {
+            padding: 50px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Success Icon Animation */
+        .check-container {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        p {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* SOLUSI LINK PURPLE */
+        .btn-home {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--gold);
+            color: var(--forest) !important; /* Paksa warna gelap */
+            text-decoration: none !important; /* Buang underline */
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Pastikan lepas klik pun dia tak jadi purple */
+        .btn-home:visited {
+            color: var(--forest) !important;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+            background-color: var(--ivory);
+        }
+    </style>
 </head>
 <body>
 
-    <div id="leaf-container"></div>
-
-    <main class="container" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-        <div class="card glass text-center" style="width: 100%; max-width: 500px;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🌿</div>
-            <h2 class="playfair gold-text mb-4">Pendaftaran Berjaya!</h2>
-            <p class="mb-5">Terima kasih kerana menyertai kami. Maklumat anda telah direkodkan dan kami akan hubungi anda dalam masa terdekat.</p>
-            <a href="index.html" class="submit-btn" style="display: inline-block; text-decoration: none;">Kembali ke Laman Utama</a>
+    <div class="thank-you-card">
+        <div class="check-container">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
         </div>
-    </main>
+        
+        <h1>Terima Kasih!</h1>
+        <p>Permohonan anda telah berjaya dihantar. Pasukan kami akan menghubungi anda dalam masa terdekat melalui emel.</p>
+        
+        <a href="index.html" class="btn-home">Laman Utama</a>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        gsap.from(".thank-you-card", {
+            opacity: 0,
+            scale: 0.8,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+    </script>
 </body>
 </html>
