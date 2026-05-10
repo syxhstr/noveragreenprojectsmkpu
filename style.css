@@ -1,108 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
 :root {
     --forest: #061109;
-    --ivory: #fdfbf7;
     --gold: #c5a059;
-    --gold-glow: rgba(197, 160, 89, 0.4);
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.12);
+    --ivory: #fdfbf7;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-heavy: rgba(255, 255, 255, 0.12);
+    --border: rgba(197, 160, 89, 0.3);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background-color: var(--forest); 
-    color: var(--ivory); 
-    font-family: 'DM Sans', sans-serif; 
-    overflow-x: hidden;
-    line-height: 1.7;
-}
+body { background: var(--forest); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-/* NAVBAR LIQUID GLASS */
+/* --- NAVBAR FIXED --- */
 .glass-nav {
-    position: fixed; top: 25px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1200px; height: 85px;
-    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid var(--gold); border-radius: 100px;
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    width: 95%; max-width: 1300px; min-height: 90px;
+    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border); border-radius: 100px;
     z-index: 9999; display: flex; align-items: center; padding: 0 40px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.main-logo { height: 50px; }
-.brand-sub { font-size: 10px; display: block; margin-top: -5px; opacity: 0.7; }
+.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 
-.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
-.nav-links a { font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+.brand { display: flex; flex-direction: column; align-items: flex-start; }
+.main-logo { height: 65px; width: auto; object-fit: contain; margin-bottom: -5px; } /* Besarkan logo */
+.brand-sub { font-size: 11px; color: var(--ivory); opacity: 0.8; letter-spacing: 0.5px; }
+
+.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
+.nav-links a { font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold) !important; }
 
 .nav-btn { 
     background: var(--gold); color: var(--forest) !important; 
-    padding: 12px 25px; border-radius: 50px; font-weight: 700;
-    box-shadow: 0 10px 20px var(--gold-glow);
+    padding: 14px 35px; border-radius: 50px; font-weight: 700;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2); 
 }
 
-/* HAMBURGER */
-.hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
-.hamburger span { width: 28px; height: 3px; background: var(--gold); transition: 0.4s; }
-
-/* HERO */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, var(--forest), transparent); z-index: -1; }
-.hero-content h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 20px; }
-
-/* SECTIONS & CARDS */
-.section-island { width: 90%; max-width: 1300px; margin: 100px auto; padding: 100px 50px; border-radius: 80px; background: rgba(255,255,255,0.02); border: 1px solid rgba(197,160,89,0.15); }
-.section-title { font-size: 3.5rem; text-align: center; margin-bottom: 60px; }
+/* --- CARDS & UI FIX --- */
+.section-island { width: 90%; max-width: 1200px; margin: 150px auto; padding: 20px; }
 
 .glass-card {
-    background: var(--glass-bg) !important;
-    backdrop-filter: blur(50px) saturate(210%) !important;
-    -webkit-backdrop-filter: blur(50px) saturate(210%) !important;
-    border: 1px solid var(--glass-border);
-    border-radius: 40px; padding: 50px; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    background: var(--glass) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    border: 1px solid var(--border); border-radius: 40px;
+    padding: 60px; margin-bottom: 30px; transition: 0.4s;
 }
 
-.glass-card:hover { transform: translateY(-15px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
 
-.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+/* VOLUNTEER & THANK YOU UI SIZE */
+.full-card { max-width: 800px; margin: 180px auto; text-align: center; }
+.form-input { 
+    width: 100%; padding: 18px; margin-bottom: 15px; 
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    border-radius: 15px; color: white; font-size: 1rem;
+}
 
-/* UTILS */
-.playfair { font-family: 'Playfair Display', serif; }
-.gold-text { color: var(--gold); }
+.btn-back { 
+    display: inline-block; margin-top: 25px; color: var(--gold) !important; 
+    font-weight: 600; text-decoration: underline !important; cursor: pointer;
+}
 
-/* MOBILE RESPONSIVE */
+/* --- MOBILE --- */
 @media (max-width: 1024px) {
-    .hamburger { display: flex; }
-    .nav-links {
-        position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
-        background: rgba(6,17,9,0.98); backdrop-filter: blur(20px);
-        flex-direction: column; justify-content: center; transition: 0.5s;
-    }
-    .nav-links.active { right: 0; }
-    .section-island { padding: 60px 25px; border-radius: 40px; }
-    .bento-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Hamburger logic handled by JS */
+    .main-logo { height: 50px; }
 }
-
-/* --- FIX KONFLIK ANIMASI CACAT --- */
-/* Matikan transform lama kat kad/pulau, kita pakai yPercent GSAP */
-.glass-card, .section-island {
-    transform: none !important;
-}
-
-/* --- PARTIKEL DAUN (ADD TO HTML IF WANTED) --- */
-/* Tambah elemen <div class="floating-leaf gold-text">🍂</div> dalam index.html kalau nak nampak */
-.floating-leaf {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 1; /* Di belakang card, depan video */
-    will-change: transform; /* Optimasi GPU */
-}
-
-/* Contoh kedudukan daun, tambah kat mana-mana dalam main container */
-/* <div class="floating-leaf gold-text" style="top: 20%; left: 10%;">🍂</div>
-<div class="floating-leaf gold-text" style="top: 60%; right: 15%;">🍃</div>
-<div class="floating-leaf gold-text" style="top: 85%; left: 30%;">🍂</div>
-*/
