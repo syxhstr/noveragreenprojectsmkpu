@@ -1,20 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. HAMBURGER MENU LOGIC
     const menuToggle = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
 
-    menuToggle.addEventListener('click', () => {
-        navList.classList.toggle('active');
-        // Transform hamburger to X
-        const spans = menuToggle.querySelectorAll('span');
-        spans[0].style.transform = navList.classList.contains('active') ? 'rotate(45deg) translate(6px, 6px)' : 'none';
-        spans[1].style.opacity = navList.classList.contains('active') ? '0' : '1';
-        spans[2].style.transform = navList.classList.contains('active') ? 'rotate(-45deg) translate(7px, -7px)' : 'none';
-    });
-});
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            
+            // Animasi Hamburger ke X
+            const spans = menuToggle.querySelectorAll('span');
+            if(navList.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
 
-    // 2. GSAP ANIMATION (RE-TRIGGER)
+    // 2. GSAP REVEAL ANIMATION
     gsap.registerPlugin(ScrollTrigger);
-    
     gsap.utils.toArray('.reveal').forEach(elem => {
         gsap.fromTo(elem, 
             { y: 50, opacity: 0 }, 
@@ -29,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 });
-
 // ULTRA-SMOOTH REVEAL
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
