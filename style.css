@@ -2,7 +2,6 @@
     --forest: #0b1a13;
     --gold: #c5a059;
     --ivory: #f9f6f0;
-    --glass: rgba(255, 255, 255, 0.05);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -14,62 +13,100 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-
-/* NAVBAR LIQUID GLASS */
+/* NAVBAR SLIM & LUXURY */
 .navbar {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1200px; z-index: 1000;
-    background: var(--glass) !important;
-    backdrop-filter: blur(25px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
+    width: 95%; max-width: 1000px; z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(15px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 100px; padding: 12px 30px;
+    border-radius: 50px; 
+    padding: 8px 25px; /* Padding dikecilkan */
 }
 
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
-.main-logo { height: 30px; }
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { color: var(--ivory); text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.nav-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* FIX LOGO BESAR */
+.main-logo { 
+    height: 25px; /* Logo dikunci saiz kecil */
+    width: auto;
+    display: block;
+}
+
+.nav-links { display: flex; list-style: none; gap: 15px; }
+.nav-links a { 
+    color: var(--ivory); 
+    text-decoration: none; 
+    font-size: 10px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+}
 
 /* HERO */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: -1; }
-.hero-logo-large { height: 100px; margin-bottom: 20px; }
-.hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
-.hero-title span { color: var(--gold); font-style: italic; }
-
-/* BUTTONS - NO MORE BLUE LINKS */
-.gold-btn-mega {
-    background: var(--gold) !important;
-    color: black !important;
-    padding: 18px 50px;
-    border-radius: 100px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-    border: none;
+.hero { 
+    height: 100vh; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
 }
-.gold-btn-mega:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(197,160,89,0.4); }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); z-index: -1; }
+
+.hero-logo-large { 
+    max-width: 150px; /* Saiz logo hero dikawal */
+    margin-bottom: 20px; 
+}
+
+.hero-title { font-size: clamp(2rem, 6vw, 4rem); line-height: 1; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+.hero-title span { color: var(--gold); }
 
 /* CARDS */
-.main-wrapper { max-width: 1000px; margin: 0 auto; padding: 100px 20px; }
+.main-wrapper { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 .glass-card {
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 60px 40px;
-    border-radius: 40px;
-    margin-bottom: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px; border-radius: 30px; margin-bottom: 40px;
 }
-.join-box { text-align: center; border: 1px solid var(--gold); }
-.section-title { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-.grid-item { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; }
 
-/* THANK YOU PAGE */
-.thank-you-wrapper { height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--forest); text-align: center; }
+.section-title { color: var(--gold); font-size: 2rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
 
-footer { text-align: center; padding: 50px; opacity: 0.3; font-size: 0.7rem; }
+/* BUTTONS */
+.gold-btn-mega {
+    background: var(--gold) !important;
+    color: black !important;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+}
+
+/* THANK YOU WRAPPER */
+.thank-you-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--forest);
+}
+
+footer { text-align: center; padding: 40px; opacity: 0.3; font-size: 10px; }
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+    .navbar { padding: 10px 20px; }
+    .hero-title { font-size: 2.5rem; }
+}
