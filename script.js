@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. HAMBURGER MENU
     const menuToggle = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            // Animasi tukar jadi X (Optional)
-            menuToggle.classList.toggle('is-active');
-        });
-    }
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        // Transform hamburger to X
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = navList.classList.contains('active') ? 'rotate(45deg) translate(6px, 6px)' : 'none';
+        spans[1].style.opacity = navList.classList.contains('active') ? '0' : '1';
+        spans[2].style.transform = navList.classList.contains('active') ? 'rotate(-45deg) translate(7px, -7px)' : 'none';
+    });
+});
 
     // 2. GSAP ANIMATION (RE-TRIGGER)
     gsap.registerPlugin(ScrollTrigger);
