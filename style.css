@@ -39,7 +39,7 @@ body {
     z-index: 1000;
 }
 
-.main-logo { height: 50px; width: auto; transition: 0.3s; }
+.main-logo { height: 100px; width: auto; transition: 0.3s; }
 
 .nav-links { display: flex; gap: 30px; list-style: none; }
 .nav-links a { 
