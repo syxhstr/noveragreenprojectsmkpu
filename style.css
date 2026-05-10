@@ -83,3 +83,26 @@ body {
     .section-island { padding: 60px 25px; border-radius: 40px; }
     .bento-grid { grid-template-columns: 1fr; }
 }
+
+/* --- FIX KONFLIK ANIMASI CACAT --- */
+/* Matikan transform lama kat kad/pulau, kita pakai yPercent GSAP */
+.glass-card, .section-island {
+    transform: none !important;
+}
+
+/* --- PARTIKEL DAUN (ADD TO HTML IF WANTED) --- */
+/* Tambah elemen <div class="floating-leaf gold-text">🍂</div> dalam index.html kalau nak nampak */
+.floating-leaf {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1; /* Di belakang card, depan video */
+    will-change: transform; /* Optimasi GPU */
+}
+
+/* Contoh kedudukan daun, tambah kat mana-mana dalam main container */
+/* <div class="floating-leaf gold-text" style="top: 20%; left: 10%;">🍂</div>
+<div class="floating-leaf gold-text" style="top: 60%; right: 15%;">🍃</div>
+<div class="floating-leaf gold-text" style="top: 85%; left: 30%;">🍂</div>
+*/
