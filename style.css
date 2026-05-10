@@ -106,3 +106,40 @@ body {
     }
     .nav-links.active { right: 0; }
 }
+
+/* --- FIX LOGO TENGAH VIDEO --- */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-center-logo {
+    position: absolute;
+    top: 35%; /* Letak dia atas sikit dari text */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.hero-center-logo img {
+    height: 120px; /* Saiz logo tengah */
+    width: auto;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    margin-top: 150px; /* Tolak text ke bawah supaya tak tindih logo */
+}
+
+/* Biar Navbar Sentiasa Di Atas (Liquid Glass) */
+.navbar {
+    position: fixed;
+    top: 20px;
+    z-index: 1000;
+}
