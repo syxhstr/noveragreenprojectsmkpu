@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertai Kami | Novera Green</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px;">
-    <div class="glass-card" style="max-width:600px; width:100%; text-align:center;">
-        <h2 style="color:var(--gold); margin-bottom:40px;">Sertai Pergerakan Kami</h2>
-        <form action="thankyou.html">
-            <input type="text" placeholder="Nama Penuh" class="input-field" required>
-            <input type="email" placeholder="Alamat Emel" class="input-field" required>
-            <input type="tel" placeholder="No. Telefon (Optional)" class="input-field">
-            
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:30px;">
-                <label style="border:1px solid var(--border); padding:20px; border-radius:15px; cursor:pointer;">
-                    <input type="radio" name="type" required> Sukarelawan
-                </label>
-                <label style="border:1px solid var(--border); padding:20px; border-radius:15px; cursor:pointer;">
-                    <input type="radio" name="type"> Sumbang Daun
-                </label>
-            </div>
-            <button type="submit" class="nav-btn" style="width:100%; border:none; cursor:pointer;">HANTAR</button>
-        </form>
-    </div>
+<body class="form-page">
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <a href="index.html" style="text-decoration: none;">
+                <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
+            </a>
+            <a href="index.html" class="nav-links a" style="font-size: 10px; opacity: 0.6;">KEMBALI KE UTAMA</a>
+        </div>
+    </nav>
+
+    <main class="form-container">
+        <div class="glass-card reveal-form">
+            <h1 class="title-gold" style="text-align: center; font-size: 2.5rem;">Sertai Pergerakan Kami</h1>
+            <p style="text-align: center; opacity: 0.6; margin-bottom: 40px;">Pilih cara anda untuk membantu melestarikan bumi.</p>
+
+            <form action="thankyou.html">
+                <div class="role-grid">
+                    <label class="role-card">
+                        <input type="radio" name="role" value="volunteer" required>
+                        <div class="role-content">
+                            <span class="icon">🌿</span>
+                            <span class="label">Sukarelawan</span>
+                        </div>
+                    </label>
+                    <label class="role-card">
+                        <input type="radio" name="role" value="donate">
+                        <div class="role-content">
+                            <span class="icon">📦</span>
+                            <span class="label">Sumbang Daun</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
+                    <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
+                    <input type="tel" placeholder="No. Telefon (Optional)" class="luxury-input">
+                </div>
+
+                <button type="submit" class="nav-btn submit-btn">HANTAR PERMOHONAN</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        gsap.from(".reveal-form", { opacity: 0, y: 30, duration: 1.2, ease: "expo.out" });
+    </script>
 </body>
 </html>
