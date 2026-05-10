@@ -1,17 +1,20 @@
+/* ========================================================
+   NOVERA GREEN - MASTER STYLE (CLEAN & ROUNDED)
+   ======================================================== */
+
 :root {
     --forest-base: #061109;
     --forest-light: #0d2e1b;
     --ivory: #fdfbf7;
     --gold: #c5a059;
     --glass-bg: rgba(253, 251, 247, 0.03);
-    --glass-border: rgba(197, 160, 89, 0.15); /* Hint of gold in borders */
+    --glass-border: rgba(197, 160, 89, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--forest-base);
-    /* NON-SOLID AMBIENT BACKGROUND */
     background-image: 
         radial-gradient(circle at 15% 50%, rgba(13, 46, 27, 0.6) 0%, transparent 50%),
         radial-gradient(circle at 85% 30%, rgba(13, 46, 27, 0.4) 0%, transparent 50%);
@@ -22,14 +25,16 @@ body {
     overflow-x: hidden;
 }
 
+/* TYPOGRAPHY */
 .playfair { font-family: 'Playfair Display', serif; }
 .gold-text { color: var(--gold); }
 .text-center { text-align: center; }
+.mb-0 { margin-bottom: 0; }
 .mb-4 { margin-bottom: 1rem; }
 .mb-5 { margin-bottom: 3rem; }
 .mt-3 { margin-top: 1rem; }
 
-/* --- LIQUID GLASS EFFECT --- */
+/* --- LIQUID GLASS & CARDS --- */
 .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(24px) saturate(150%);
@@ -39,7 +44,38 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* 1. Paksa Navbar jadi Slim */
+.card { 
+    padding: 40px; 
+    transition: transform 0.4s ease, border-color 0.4s ease; 
+}
+
+.card:hover { 
+    transform: translateY(-5px); 
+    border-color: rgba(197, 160, 89, 0.4); 
+}
+
+/* --- SECTION ROUNDED FIX (PULAU PREMIUM) --- */
+/* Ini ubat untuk hilangkan 'square' tu mat */
+.section-about, .section-process, .section-impact {
+    border-radius: 40px; /* Bucu melengkung */
+    margin: 40px 20px;   /* Jarak dari tepi supaya nampak rounded */
+    padding: 100px 40px;
+    border: 1px solid rgba(197, 160, 89, 0.05); /* Garis halus keliling section */
+}
+
+.section-about {
+    background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+}
+
+.section-process {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.section-impact {
+    background: radial-gradient(circle at 90% 80%, rgba(46, 139, 87, 0.08) 0%, transparent 50%);
+}
+
+/* --- NAVIGATION (SLIM & FLOATING) --- */
 .glass-nav {
     position: fixed;
     top: 20px;
@@ -47,7 +83,7 @@ body {
     transform: translateX(-50%);
     width: 95%;
     max-width: 1200px;
-    height: 70px; /* Kunci tinggi navbar kat sini */
+    height: 70px;
     background: rgba(6, 17, 9, 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
@@ -55,435 +91,38 @@ body {
     z-index: 1000;
 }
 
-/* 2. Nav Content kena ada 'relative' supaya kita boleh 'float' kan logo */
 .nav-content {
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Tolak menu ke kanan */
+    justify-content: flex-end;
     padding: 0 40px;
 }
 
-/* 3. TEKNIK MAGIC: Floating Brand Section */
 .brand {
-    position: absolute; /* Ni kunci dia! Dia takkan tolak dinding navbar */
+    position: absolute;
     left: 40px;
     top: 50%;
-    transform: translateY(-50%); /* Center secara vertical */
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 15px;
-    pointer-events: auto;
 }
 
-/* 4. Logo Besarkan Kat Sini */
 .main-logo {
-    height: 100px !important; /* Kau nak 100px kan? Haa amik ni */
+    height: 80px !important; /* Adjust sikit biar muat navbar */
     width: auto;
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); /* Bagi nampak 3D sikit */
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
     transition: 0.3s ease;
 }
-
-.main-logo:hover {
-    transform: scale(1.1); /* Hover effect ala Apple */
-}
-
-/* 5. Teks 'by MinimallyFoliumTech' */
-.brand-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.sub-brand {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-}
-
-.brand { display: flex; align-items: center; gap: 10px; }
-.main-logo { height: 100px; }
-.novera-text { font-weight: 700; letter-spacing: 1px; }
 
 .nav-links { display: flex; gap: 25px; align-items: center; }
 .nav-links a { color: var(--ivory); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold); }
 .nav-btn { background: var(--gold); color: var(--forest-base) !important; padding: 10px 24px; border-radius: 30px; font-weight: bold; }
 
-/* Hero */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-.hero-video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.1); min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,17,9,0.2) 0%, var(--forest-base) 100%); z-index: -1; }
-.hero-content { z-index: 1; max-width: 800px; padding: 20px; }
-.hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.1; margin: 20px 0; letter-spacing: -1px; }
-.hero-desc { font-size: 1.1rem; opacity: 0.8; }
-
-/* Layouts */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 120px 0; }
-.section-title { font-size: 3.5rem; letter-spacing: -1px; }
-
-.card { padding: 40px; transition: transform 0.4s ease, border-color 0.4s ease; }
-.card:hover { transform: translateY(-5px); border-color: rgba(197, 160, 89, 0.4); }
-
-.bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-.number { font-size: 3rem; font-family: 'Playfair Display', serif; display: block; margin-bottom: 10px; opacity: 0.5; }
-
-.process-timeline { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
-.process-card h3 { margin-bottom: 10px; font-size: 1.5rem; }
-
-/* Floating Leaves Container */
-#leaf-container { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
-.leaf { position: absolute; background: var(--gold); width: 8px; height: 12px; border-radius: 0 80% 0 80%; opacity: 0.15; filter: blur(1px); }
-
-/* Form Elements */
-input, select {
-    width: 100%; padding: 16px; margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
-    border-radius: 12px; color: var(--ivory); font-family: inherit;
-    transition: 0.3s;
-}
-input:focus, select:focus { outline: none; border-color: var(--gold); background: rgba(255, 255, 255, 0.1); }
-button.submit-btn { width: 100%; background: var(--gold); color: var(--forest-base); border: none; padding: 16px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
-button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
-
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100vh;
-        /* Teknik Mesh Gradient: Hijau Hutan + Hitam */
-        background: linear-gradient(135deg, #061109 0%, #0d2e1b 100%);
-        backdrop-filter: blur(50px);
-        -webkit-backdrop-filter: blur(50px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        z-index: 1001;
-        
-        /* State tutup */
-        clip-path: circle(0% at 90% 5%); /* Animasi membulat macam Android/Apple */
-        transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        visibility: hidden;
-    }
-
-    .nav-links.active {
-        clip-path: circle(150% at 90% 5%);
-        visibility: visible;
-    }
-
-    .nav-links a {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.8rem;
-        font-weight: 800;
-        letter-spacing: -2px; /* Font rapat-rapat style magazine mahal */
-        color: var(--ivory);
-        text-transform: capitalize;
-        transition: 0.3s;
-    }
-
-    .nav-links .nav-btn {
-        background: #C5A059; /* Warna Gold */
-        color: #061109 !important; /* Tulisan Gelap */
-        padding: 18px 45px;
-        border-radius: 100px;
-        font-family: 'DM Sans', sans-serif; /* Font butang lain sikit dari menu */
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-top: 20px;
-        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
-        opacity: 0; /* Untuk GSAP */
-        transform: translateY(20px);
-    }
-    
-}
-
-    /* ==========================================
-   ONE & ONLY HAMBURGER SETTING (Ganti Semua)
-   ========================================== */
-
-.hamburger {
-    display: none; /* Sembunyi kat desktop */
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    background: rgba(197, 160, 89, 0.1); /* Background emas nipis */
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 1005;
-    gap: 6px; /* Jarak antara bar */
-    transition: all 0.3s ease;
-}
-
-.hamburger:hover {
-    background: rgba(197, 160, 89, 0.2);
-    transform: scale(1.05);
-}
-
-.bar {
-    width: 24px;
-    height: 2px;
-    background-color: #C5A059 !important; /* Warna Emas Solid */
-    border-radius: 4px;
-    display: block !important;
-    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
-}
-
-/* Animasi X bila active */
-.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
-.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-/* --- TAMPILKAN DI MOBILE --- */
-@media (max-width: 768px) {
-    .hamburger { 
-        display: flex !important; /* Paksa muncul kat mobile */
-        margin-left: auto; /* Tolak ke kanan navbar */
-    }
-}
-
-/* =========================================
-   RESPONSIVE FIX & MOBILE MENU (MAX 768PX)
-========================================== */
-@media (max-width: 768px) {
-    
-    /* 1. Navbar Slim down */
-    .glass-nav {
-        height: 60px;
-        width: 95%;
-        top: 15px;
-    }
-
-    .main-logo { height: 60px !important; } /* Logo kecik sikit di mobile */
-    .sub-brand { display: none; } /* Sorok teks ni supaya tak serabut skrin */
-    
-    /* 2. Tunjuk butang Hamburger */
-    .hamburger { display: flex; }
-
-    /* 3. Tukar Nav Links jadi Fullscreen Menu Dropdown */
-    .nav-links {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100vh; /* Penuh satu skrin */
-        background: rgba(6, 17, 9, 0.95); /* Hijau gelap pekat sikit */
-        backdrop-filter: blur(25px); /* Efek kaca tebal */
-        -webkit-backdrop-filter: blur(25px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px; /* Jarak antara menu jauh sikit */
-        transform: translateY(-100%); /* Sembunyi kat atas dulu */
-        transition: transform 0.4s ease-in-out;
-        z-index: 1001;
-    }
-
-    .nav-links.active {
-        transform: translateY(0); /* Menu turun bila class 'active' ditambah */
-    }
-
-    .nav-links a {
-        font-size: 1.5rem; /* Besarkan font untuk senang tekan pakai jari */
-        font-weight: 500;
-    }
-
-    /* 4. Animasi Hamburger jadi bentuk 'X' bila ditekan */
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* --- FIX LAIN UNTUK MOBILE --- */
-    .hero h1 { font-size: 2.8rem; }
-    .bento-grid-2, .bento-grid-3 { grid-template-columns: 1fr; }
-    .section-padding { padding: 80px 0; }
-    #leaf-container { display: none; } /* Matikan daun animasi kat phone supaya tak lag */
-}
-
-/* --- FORCE DESKTOP VISIBILITY (Settlekan masalah link hilang) --- */
-@media (min-width: 769px) {
-    .nav-links a {
-        opacity: 1 !important; /* Paksa nampak */
-        visibility: visible !important; /* Paksa muncul */
-        transform: none !important; /* Batalkan kesan gerak-gerak GSAP */
-    }
-    
-    .nav-links {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: none !important;
-        position: static !important; /* Pastikan dia duduk tempat asal */
-        height: auto !important;
-        background: transparent !important; /* Buang warna hitam mobile */
-        pointer-events: auto !important;
-    }
-}
-
-/* ========================================================
-   MASTER FIX: NAVIGATION & MOBILE MENU (PASTE AT BOTTOM)
-   ======================================================== */
-
-/* 1. Reset Hamburger & Bar */
-.hamburger {
-    display: none; /* Sembunyi kat desktop */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    z-index: 1002;
-}
-
-.bar {
-    width: 100%;
-    height: 3px; /* Tebalkan sikit jadi 3px biar nampak solid */
-    background-color: #C5A059 !important; /* Paksa guna warna Gold Novera */
-    border-radius: 10px;
-    display: block !important; /* Pastikan dia memang wujud sebagai blok */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* 2. Animasi Tukar ke 'X' bila menu buka */
-.hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
-.hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-/* 3. Mobile Menu Styling (Skrin bawah 768px) */
-@media (max-width: 768px) {
-    .hamburger { display: flex; } /* Tunjuk butang ☰ */
-
-    .nav-links {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100vh;
-        background: radial-gradient(circle at center, rgba(13, 46, 27, 0.98), rgba(6, 17, 9, 1));
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        
-        /* State asal: Sembunyi */
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.5s ease;
-    }
-
-    .nav-links.active {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-links a {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--ivory);
-        text-decoration: none;
-        opacity: 0; /* Akan dikawal oleh GSAP */
-        transform: translateY(20px);
-    }
-}
-
-/* 4. Desktop Protection (Skrin atas 769px) */
-/* Ini ubat untuk masalah 'Link Hilang Kat PC' */
-@media (min-width: 769px) {
-    .nav-links {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: static !important;
-        height: auto !important;
-        background: transparent !important;
-        pointer-events: auto !important;
-        transform: none !important;
-    }
-
-    .nav-links a {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-    }
-
-    .hamburger { display: none !important; }
-}
-
-/* GANTI KOD .back-home LAMA DENGAN NI */
-.back-home {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    z-index: 9999; /* Pastikan paling depan */
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #C5A059 !important; /* Paksa warna Gold */
-    text-decoration: none;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.03); /* Glass effect sikit */
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.back-home:hover {
-    background: rgba(197, 160, 89, 0.1);
-    transform: translateX(-5px);
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
-}
-
-.back-home svg {
-    stroke: #C5A059; /* Arrow jadi warna gold */
-    transition: transform 0.3s ease;
-}
-
-/* Ejas saiz teks description dalam card */
-.card p {
-    font-size: 1.1rem; /* Besarkan sikit (default biasanya 1rem) */
-    line-height: 1.7;   /* Bagi ruang antara baris biar tak nampak sesak */
-    opacity: 0.9;       /* Kekalkan nampak premium tapi jelas */
-}
-
-/* Kalau nak besarkan teks kat bahagian Hero (paling atas) */
-.hero-desc {
-    font-size: 1.2rem !important; 
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Kalau nak besarkan teks dalam list objektif/proses yang kecil tu */
-.small-card p, .process-card p {
-    font-size: 1.05rem;
-}
-
-/* --- ACCORDION SYSTEM (FULL CONTROL) --- */
-
-/* 1. Header Kad: Letak tajuk & ikon sebaris */
+/* --- ACCORDION SYSTEM (CLICK TO OPEN) --- */
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -492,7 +131,6 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     cursor: pointer;
 }
 
-/* 2. Content Kad: Sorokkan teks secara default */
 .card-content {
     max-height: 0;
     overflow: hidden;
@@ -500,47 +138,50 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
 }
 
-/* 3. Bila Kad Aktif (Klik): Tunjukkan teks */
 .toggle-card.active .card-content {
-    max-height: 1000px; /* Bagi limit tinggi sikit untuk teks panjang */
+    max-height: 1000px;
     opacity: 1;
-    transition: max-height 0.5s ease-in, opacity 0.5s ease;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-/* 4. Ikon Animasi: Pusingkan bila buka */
 .toggle-icon {
     font-size: 1.2rem;
-    color: #c5a059;
+    color: var(--gold);
     transition: transform 0.4s ease;
-    display: inline-block;
-    /* Default ikon menghadap atas (˄), kita pusing bagi nampak macam arrow down dulu */
-    transform: rotate(180deg); 
+    transform: rotate(180deg); /* Menghadap bawah asal */
 }
 
 .toggle-card.active .toggle-icon {
-    transform: rotate(0deg); /* Pusing balik asal bila buka */
+    transform: rotate(0deg); /* Pusing ke atas bila buka */
 }
 
-/* 5. Saiz Teks Description (Besarkan macam kau nak) */
-.card-content p {
-    font-size: 1.15rem; 
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-}
+/* --- LAYOUTS --- */
+.container { max-width: 1200px; margin: 0 auto; }
+.section-padding { padding: 120px 0; }
+.bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 
-/* --- SECTION BACKGROUNDS (Dah tak potong dah) --- */
-
-.section-about {
-    background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
-}
-
-.section-process {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(197, 160, 89, 0.1);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
-}
-
-.section-impact {
-    background: radial-gradient(circle at 90% 80%, rgba(46, 139, 87, 0.08) 0%, transparent 50%);
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .section-about, .section-process, .section-impact {
+        border-radius: 30px;
+        margin: 20px 10px;
+        padding: 60px 20px;
+    }
+    .bento-grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.8rem; }
+    
+    .hamburger { display: flex !important; }
+    .nav-links {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+        background: var(--forest-base);
+        flex-direction: column;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.4s;
+    }
+    .nav-links.active { visibility: visible; opacity: 1; }
 }
