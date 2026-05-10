@@ -6,6 +6,37 @@
 // Pastikan kau dah panggil library GSAP kat index.html punya script tag!
 gsap.registerPlugin(ScrollTrigger);
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Reveal Animation yang akan RE-TRIGGER (ulang balik)
+const reveals = document.querySelectorAll(".animate-scroll");
+reveals.forEach((el) => {
+    gsap.fromTo(el, 
+        { y: 80, opacity: 0, scale: 0.98 },
+        { 
+            y: 0, opacity: 1, scale: 1, 
+            duration: 1.2, 
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                end: "bottom 10%",
+                toggleActions: "play reverse play reverse" // Ini yang buat dia ulang balik!
+            }
+        }
+    );
+});
+
+// Smooth Scroll untuk semua link anchor
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // 2. HERO ANIMATION (LOAD SEKALI MASA PAGE BUKA)
 window.addEventListener('load', () => {
     const tl = gsap.timeline();
