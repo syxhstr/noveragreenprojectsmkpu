@@ -5,21 +5,21 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
 if(hamburger) {
-    hamburger.onclick = () => {
+    hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
-    };
+    });
 }
 
 // Close menu when clicking link
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.onclick = () => {
+    link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
-    };
+    });
 });
 
-// 2. GSAP REVEAL ANIMATIONS
+// 2. SCROLL REVEAL ANIMATION
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
         { y: 100, opacity: 0, scale: 0.95 },
@@ -31,31 +31,30 @@ gsap.utils.toArray('.reveal').forEach(elem => {
             ease: "expo.out",
             scrollTrigger: {
                 trigger: elem,
-                start: "top 90%",
+                start: "top 85%",
                 toggleActions: "play none none reverse"
             }
         }
     );
 });
 
-// 3. PARALLAX VIDEO
+// 3. PARALLAX EFFECT FOR HERO
 gsap.to('.parallax-bg', {
     scrollTrigger: {
         trigger: ".hero",
         start: "top top",
         scrub: true
     },
-    y: 150
+    y: 150,
+    scale: 1.2
 });
 
-// 4. NAVBAR SCROLL EFFECT
-window.onscroll = () => {
-    const nav = document.querySelector('.glass-nav');
-    if (window.scrollY > 100) {
-        nav.style.background = "rgba(6, 17, 9, 0.95)";
-        nav.style.height = "75px";
-    } else {
-        nav.style.background = "rgba(6, 17, 9, 0.85)";
-        nav.style.height = "85px";
-    }
-};
+// 4. FLOATING LEAVES (Particles Concept)
+// Ini akan buat element bergerak sikit bila scroll
+window.addEventListener('scroll', () => {
+    const scroll = window.pageYOffset;
+    const cards = document.querySelectorAll('.glass-card');
+    cards.forEach((card, index) => {
+        card.style.transform = `translateY(${scroll * (index % 2 === 0 ? 0.05 : -0.05)}px)`;
+    });
+});
