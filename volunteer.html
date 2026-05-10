@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8"><title>Sertai Kami | Novera Green</title><link rel="stylesheet" href="style.css"></head>
 <body>
-    <section class="hero" style="justify-content: center; text-align: center;">
-        <div class="glass-card reveal" style="max-width: 600px;">
-            <h1 class="playfair gold-text">Sertai Kami</h1>
-            <form action="thankyou.html" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-                <input type="text" placeholder="Nama" style="padding:15px; border-radius:10px; border:none; background:rgba(255,255,255,0.1); color:white;" required>
-                <input type="email" placeholder="E-mel" style="padding:15px; border-radius:10px; border:none; background:rgba(255,255,255,0.1); color:white;" required>
-                <button type="submit" class="nav-btn" style="border:none; cursor:pointer;">Hantar Maklumat</button>
+    <div class="container">
+        <div class="full-card glass-card">
+            <h1 class="title-gold">Sertai Sukarelawan</h1>
+            <p style="margin-bottom: 30px;">Mari bersama kami dalam misi melestarikan alam sekitar.</p>
+            
+            <form action="thankyou.html">
+                <input type="text" placeholder="Nama Penuh" class="form-input" required>
+                <input type="email" placeholder="Alamat E-mel" class="form-input" required>
+                <textarea placeholder="Kenapa anda ingin sertai?" class="form-input" rows="5"></textarea>
+                <button type="submit" class="nav-btn" style="width: 100%; border: none; cursor: pointer;">Hantar Permohonan</button>
             </form>
+
+            <a href="index.html" class="btn-back">← Kembali ke Laman Utama</a>
         </div>
-    </section>
+    </div>
 </body>
 </html>
