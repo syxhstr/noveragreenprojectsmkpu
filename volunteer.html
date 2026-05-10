@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai Novera Green</title>
+    <title>Sertai Kami | Novera Green</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="sub-page">
-    <nav class="navbar"><div class="nav-container"><a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a></div></nav>
-    <section class="form-container">
-        <div class="glass-card animate-scroll">
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="glass-card animate-scroll" style="opacity: 1; transform: none;">
             <h2 class="section-title">Sertai Pergerakan</h2>
             <form action="thankyou.html" method="GET" class="luxury-form">
-                <div class="input-group"><label>Nama</label><input type="text" required></div>
-                <div class="input-group"><label>Emel</label><input type="email" required></div>
+                <div class="input-group">
+                    <label>Nama Penuh</label>
+                    <input type="text" name="nama" placeholder="Contoh: Ali Bin Abu" required>
+                </div>
+                <div class="input-group">
+                    <label>Alamat Emel</label>
+                    <input type="email" name="emel" placeholder="ali@email.com" required>
+                </div>
                 <div class="input-group">
                     <label>Jenis Sumbangan</label>
-                    <select><option>Daun Kering</option><option>Tenaga Kerja</option></select>
+                    <select name="jenis">
+                        <option value="daun">Sumbangan Daun Kering</option>
+                        <option value="tenaga">Sukarelawan Tenaga Kerja</option>
+                        <option value="dana">Sumbangan Dana</option>
+                    </select>
                 </div>
-                <button type="submit" class="gold-btn-wide">Hantar Sekarang</button>
+                <button type="submit" class="gold-btn-mega">Hantar Sekarang</button>
             </form>
         </div>
-    </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
