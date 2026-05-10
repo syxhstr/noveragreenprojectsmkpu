@@ -1,71 +1,216 @@
+/* --- 1. GLOBAL RESET & VARIABLES --- */
 :root {
     --forest-base: #061109;
     --gold: #c5a059;
+    --gold-glow: rgba(197, 160, 89, 0.4);
     --ivory: #fdfbf7;
-    --liquid-glass: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-body { background-color: var(--forest-base); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+body {
+    background-color: var(--forest-base);
+    color: var(--ivory);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-/* --- FIX LINK PURPLE & GLOBAL LINKS --- */
-a, a:visited, a:active { color: inherit !important; text-decoration: none; }
-.nav-links a { color: var(--ivory) !important; transition: 0.3s ease; }
-.nav-links a:hover { color: var(--gold) !important; }
+/* --- 2. TYPOGRAPHY --- */
+.playfair { font-family: 'Playfair Display', serif; }
+.gold-text { color: var(--gold); }
+h1, h2, h3 { font-weight: 600; }
 
-/* --- NAVBAR --- */
+/* FIX PURPLE LINKS */
+a, a:visited, a:active {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+/* --- 3. NAVIGATION BAR (LIQUID GLASS) --- */
 .glass-nav {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 95%; max-width: 1200px; height: 80px;
-    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(20px);
-    border: 1px solid var(--gold); border-radius: 100px;
-    z-index: 1000; display: flex; align-items: center; padding: 0 40px;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 1300px;
+    height: 85px;
+    background: rgba(6, 17, 9, 0.85);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    padding: 0 45px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
-.main-logo { height: 45px !important; width: auto; }
-.nav-links { margin-left: auto; display: flex; gap: 25px; align-items: center; }
-.nav-btn { background: var(--gold); color: var(--forest-base) !important; padding: 10px 24px; border-radius: 50px; font-weight: bold; }
 
-/* --- HERO --- */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(6,17,9,0.9), transparent); z-index: -1; }
-.hero-content { max-width: 800px; }
-.hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin: 20px 0; }
+.nav-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* --- SECTION ISLAND (PULAU) --- */
+.main-logo { height: 50px; width: auto; transition: var(--transition); }
+.main-logo:hover { transform: scale(1.05) rotate(-2deg); }
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-item {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav-item:hover { color: var(--gold) !important; }
+
+.nav-btn {
+    background: var(--gold);
+    color: var(--forest-base) !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px var(--gold-glow);
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--gold-glow);
+}
+
+/* --- 4. HAMBURGER MENU --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--gold);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+/* --- 5. HERO SECTION --- */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(75deg, rgba(6,17,9,1) 0%, rgba(6,17,9,0.7) 40%, transparent 100%);
+    z-index: -1;
+}
+
+.hero-content { max-width: 850px; z-index: 10; }
+.main-title { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.05; margin-bottom: 25px; }
+.hero-desc { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin-bottom: 40px; }
+
+/* --- 6. THE "PULAU" & CARDS --- */
 .section-island {
-    width: 90%; max-width: 1200px; margin: 120px auto;
-    padding: 100px 50px; border-radius: 60px;
+    width: 95%;
+    max-width: 1400px;
+    margin: 150px auto;
+    padding: 120px 60px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(197, 160, 89, 0.1);
-    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    border-radius: 80px;
+    box-shadow: 0 60px 120px rgba(0,0,0,0.7);
 }
 
-/* --- LIQUID GLASS EFFECT --- */
+.section-title { font-size: 3.5rem; margin-bottom: 80px; }
+
+/* THE PERFECT LIQUID GLASS EFFECT */
 .glass {
-    background: var(--liquid-glass) !important;
-    backdrop-filter: blur(35px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
+    background: var(--glass-bg);
+    backdrop-filter: blur(35px) saturate(200%);
+    -webkit-backdrop-filter: blur(35px) saturate(200%);
     border: 1px solid var(--glass-border);
-    border-radius: 35px; padding: 40px;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer; position: relative; overflow: hidden;
+    border-radius: 45px;
+    padding: 50px;
+    transition: var(--transition);
+    height: 100%;
 }
-.glass:hover { transform: translateY(-10px) scale(1.02); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-/* --- GRID & TYPO --- */
-.bento-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
-.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.section-title { font-size: 3.5rem; margin-bottom: 60px; }
-.gold-text { color: var(--gold); }
-.playfair { font-family: 'Playfair Display', serif; }
+.glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-content h1 { font-size: 2.8rem; }
-    .section-island { padding: 50px 20px; border-radius: 30px; }
+/* --- 7. GRIDS --- */
+.bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+/* --- 8. RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .glass-nav { padding: 0 30px; }
+    .nav-links { display: none; } /* Hide links for mobile */
+    .hamburger { display: flex; }
+    
+    .nav-links.mobile-active {
+        display: flex;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 300px;
+        flex-direction: column;
+        background: rgba(6,17,9,0.98);
+        backdrop-filter: blur(20px);
+        padding: 50px;
+        border-radius: 40px;
+        border: 1px solid var(--gold);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+
     .bento-grid-2 { grid-template-columns: 1fr; }
+    .section-island { padding: 80px 30px; border-radius: 40px; }
+    .section-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+    .main-title { font-size: 2.8rem; }
+    .hero { padding: 0 5%; }
 }
