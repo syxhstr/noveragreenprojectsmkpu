@@ -6,6 +6,38 @@
 // Pastikan kau dah panggil library GSAP kat index.html punya script tag!
 gsap.registerPlugin(ScrollTrigger);
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Target elemen dengan class .animate-scroll
+const revealElements = document.querySelectorAll(".animate-scroll");
+
+revealElements.forEach((el) => {
+    gsap.fromTo(el, 
+        { y: 100, opacity: 0 }, 
+        {
+            y: 0, opacity: 1,
+            duration: 1.2,
+            ease: "power4.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                end: "bottom 10%",
+                toggleActions: "play reverse play reverse" // Ini buat dia ulang balik!
+            }
+        }
+    );
+});
+
+// Fix Navbar Color on Scroll but KEEP GLASS
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        nav.style.background = "rgba(11, 26, 19, 0.9) !important"; 
+    } else {
+        nav.style.background = "rgba(255, 255, 255, 0.05) !important";
+    }
+});
+
 // 2. HERO ANIMATION (LOAD SEKALI MASA PAGE BUKA)
 window.addEventListener('load', () => {
     const tl = gsap.timeline();
@@ -29,37 +61,6 @@ window.addEventListener('load', () => {
         stagger: 0.2,
         ease: "power2.out"
     }, "-=0.5");
-});
-
-// 3. RE-TRIGGER ANIMATION (SCROLL UP & DOWN)
-// Kod ni akan buat card/text kau "naik" bila scroll down, dan "turun" bila scroll up balik.
-const animateSections = document.querySelectorAll(".animate-scroll");
-
-animateSections.forEach((section) => {
-    gsap.fromTo(section, 
-        { 
-            y: 100, 
-            opacity: 0,
-            scale: 0.95 
-        }, 
-        {
-            y: 0, 
-            opacity: 1, 
-            scale: 1,
-            duration: 1,
-            ease: "expo.out",
-            scrollTrigger: {
-                trigger: section,
-                start: "top 90%", // Mula animation bila 90% view masuk skrin
-                end: "bottom 10%", // Reset bila dah lepas 10% skrin atas
-                toggleActions: "play reverse play reverse", 
-                /* toggleActions: "onEnter onLeave onEnterBack onLeaveBack"
-                   play = jalan animation
-                   reverse = pusing balik animation bila scroll lepas (ni yang kau nak!)
-                */
-            }
-        }
-    );
 });
 
 // 4. NAVBAR BLUR & SHRINK ON SCROLL
