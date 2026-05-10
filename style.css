@@ -11,16 +11,32 @@ h1, h2, h3, .hero-title, .section-title {
     font-family: 'Playfair Display', serif !important;
 }
 
-/* --- 2. NAVBAR (Kanan & Glass) --- */
+/* --- RESET & FONT MUKTAMAD --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    background-color: #0b1a13; 
+    overflow-x: hidden;
+}
+
+/* Paksa Font Keluar */
+h1, h2, .hero-title, .section-title {
+    font-family: 'Playfair Display', serif !important;
+}
+
+p, a, li, span, .hero-description {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+/* --- NAVBAR (MENU KE KANAN) --- */
 .navbar {
     position: fixed;
     top: 20px; left: 50%;
     transform: translateX(-50%);
     width: 90%; max-width: 1200px;
-    z-index: 1000;
+    z-index: 9999; /* Paling atas sekali */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border-radius: 100px;
     padding: 12px 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -42,55 +58,50 @@ h1, h2, h3, .hero-title, .section-title {
     text-transform: uppercase; letter-spacing: 1px;
 }
 
-/* --- 3. HERO (Center Fix) --- */
+/* --- HERO (VIDEO BACKGROUND FIX) --- */
 .hero {
     position: relative;
-    height: 100vh; /* Penuh skrin PC/Phone */
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: #0b1a13;
 }
 
 .hero-video {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%; min-height: 100%;
-    object-fit: cover;
-    z-index: -2;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; /* Biar video penuh skrin */
+    z-index: -2; /* Video paling belakang */
 }
 
 .hero-overlay {
-    position: absolute; inset: 0;
-    background: rgba(0,0,0,0.5); z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* Gelapkan sikit biar teks nampak */
+    z-index: -1;
 }
 
-.hero-content { text-align: center; z-index: 10; color: white; padding: 0 20px; }
+.hero-content {
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
 
 .hero-center-logo img {
-    height: clamp(80px, 15vw, 130px);
+    height: clamp(80px, 15vw, 120px);
     margin-bottom: 20px;
 }
 
 .hero-title {
-    font-size: clamp(2rem, 8vw, 4.5rem);
-    line-height: 1.1; margin-bottom: 15px;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
 }
 
-.hero-description {
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
-    margin-bottom: 30px; opacity: 0.9;
-}
-
-.gold-btn {
-    display: inline-block;
-    background: #c5a059; color: black;
-    padding: 15px 35px; border-radius: 50px;
-    text-decoration: none; font-weight: 700;
-}
+/* --- FIX VOLUNTEER REDIRECT --- */
+/* Pastikan button dalam form volunteer.html ada type="submit" */
 
 /* --- 4. PHONE RESPONSIVE --- */
 @media (max-width: 768px) {
