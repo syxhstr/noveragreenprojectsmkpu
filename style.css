@@ -114,30 +114,58 @@ body {
     line-height: 1.8;
 }
 
-/* --- 4. SECTION PULAU (ROUNDED) --- */
-.section-about, .section-process, .section-impact {
+/* --- 4. SECTION PULAU (MAKING THEM STAND OUT) --- */
+
+/* Ini adalah 'Line Merah' yang kau lukis tu - bagi dia nampak terpisah */
+.section-about, 
+.section-process, 
+.section-impact,
+.section-islands {
     width: 90%;
     max-width: 1200px;
-    margin: 100px auto; /* Jarak antara pulau */
-    border-radius: 60px; /* Bucu bulat besar */
-    padding: 100px 50px;
-    border: 1px solid rgba(197, 160, 89, 0.1);
+    margin: 120px auto; /* Jarak besar antara section */
+    padding: 80px 50px;
+    border-radius: 60px; /* Bucu bulat gila */
+    
+    /* Bagi nampak beza dari background hitam/hijau gelap body */
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    
+    /* Shadow ni penting untuk efek 'Terapung' */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); 
+    position: relative;
+    overflow: hidden;
 }
 
-/* Beza warna background setiap pulau */
-.section-about { background: rgba(255, 255, 255, 0.03); }
-.section-process { background: rgba(0, 0, 0, 0.3); }
-.section-impact { background: rgba(13, 46, 27, 0.4); }
+/* Beza warna sikit antara pulau supaya tak bosan */
+.section-about { background: rgba(13, 46, 27, 0.4); } /* Hijau pekat sikit */
+.section-process { background: rgba(255, 255, 255, 0.05); } /* Grey sikit */
+.section-impact { background: rgba(6, 17, 9, 0.8); } /* Gelap gila */
 
+/* Tajuk Section */
 .section-title {
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 60px;
+    font-size: 3.5rem;
+    color: var(--ivory);
+    margin-bottom: 50px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-/* Accordion Ikon */
-.toggle-icon {
-    font-size: 1.5rem;
-    color: var(--gold);
-    transition: 0.3s;
+/* --- KAD DALAM PULAU (KONTRA PUTIH) --- */
+.glass {
+    background: rgba(255, 255, 255, 0.1) !important; /* Terangkan sikit lagi */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.glass:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-5px);
+}
+
+/* Fix Ikon & Header Kad */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
 }
