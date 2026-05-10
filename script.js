@@ -1,37 +1,46 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. REVEAL SNAP (Laju & Padu)
+// MOBILE MENU
+function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+}
+
+// ULTRA-SMOOTH REVEAL
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
-        { y: 80, opacity: 0, scale: 0.9 }, 
+        { y: 60, opacity: 0, scale: 0.95 }, 
         { 
             y: 0, opacity: 1, scale: 1,
-            duration: 1.5, 
-            ease: "expo.out", // Ini rahsia animation nampak mahal
+            duration: 1.2, 
+            ease: "expo.out",
             scrollTrigger: {
                 trigger: elem,
-                start: "top 88%",
+                start: "top 90%",
                 toggleActions: "play none none reverse"
             }
         }
     );
 });
 
-// 2. LOGO FLOATING (Subtle)
-gsap.to('.main-logo', {
-    y: 5,
-    duration: 2,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-});
+// FLOATING LEAVES (Particles)
+setInterval(() => {
+    const leaf = document.createElement('div');
+    leaf.innerHTML = "🍂";
+    leaf.style.position = "fixed";
+    leaf.style.left = Math.random() * 100 + "vw";
+    leaf.style.top = "-50px";
+    leaf.style.fontSize = "20px";
+    leaf.style.opacity = "0.2";
+    leaf.style.pointerEvents = "none";
+    leaf.style.zIndex = "1";
+    document.body.appendChild(leaf);
 
-// 3. SMOOTH PARALLAX
-gsap.to('.hero-video', {
-    scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        scrub: 1 // Scrub 1 buat dia nampak "lekat" tapi smooth
-    },
-    y: 150
-});
+    gsap.to(leaf, {
+        y: "110vh",
+        x: "random(-100, 100)",
+        rotation: "random(0, 360)",
+        duration: Math.random() * 5 + 5,
+        ease: "none",
+        onComplete: () => leaf.remove()
+    });
+}, 1500);
