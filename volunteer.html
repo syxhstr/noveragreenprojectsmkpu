@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><title>Sertai Kami | Novera Green</title><link rel="stylesheet" href="style.css"></head>
-<body>
-    <div class="container">
-        <div class="full-card glass-card">
-            <h1 class="title-gold">Sertai Sukarelawan</h1>
-            <p style="margin-bottom: 30px;">Mari bersama kami dalam misi melestarikan alam sekitar.</p>
-            
-            <form action="thankyou.html">
-                <input type="text" placeholder="Nama Penuh" class="form-input" required>
-                <input type="email" placeholder="Alamat E-mel" class="form-input" required>
-                <textarea placeholder="Kenapa anda ingin sertai?" class="form-input" rows="5"></textarea>
-                <button type="submit" class="nav-btn" style="width: 100%; border: none; cursor: pointer;">Hantar Permohonan</button>
-            </form>
-
-            <a href="index.html" class="btn-back">← Kembali ke Laman Utama</a>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertai Kami</title><link rel="stylesheet" href="style.css">
+</head>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
+    <div class="glass-card" style="width: 90%; max-width: 700px;">
+        <h1 class="title-gold">Borang Sumbangan</h1>
+        <p style="margin-bottom: 30px;">Hantar daun mati anda untuk kami proses menjadi kertas berkualiti.</p>
+        <form action="thankyou.html" style="display:grid; gap:20px;">
+            <input type="text" placeholder="Nama Penuh" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;" required>
+            <input type="email" placeholder="E-mel" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;" required>
+            <textarea placeholder="Lokasi pengumpulan daun..." rows="4" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;"></textarea>
+            <button type="submit" class="nav-btn" style="border:none; cursor:pointer; width:100%;">Hantar Sekarang</button>
+        </form>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="index.html" style="color:var(--gold); text-decoration:none; font-weight:700;">← Kembali ke Utama</a>
         </div>
     </div>
 </body>
