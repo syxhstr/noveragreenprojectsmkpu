@@ -481,18 +481,66 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     font-size: 1.05rem;
 }
 
-/* --- ACCORDION SYSTEM --- */
-.toggle-card { cursor: pointer; transition: all 0.4s ease; }
-.card-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.card-content { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease; }
-.toggle-card.active .card-content { max-height: 500px; opacity: 1; }
-.toggle-icon { font-size: 1.2rem; color: #c5a059; transition: transform 0.4s ease; transform: rotate(180deg); }
-.toggle-card.active .toggle-icon { transform: rotate(0deg); }
+/* --- ACCORDION SYSTEM (FULL CONTROL) --- */
 
-/* --- TEXT SIZE --- */
-.card-content p { font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-top: 15px; }
+/* 1. Header Kad: Letak tajuk & ikon sebaris */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
 
-/* --- SECTION BACKGROUNDS --- */
-.section-about { background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 50%); }
-.section-process { background-color: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(197, 160, 89, 0.1); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
-.section-impact { background: radial-gradient(circle at 90% 80%, rgba(46, 139, 87, 0.08) 0%, transparent 50%); }
+/* 2. Content Kad: Sorokkan teks secara default */
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+/* 3. Bila Kad Aktif (Klik): Tunjukkan teks */
+.toggle-card.active .card-content {
+    max-height: 1000px; /* Bagi limit tinggi sikit untuk teks panjang */
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease;
+    margin-top: 15px;
+}
+
+/* 4. Ikon Animasi: Pusingkan bila buka */
+.toggle-icon {
+    font-size: 1.2rem;
+    color: #c5a059;
+    transition: transform 0.4s ease;
+    display: inline-block;
+    /* Default ikon menghadap atas (˄), kita pusing bagi nampak macam arrow down dulu */
+    transform: rotate(180deg); 
+}
+
+.toggle-card.active .toggle-icon {
+    transform: rotate(0deg); /* Pusing balik asal bila buka */
+}
+
+/* 5. Saiz Teks Description (Besarkan macam kau nak) */
+.card-content p {
+    font-size: 1.15rem; 
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- SECTION BACKGROUNDS (Dah tak potong dah) --- */
+
+.section-about {
+    background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+}
+
+.section-process {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.section-impact {
+    background: radial-gradient(circle at 90% 80%, rgba(46, 139, 87, 0.08) 0%, transparent 50%);
+}
