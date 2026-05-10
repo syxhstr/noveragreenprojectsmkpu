@@ -1,18 +1,15 @@
 gsap.registerPlugin(ScrollTrigger);
 
-function toggleMenu() {
-    document.getElementById('navMenu').classList.toggle('active');
-}
-
+// Reveal Animation (Apple Standard)
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
-        { y: 50, opacity: 0 }, 
+        { y: 80, opacity: 0 }, 
         { 
             y: 0, opacity: 1, duration: 1, 
-            ease: "power2.out",
+            ease: "expo.out",
             scrollTrigger: {
                 trigger: elem,
-                start: "top 85%",
+                start: "top 92%",
                 toggleActions: "play none none reverse"
             }
         }
