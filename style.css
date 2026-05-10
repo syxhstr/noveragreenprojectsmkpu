@@ -8,14 +8,24 @@
     --glass-border: rgba(197, 160, 89, 0.2);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background-color: var(--forest); 
-    color: var(--ivory); 
-    font-family: 'DM Sans', sans-serif; 
-    line-height: 1.6;
-    overflow-x: hidden;
+/* LOGO BESAR */
+.main-logo {
+    height: 70px; /* Sini kau adjust saiz logo */
+    filter: drop-shadow(0 5px 15px rgba(197, 160, 89, 0.3));
 }
+
+/* HAMBURGER MODERN (CIRCLE) */
+.burger {
+    display: none;
+    cursor: pointer;
+    background: var(--glass);
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    transition: 0.4s;
+}
+
+/* (Copy balance CSS yang aku beri sebelum ni...) */
 
 h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); }
 
