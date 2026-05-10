@@ -2,7 +2,7 @@
     --forest-base: #061109;
     --gold: #c5a059;
     --ivory: #fdfbf7;
-    --glass-bg: rgba(255, 255, 255, 0.1);
+    --liquid-glass: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
 
@@ -10,65 +10,62 @@
 
 body { background-color: var(--forest-base); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-/* RESET LINKS */
-a, a:visited { color: inherit !important; text-decoration: none; }
-.nav-links a { color: var(--ivory) !important; transition: 0.3s; }
+/* --- FIX LINK PURPLE & GLOBAL LINKS --- */
+a, a:visited, a:active { color: inherit !important; text-decoration: none; }
+.nav-links a { color: var(--ivory) !important; transition: 0.3s ease; }
 .nav-links a:hover { color: var(--gold) !important; }
 
-/* NAVBAR */
+/* --- NAVBAR --- */
 .glass-nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
     width: 95%; max-width: 1200px; height: 80px;
-    background: rgba(6, 17, 9, 0.85); backdrop-filter: blur(25px);
+    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(20px);
     border: 1px solid var(--gold); border-radius: 100px;
     z-index: 1000; display: flex; align-items: center; padding: 0 40px;
 }
-.main-logo { height: 50px !important; width: auto; }
-.nav-links { margin-left: auto; display: flex; gap: 20px; align-items: center; }
-.nav-btn { background: var(--gold); color: var(--forest-base) !important; padding: 10px 22px; border-radius: 50px; font-weight: bold; }
+.main-logo { height: 45px !important; width: auto; }
+.nav-links { margin-left: auto; display: flex; gap: 25px; align-items: center; }
+.nav-btn { background: var(--gold); color: var(--forest-base) !important; padding: 10px 24px; border-radius: 50px; font-weight: bold; }
 
-/* HERO */
-.index-page .hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 8%; }
-.index-page .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.index-page .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(6,17,9,0.95), transparent); z-index: -1; }
-.index-page .hero-content { position: relative; z-index: 10; max-width: 800px; }
-.index-page .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin: 20px 0; }
+/* --- HERO --- */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(6,17,9,0.9), transparent); z-index: -1; }
+.hero-content { max-width: 800px; }
+.hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin: 20px 0; }
 
-/* PULAU SECTION */
-.index-page .section-island {
-    width: 92%; max-width: 1200px; margin: 100px auto;
-    padding: 80px 5%; border-radius: 60px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(197, 160, 89, 0.15);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+/* --- SECTION ISLAND (PULAU) --- */
+.section-island {
+    width: 90%; max-width: 1200px; margin: 120px auto;
+    padding: 100px 50px; border-radius: 60px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
 }
 
-/* LIQUID GLASS (VIBE CAIR) */
-.index-page .glass {
-    background: var(--glass-bg) !important;
-    backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
+/* --- LIQUID GLASS EFFECT --- */
+.glass {
+    background: var(--liquid-glass) !important;
+    backdrop-filter: blur(35px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
     border: 1px solid var(--glass-border);
-    border-radius: 40px;
-    padding: 45px;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin-bottom: 25px;
+    border-radius: 35px; padding: 40px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer; position: relative; overflow: hidden;
 }
-.index-page .glass:hover { transform: translateY(-10px) scale(1.01); border-color: var(--gold); }
+.glass:hover { transform: translateY(-10px) scale(1.02); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-/* GRID SYSTEMS */
-.index-page .bento-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
-.index-page .bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-/* RESPONSIVE FIXES */
-@media (max-width: 768px) {
-    .glass-nav { height: 65px; top: 10px; padding: 0 20px; }
-    .main-logo { height: 35px !important; }
-    .nav-links { display: none; }
-    .index-page .section-island { border-radius: 30px; padding: 40px 20px; }
-    .index-page .glass { padding: 30px; border-radius: 25px; }
-    .bento-grid-2 { grid-template-columns: 1fr !important; }
-}
-
+/* --- GRID & TYPO --- */
+.bento-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
+.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.section-title { font-size: 3.5rem; margin-bottom: 60px; }
 .gold-text { color: var(--gold); }
 .playfair { font-family: 'Playfair Display', serif; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .section-island { padding: 50px 20px; border-radius: 30px; }
+    .bento-grid-2 { grid-template-columns: 1fr; }
+}
