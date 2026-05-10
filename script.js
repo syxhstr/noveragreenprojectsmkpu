@@ -59,3 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Contoh kalau kau guna event listener
+const volunteerForm = document.getElementById('volunteer-form');
+
+if(volunteerForm) {
+    volunteerForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Elak page refresh
+        // Simpan data atau buat apa yang patut...
+        
+        // Terus pergi ke page Thank You
+        window.location.href = "thank-you.html";
+    });
+}
