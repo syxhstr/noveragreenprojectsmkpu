@@ -1,77 +1,125 @@
-/* --- 1. FIX FONT (TULISAN KECIL & TAJUK) --- */
-body, p, span, li, a, .hero-description {
+/* --- RESET & FONTS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
     font-family: 'DM Sans', sans-serif !important;
-    letter-spacing: 0.5px;
+    background-color: #0b1a13;
+    color: white;
 }
 
-h1, h2, h3, .section-title, .hero-title {
-    font-family: 'Playfair Display', serif !important;
+h1, h2, .hero-title { font-family: 'Playfair Display', serif !important; }
+
+/* --- NAVBAR (PC & RESPONSIVE) --- */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- 2. NAVBAR (TOLAK KE KANAN) --- */
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Logo kiri, Links kanan */
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
-.nav-links-right {
-    margin-left: auto; /* Paksa menu ke kanan */
+.nav-links {
     display: flex;
-    gap: 30px;
     list-style: none;
+    gap: 30px;
 }
 
-/* --- 3. HERO (FIX VIDEO & CENTER CONTENT) --- */
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- HERO SECTION (FULL SCREEN) --- */
 .hero {
-    height: 100vh;
-    width: 100%;
     position: relative;
+    height: 100vh; /* WAJIB: Biar video penuh skrin PC/Phone */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: #0b1a13; /* Warna fallback jika video tak load */
 }
 
 .hero-video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Pastikan video cover penuh, tak nampak hitam */
-    z-index: 1;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; /* Video akan cover semua lubang hitam */
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* Malapkan sikit video */
+    z-index: -1;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2; /* Duduk atas video */
     text-align: center;
-    color: white;
-    width: 100%;
+    z-index: 10;
+    padding: 0 20px;
+    margin-top: 50px;
 }
 
 .hero-center-logo img {
-    height: 100px;
+    height: clamp(80px, 15vw, 120px);
     margin-bottom: 20px;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.2;
+    font-size: clamp(2rem, 7vw, 4.5rem);
+    line-height: 1.1;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin: 20px auto 35px;
-    max-width: 500px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin: 20px auto 40px;
+    max-width: 600px;
+    opacity: 0.8;
 }
 
-/* --- 4. OBJEKTIF UTAMA FONT FIX --- */
-#objective .bento-item p {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.95rem;
-    line-height: 1.6;
+.gold-btn {
+    background: #c5a059;
+    color: black;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+/* --- MOBILE RESPONSIVE (PHONE FIX) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Sembunyikan menu PC kat phone buat sementara */
+    }
+    
+    .hero {
+        height: 100svh; /* Guna SVH untuk mobile browser */
+    }
+
+    .hero-title {
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        margin-bottom: 30px;
+    }
 }
