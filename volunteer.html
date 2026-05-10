@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertai Kami</title><link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"><title>Sertai Kami | Novera Green</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body style="display:flex; align-items:center; justify-content:center; min-height:100vh;">
-    <div class="glass-card" style="width: 90%; max-width: 700px;">
-        <h1 class="title-gold">Borang Sumbangan</h1>
-        <p style="margin-bottom: 30px;">Hantar daun mati anda untuk kami proses menjadi kertas berkualiti.</p>
-        <form action="thankyou.html" style="display:grid; gap:20px;">
-            <input type="text" placeholder="Nama Penuh" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;" required>
-            <input type="email" placeholder="E-mel" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;" required>
-            <textarea placeholder="Lokasi pengumpulan daun..." rows="4" style="padding:15px; border-radius:15px; border:1px solid var(--border); background:none; color:white;"></textarea>
-            <button type="submit" class="nav-btn" style="border:none; cursor:pointer; width:100%;">Hantar Sekarang</button>
+<body class="centered-body">
+    <div class="glass-card reveal" style="max-width:600px; text-align:center;">
+        <h1 class="title-gold">Sertai Sukarelawan</h1>
+        <form action="thankyou.html">
+            <input type="text" placeholder="Nama Penuh" class="input-style" required>
+            <input type="email" placeholder="E-mel" class="input-style" required>
+            <button type="submit" class="nav-btn" style="width:100%; border:none; cursor:pointer;">HANTAR SEKARANG</button>
         </form>
-        <div style="text-align:center; margin-top:20px;">
-            <a href="index.html" style="color:var(--gold); text-decoration:none; font-weight:700;">← Kembali ke Utama</a>
-        </div>
+        <br>
+        <a href="index.html" style="color:var(--gold); text-decoration:none;">← Kembali ke Utama</a>
     </div>
+    <script>
+        gsap.from(".reveal", { opacity: 0, y: 30, duration: 1.2, ease: "expo.out" });
+    </script>
 </body>
 </html>
