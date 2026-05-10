@@ -1,33 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. HAMBURGER MENU LOGIC
-    const menuToggle = document.getElementById('mobile-menu');
-    const navList = document.getElementById('nav-list');
+    // 1. REFINED HAMBURGER
+    const burger = document.getElementById('burger');
+    const nav = document.querySelector('.nav-links');
+    
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        burger.classList.toggle('toggle');
+        
+        // Animasi Line Burger
+        const lines = burger.querySelectorAll('div');
+        if(nav.classList.contains('active')) {
+            lines[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+            lines[1].style.opacity = '0';
+            lines[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+        } else {
+            lines.forEach(l => l.style.transform = 'none');
+            lines[1].style.opacity = '1';
+        }
+    });
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            
-            // Animasi Hamburger ke X
-            const spans = menuToggle.querySelectorAll('span');
-            if(navList.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
+    // 2. FLOATING LEAVES (Particles)
+    const container = document.getElementById('leaf-container');
+    for (let i = 0; i < 15; i++) {
+        const leaf = document.createElement('div');
+        leaf.innerHTML = '🍃';
+        leaf.style.position = 'absolute';
+        leaf.style.fontSize = Math.random() * 20 + 10 + 'px';
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.top = '-50px';
+        leaf.style.opacity = '0.2';
+        leaf.style.filter = 'sepia(1) saturate(0.5)';
+        container.appendChild(leaf);
+
+        gsap.to(leaf, {
+            y: '110vh',
+            x: '+=100',
+            rotation: 360,
+            duration: Math.random() * 10 + 10,
+            repeat: -1,
+            delay: Math.random() * 10,
+            ease: "none"
         });
     }
 
-    // 2. GSAP REVEAL ANIMATION
+    // 3. GSAP SCROLL REVEAL
     gsap.registerPlugin(ScrollTrigger);
     gsap.utils.toArray('.reveal').forEach(elem => {
         gsap.fromTo(elem, 
-            { y: 50, opacity: 0 }, 
+            { opacity: 0, y: 50 }, 
             { 
-                y: 0, opacity: 1, duration: 1, 
+                opacity: 1, y: 0, duration: 1.2, 
                 scrollTrigger: {
                     trigger: elem,
                     start: "top 85%",
@@ -37,42 +59,3 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 });
-// ULTRA-SMOOTH REVEAL
-gsap.utils.toArray('.reveal').forEach(elem => {
-    gsap.fromTo(elem, 
-        { y: 60, opacity: 0, scale: 0.95 }, 
-        { 
-            y: 0, opacity: 1, scale: 1,
-            duration: 1.2, 
-            ease: "expo.out",
-            scrollTrigger: {
-                trigger: elem,
-                start: "top 90%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
-});
-
-// FLOATING LEAVES (Particles)
-setInterval(() => {
-    const leaf = document.createElement('div');
-    leaf.innerHTML = "🍂";
-    leaf.style.position = "fixed";
-    leaf.style.left = Math.random() * 100 + "vw";
-    leaf.style.top = "-50px";
-    leaf.style.fontSize = "20px";
-    leaf.style.opacity = "0.2";
-    leaf.style.pointerEvents = "none";
-    leaf.style.zIndex = "1";
-    document.body.appendChild(leaf);
-
-    gsap.to(leaf, {
-        y: "110vh",
-        x: "random(-100, 100)",
-        rotation: "random(0, 360)",
-        duration: Math.random() * 5 + 5,
-        ease: "none",
-        onComplete: () => leaf.remove()
-    });
-}, 1500);
