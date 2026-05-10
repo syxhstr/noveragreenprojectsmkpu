@@ -1,12 +1,32 @@
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. CLEAR CSS CLUTTER (Cegah konflik styling lama)
-// Kita buang transitions kat card/pulau sebab GSAP akan handle sepenuhnya.
-// transitions lama selalunya punca "cacat" atau bergetar bila scroll.
-const cleanUI = () => {
-    gsap.set('.glass-card, .section-island', { transition: 'none', willChange: 'transform' });
-};
+// Reveal Animation yang lebih "Solid"
+gsap.utils.toArray('.reveal').forEach(elem => {
+    gsap.fromTo(elem, 
+        { y: 50, opacity: 0 }, 
+        { 
+            y: 0, opacity: 1, 
+            duration: 1, 
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        }
+    );
+});
+
+// Parallax Hero Video
+gsap.to('.hero-video', {
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        scrub: true
+    },
+    y: 100
+});
 
 // 2. HAMBURGER BAR (Kekal macam biasa)
 const hamburger = document.getElementById('hamburger');
