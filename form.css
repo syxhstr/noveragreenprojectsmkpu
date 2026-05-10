@@ -1,0 +1,82 @@
+/* FORM & THANK YOU ONLY - TIDAK KACAU INDEX */
+:root {
+    --forest: #0b1a13;
+    --gold: #c5a059;
+    --ivory: #f9f6f0;
+}
+
+.page-wrapper {
+    background-color: var(--forest);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.glass-card-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 40px;
+    border-radius: 40px;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.form-title {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.luxury-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.input-group input, .input-group select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    outline: none;
+}
+
+.gold-btn-submit {
+    background: var(--gold) !important;
+    color: black !important;
+    padding: 18px;
+    border-radius: 100px;
+    font-weight: 800;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.gold-btn-submit:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+}
