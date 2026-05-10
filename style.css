@@ -73,3 +73,72 @@ body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', san
 .active .menu-toggle span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
 footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); opacity: 0.6; font-size: 12px; }
+
+/* FORM PAGE SPECIFIC */
+.form-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 100px 20px;
+    background: radial-gradient(circle at top right, #1a2e23 0%, #060d09 100%);
+}
+
+.form-container { width: 100%; max-width: 650px; }
+
+/* ROLE SELECTION CARDS */
+.role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+.role-card { cursor: pointer; position: relative; }
+.role-card input { position: absolute; opacity: 0; }
+
+.role-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.role-card input:checked + .role-content {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.role-content .icon { display: block; font-size: 2rem; margin-bottom: 10px; }
+.role-content .label { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* LUXURY INPUTS */
+.luxury-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-family: inherit;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.luxury-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 25px !important;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* MOBILE FIX */
+@media (max-width: 500px) {
+    .role-grid { grid-template-columns: 1fr; }
+    .glass-card { padding: 40px 20px; }
+}
