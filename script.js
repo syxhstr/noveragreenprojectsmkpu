@@ -1,16 +1,24 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Reveal Animation (Apple Standard)
+// HAMBURGER TOGGLE
+const menuToggle = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+});
+
+// ANIMATION REVEAL WITH REVERSE (No More Dead Animation)
 gsap.utils.toArray('.reveal').forEach(elem => {
     gsap.fromTo(elem, 
-        { y: 80, opacity: 0 }, 
+        { y: 60, opacity: 0 }, 
         { 
-            y: 0, opacity: 1, duration: 1, 
+            y: 0, opacity: 1, duration: 1.2, 
             ease: "expo.out",
             scrollTrigger: {
                 trigger: elem,
-                start: "top 92%",
-                toggleActions: "play none none reverse"
+                start: "top 90%",
+                toggleActions: "play none none reverse" // Re-triggers on scroll up/down
             }
         }
     );
