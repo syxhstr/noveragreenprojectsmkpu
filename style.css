@@ -1,33 +1,31 @@
-/* --- 1. GLOBAL RESET & VARIABLES --- */
+/* -----------------------------------------------------------
+   1. ROOT & RESET
+   ----------------------------------------------------------- */
 :root {
     --forest-base: #061109;
     --gold: #c5a059;
-    --gold-glow: rgba(197, 160, 89, 0.4);
+    --gold-bright: #e0b975;
     --ivory: #fdfbf7;
-    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.15);
-    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --nav-height: 85px;
+    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     background-color: var(--forest-base);
     color: var(--ivory);
     font-family: 'DM Sans', sans-serif;
-    line-height: 1.6;
     overflow-x: hidden;
+    line-height: 1.7;
 }
-
-/* --- 2. TYPOGRAPHY --- */
-.playfair { font-family: 'Playfair Display', serif; }
-.gold-text { color: var(--gold); }
-h1, h2, h3 { font-weight: 600; }
 
 /* FIX PURPLE LINKS */
 a, a:visited, a:active {
@@ -35,25 +33,27 @@ a, a:visited, a:active {
     text-decoration: none;
 }
 
-/* --- 3. NAVIGATION BAR (LIQUID GLASS) --- */
+/* -----------------------------------------------------------
+   2. NAVBAR & HAMBURGER SYSTEM
+   ----------------------------------------------------------- */
 .glass-nav {
     position: fixed;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 92%;
-    max-width: 1300px;
-    height: 85px;
-    background: rgba(6, 17, 9, 0.85);
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    width: 95%;
+    max-width: 1250px;
+    height: var(--nav-height);
+    background: rgba(6, 17, 9, 0.8);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     border: 1px solid var(--gold);
     border-radius: 100px;
     z-index: 2000;
     display: flex;
     align-items: center;
     padding: 0 45px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .nav-content {
@@ -64,22 +64,23 @@ a, a:visited, a:active {
 }
 
 .main-logo { height: 50px; width: auto; transition: var(--transition); }
-.main-logo:hover { transform: scale(1.05) rotate(-2deg); }
+.main-logo:hover { transform: scale(1.05); }
 
 .nav-links {
     display: flex;
+    list-style: none;
     gap: 30px;
     align-items: center;
 }
 
-.nav-item {
-    font-size: 0.95rem;
+.nav-links a {
     font-weight: 500;
-    letter-spacing: 1px;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
 }
 
-.nav-item:hover { color: var(--gold) !important; }
+.nav-links a:hover { color: var(--gold) !important; }
 
 .nav-btn {
     background: var(--gold);
@@ -87,35 +88,29 @@ a, a:visited, a:active {
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    box-shadow: 0 4px 15px var(--gold-glow);
-    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
 }
 
-.nav-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px var(--gold-glow);
-}
-
-/* --- 4. HAMBURGER MENU --- */
+/* HAMBURGER DESIGN */
 .hamburger {
     display: none;
+    cursor: pointer;
     flex-direction: column;
     gap: 6px;
-    cursor: pointer;
     z-index: 2100;
 }
 
-.hamburger .bar {
-    width: 30px;
+.hamburger div {
+    width: 28px;
     height: 3px;
     background-color: var(--gold);
     border-radius: 10px;
     transition: var(--transition);
 }
 
-/* --- 5. HERO SECTION --- */
+/* -----------------------------------------------------------
+   3. HERO & VIDEO SECTION
+   ----------------------------------------------------------- */
 .hero {
     height: 100vh;
     width: 100%;
@@ -123,94 +118,98 @@ a, a:visited, a:active {
     display: flex;
     align-items: center;
     padding: 0 10%;
+}
+
+.hero-video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
     overflow: hidden;
 }
 
 .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    transform: scale(1.1);
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(75deg, rgba(6,17,9,1) 0%, rgba(6,17,9,0.7) 40%, transparent 100%);
+    background: linear-gradient(85deg, rgba(6,17,9,0.95) 0%, rgba(6,17,9,0.7) 50%, transparent 100%);
     z-index: -1;
 }
 
-.hero-content { max-width: 850px; z-index: 10; }
-.main-title { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.05; margin-bottom: 25px; }
-.hero-desc { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin-bottom: 40px; }
+.hero-content { max-width: 800px; }
+.hero-content h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    margin: 20px 0;
+}
 
-/* --- 6. THE "PULAU" & CARDS --- */
+/* -----------------------------------------------------------
+   4. LIQUID GLASS CARDS (PULAU SECTION)
+   ----------------------------------------------------------- */
 .section-island {
-    width: 95%;
-    max-width: 1400px;
+    width: 92%;
+    max-width: 1350px;
     margin: 150px auto;
     padding: 120px 60px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(197, 160, 89, 0.1);
-    border-radius: 80px;
-    box-shadow: 0 60px 120px rgba(0,0,0,0.7);
+    border-radius: 70px;
+    box-shadow: 0 60px 100px rgba(0,0,0,0.6);
 }
 
-.section-title { font-size: 3.5rem; margin-bottom: 80px; }
-
-/* THE PERFECT LIQUID GLASS EFFECT */
 .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(35px) saturate(200%);
-    -webkit-backdrop-filter: blur(35px) saturate(200%);
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(40px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
     border: 1px solid var(--glass-border);
     border-radius: 45px;
-    padding: 50px;
+    padding: 45px;
     transition: var(--transition);
-    height: 100%;
 }
 
 .glass:hover {
-    background: rgba(255, 255, 255, 0.12);
     transform: translateY(-15px) scale(1.02);
     border-color: var(--gold);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* --- 7. GRIDS --- */
-.bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+/* -----------------------------------------------------------
+   5. GRIDS & RESPONSIVE
+   ----------------------------------------------------------- */
+.bento-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-/* --- 8. RESPONSIVE DESIGN --- */
 @media (max-width: 1024px) {
-    .glass-nav { padding: 0 30px; }
-    .nav-links { display: none; } /* Hide links for mobile */
     .hamburger { display: flex; }
-    
-    .nav-links.mobile-active {
-        display: flex;
-        position: absolute;
-        top: 100px;
-        right: 0;
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
         width: 300px;
-        flex-direction: column;
-        background: rgba(6,17,9,0.98);
+        background: rgba(6, 17, 9, 0.98);
         backdrop-filter: blur(20px);
-        padding: 50px;
-        border-radius: 40px;
-        border: 1px solid var(--gold);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        border-left: 1px solid var(--gold);
     }
-
+    .nav-links.active { right: 0; }
+    .section-island { padding: 70px 30px; border-radius: 40px; }
     .bento-grid-2 { grid-template-columns: 1fr; }
-    .section-island { padding: 80px 30px; border-radius: 40px; }
-    .section-title { font-size: 2.5rem; }
 }
 
-@media (max-width: 480px) {
-    .main-title { font-size: 2.8rem; }
-    .hero { padding: 0 5%; }
-}
+/* HAMBURGER ANIMATION */
+.hamburger.active .bar1 { transform: rotate(-45deg) translate(-6px, 6px); }
+.hamburger.active .bar2 { opacity: 0; }
+.hamburger.active .bar3 { transform: rotate(45deg) translate(-6px, -6px); }
+
+.gold-text { color: var(--gold); }
+.playfair { font-family: 'Playfair Display', serif; }
+.text-center { text-align: center; }
