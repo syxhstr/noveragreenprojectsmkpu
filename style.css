@@ -15,26 +15,41 @@ body {
 
 h1, h2, h3, h4, .section-title { font-family: 'Playfair Display', serif; }
 
-/* NAVBAR SLIM FIX */
+/* NAVBAR TETAP SLIM */
 .navbar {
-    position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1000px; z-index: 9999 !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    border-radius: 100px; padding: 10px 25px;
+    position: fixed; 
+    top: 15px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 90%; 
+    max-width: 1000px; 
+    height: 60px; /* KITA KUNCI KETINGGIAN KAT SINI */
+    display: flex;
+    align-items: center; /* Paksa semua benda duduk tengah secara vertikal */
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 100px;
+    padding: 0 30px; /* Padding atas bawah 0 supaya tak kembang */
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
-
-/* LOGO SIZE CONTROL */
-.main-logo { 
-    height: 75px; /* Ini akan paksa navbar jadi nipis balik */
-    width: auto; 
-    display: block;
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* LOGO BESAR TAPI TAK TOLAK NAVBAR */
+.main-logo {
+    height: 75px; /* Kau nak besar kan? Letak 45px atau 50px */
+    width: auto;
+    transition: 0.3s;
+    /* Kalau logo nampak macam nak terkeluar, guna ni: */
+    transform: scale(1.2); 
+    transform-origin: left center;
+}
 .nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { 
     color: var(--ivory); text-decoration: none; font-size: 11px; 
