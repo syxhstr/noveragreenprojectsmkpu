@@ -1,9 +1,23 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// MOBILE MENU
 function toggleMenu() {
     document.getElementById('navMenu').classList.toggle('active');
 }
+
+gsap.utils.toArray('.reveal').forEach(elem => {
+    gsap.fromTo(elem, 
+        { y: 50, opacity: 0 }, 
+        { 
+            y: 0, opacity: 1, duration: 1, 
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        }
+    );
+});
 
 // ULTRA-SMOOTH REVEAL
 gsap.utils.toArray('.reveal').forEach(elem => {
