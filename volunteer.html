@@ -2,8 +2,9 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sertai Kami | Novera Green</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
@@ -11,10 +12,26 @@
 
     <nav class="glass-nav">
         <div class="nav-content">
-            <a href="index.html" style="text-decoration: none;">
-                <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
-            </a>
-            <a href="index.html" class="nav-links a" style="font-size: 10px; opacity: 0.6;">KEMBALI KE UTAMA</a>
+            <div class="brand">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                    <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
+                    <div class="brand-text">
+                        <span style="color: white; font-weight: 800; font-size: 14px; display: block; line-height: 1;">NOVERA GREEN</span>
+                        <span class="brand-sub">BY MINIMALLYFOLIUMTECH</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Utama</a></li>
+                <li><a href="index.html#about">Tentang</a></li>
+                <li><a href="index.html#process">Proses</a></li>
+                <li><a href="volunteer.html" class="nav-btn">Sertai Kami</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -53,7 +70,15 @@
     </main>
 
     <script>
+        // GSAP Animation for Form
         gsap.from(".reveal-form", { opacity: 0, y: 30, duration: 1.2, ease: "expo.out" });
+
+        // Hamburger Menu Logic
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
