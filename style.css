@@ -1,57 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;700&display=swap');
 
 :root {
-    --earth-deep: #0a140f; /* Hijau Earth Premium */
-    --gold-leaf: #d4af37;
-    --apple-glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(212, 175, 55, 0.2);
+    --earth-deep: #0a140f;
+    --gold: #d4af37;
+    --liquid-glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(212, 175, 55, 0.3);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
     background: radial-gradient(circle at center, #13251d 0%, var(--earth-deep) 100%); 
-    color: #f0f0f0; 
-    font-family: 'Inter', sans-serif;
+    color: #fff; font-family: 'Inter', sans-serif; line-height: 1.6;
 }
 
-/* DYNAMIC ISLAND NAVBAR */
+/* NAVBAR LIQUID GLASS - DYNAMIC ISLAND STYLE */
 .glass-nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: auto; min-width: 400px; height: 60px;
-    background: rgba(10, 20, 15, 0.85); backdrop-filter: blur(30px);
-    border: 1px solid var(--border); border-radius: 100px;
+    width: 90%; max-width: 1000px; height: 70px;
+    background: rgba(10, 20, 15, 0.7); 
+    backdrop-filter: blur(30px) saturate(150%); /* Liquid Effect */
+    border: 1.5px solid var(--border); border-radius: 100px;
     z-index: 9999; display: flex; align-items: center; padding: 0 30px;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.glass-nav:hover { min-width: 600px; border-color: var(--gold-leaf); }
 
-.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
-.main-logo { height: 28px; width: auto; filter: drop-shadow(0 0 5px var(--gold-leaf)); }
+.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.main-logo { height: 32px; width: auto; }
 
-.nav-links { display: flex; gap: 25px; list-style: none; }
-.nav-links a { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #fff; text-decoration: none; opacity: 0.6; }
-.nav-links a:hover { opacity: 1; color: var(--gold-leaf); }
+/* NAVBAR TEXT HIGHLIGHTED */
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+.nav-links a { 
+    font-size: 12px; font-weight: 700; /* Highlighted */
+    text-transform: uppercase; letter-spacing: 1.5px; 
+    color: #fff; text-decoration: none; transition: 0.3s;
+}
+.nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
 
-/* LUXURY TYPOGRAPHY */
-h1, h2, .title-gold { font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--gold-leaf); }
+/* MOBILE FRIENDLY ADJUSTMENTS */
+@media (max-width: 850px) {
+    .nav-links { display: none; } /* Mobile hide links */
+    .glass-nav { width: 95%; height: 60px; top: 10px; }
+    .hero-title { font-size: 3rem !important; }
+    .objective-grid, .impact-grid { grid-template-columns: 1fr !important; }
+    .glass-card { padding: 30px !important; }
+}
 
-.hero-title { font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
-/* BIG BENTO CARDS */
+/* TYPOGRAPHY & CARDS */
+.title-gold { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 3rem; margin-bottom: 25px; }
 .glass-card { 
-    background: var(--apple-glass); backdrop-filter: blur(50px); 
-    border: 1px solid var(--border); border-radius: 40px; padding: 60px; 
-    margin-bottom: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background: var(--liquid-glass); backdrop-filter: blur(40px); 
+    border: 1px solid var(--border); border-radius: 40px; padding: 60px; margin-bottom: 40px;
 }
 
-.nav-btn, .action-btn { 
-    background: var(--gold-leaf); color: #000; padding: 12px 28px; 
-    border-radius: 50px; font-weight: 700; border: none; cursor: pointer;
-    transition: 0.3s; text-decoration: none; display: inline-block;
+.objective-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.big-card { 
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border); 
+    padding: 40px; border-radius: 30px; position: relative; transition: 0.4s;
 }
-.action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+.big-card:hover { background: rgba(212, 175, 55, 0.05); transform: translateY(-10px); }
+.card-num { font-size: 60px; font-weight: 700; color: var(--gold); opacity: 0.1; position: absolute; top: 10px; right: 20px; }
 
-/* FOOTER CALL TO ACTION */
-.cta-section { text-align: center; padding: 100px 0; background: rgba(212, 175, 55, 0.02); }
-
-@media (max-width: 768px) { .glass-nav { min-width: 90%; } .nav-links { display: none; } }
+.nav-btn { background: var(--gold); color: #000 !important; padding: 12px 24px; border-radius: 50px; }
