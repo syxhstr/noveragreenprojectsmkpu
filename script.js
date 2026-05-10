@@ -1,81 +1,87 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* MASTER JAVASCRIPT: NOVERA GREEN 
+   LEVEL: PETRONAS/APPLE LUXURY 
+*/
 
-    // 1. HAMBURGER MENU (MODERN ANIMATION)
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('nav-links');
-    
-    if(burger && navLinks) {
-        const lines = burger.querySelectorAll('div');
-        burger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            if (navLinks.classList.contains('active')) {
-                lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-            } else {
-                lines.forEach(l => l.style.transform = 'none');
-                lines[1].style.opacity = '1';
+// 1. REGISTER GSAP SCROLLTRIGGER
+// Pastikan kau dah panggil library GSAP kat index.html punya script tag!
+gsap.registerPlugin(ScrollTrigger);
+
+// 2. HERO ANIMATION (LOAD SEKALI MASA PAGE BUKA)
+window.addEventListener('load', () => {
+    const tl = gsap.timeline();
+
+    tl.from(".hero-logo-large", {
+        y: -50,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+    })
+    .from(".hero-title", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    }, "-=0.8")
+    .from(".hero-description, .gold-btn", {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+    }, "-=0.5");
+});
+
+// 3. RE-TRIGGER ANIMATION (SCROLL UP & DOWN)
+// Kod ni akan buat card/text kau "naik" bila scroll down, dan "turun" bila scroll up balik.
+const animateSections = document.querySelectorAll(".animate-scroll");
+
+animateSections.forEach((section) => {
+    gsap.fromTo(section, 
+        { 
+            y: 100, 
+            opacity: 0,
+            scale: 0.95 
+        }, 
+        {
+            y: 0, 
+            opacity: 1, 
+            scale: 1,
+            duration: 1,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 90%", // Mula animation bila 90% view masuk skrin
+                end: "bottom 10%", // Reset bila dah lepas 10% skrin atas
+                toggleActions: "play reverse play reverse", 
+                /* toggleActions: "onEnter onLeave onEnterBack onLeaveBack"
+                   play = jalan animation
+                   reverse = pusing balik animation bila scroll lepas (ni yang kau nak!)
+                */
             }
-        });
-    }
-
-    // 2. FLOATING LEAVES (PARTICLES)
-    const leafContainer = document.getElementById('leaf-container');
-    if(leafContainer && typeof gsap !== 'undefined') {
-        const leaves = ['🍃', '🍂', '🌿'];
-        for (let i = 0; i < 15; i++) {
-            let leaf = document.createElement('div');
-            leaf.innerHTML = leaves[Math.floor(Math.random() * leaves.length)];
-            leaf.style.position = 'absolute';
-            leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.top = '-50px';
-            leaf.style.fontSize = (Math.random() * 15 + 10) + 'px';
-            leaf.style.opacity = '0.2';
-            leafContainer.appendChild(leaf);
-
-            gsap.to(leaf, {
-                y: '110vh',
-                x: '+=100',
-                rotation: 360,
-                duration: Math.random() * 15 + 10,
-                repeat: -1,
-                delay: Math.random() * 5,
-                ease: "none"
-            });
         }
-    }
+    );
+});
 
-    // 3. SCROLL REVEAL (EFEK TIMBUL)
-    if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.reveal').forEach(elem => {
-            gsap.fromTo(elem, 
-                { opacity: 0, y: 50 }, 
-                { opacity: 1, y: 0, duration: 1.2, scrollTrigger: {
-                    trigger: elem, start: "top 85%", toggleActions: "play none none reverse"
-                }}
-            );
-        });
+// 4. NAVBAR BLUR & SHRINK ON SCROLL
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        nav.style.padding = "8px 25px";
+        nav.style.background = "rgba(11, 26, 19, 0.8)"; // Forest green kabur
+    } else {
+        nav.style.padding = "12px 30px";
+        nav.style.background = "rgba(255, 255, 255, 0.03)";
     }
 });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(50px)";
-    el.style.transition = "all 1s ease-out";
-    observer.observe(el);
+// 5. PARALLAX EFFECT UNTUK VIDEO HERO
+gsap.to(".hero-video", {
+    yPercent: 30,
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+    }
 });
-
-// CSS injected via JS for the active state
-const style = document.createElement('style');
-style.innerHTML = `.reveal.active { opacity: 1 !important; transform: translateY(0) !important; }`;
-document.head.appendChild(style);
