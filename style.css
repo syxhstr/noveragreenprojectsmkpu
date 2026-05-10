@@ -461,3 +461,22 @@ button.submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(197,
     stroke: #C5A059; /* Arrow jadi warna gold */
     transition: transform 0.3s ease;
 }
+
+/* Ejas saiz teks description dalam card */
+.card p {
+    font-size: 1.1rem; /* Besarkan sikit (default biasanya 1rem) */
+    line-height: 1.7;   /* Bagi ruang antara baris biar tak nampak sesak */
+    opacity: 0.9;       /* Kekalkan nampak premium tapi jelas */
+}
+
+/* Kalau nak besarkan teks kat bahagian Hero (paling atas) */
+.hero-desc {
+    font-size: 1.2rem !important; 
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Kalau nak besarkan teks dalam list objektif/proses yang kecil tu */
+.small-card p, .process-card p {
+    font-size: 1.05rem;
+}
