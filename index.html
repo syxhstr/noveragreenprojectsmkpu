@@ -5,32 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoveraGreen | Inovasi Hijau</title>
     <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
     <div id="leaf-container"></div>
-
     <nav class="navbar glass-nav">
         <div class="nav-content">
             <div class="brand">
                 <img src="assets/images/logonovera.png" alt="Logo" class="main-logo">
-                <div class="brand-text">
-                    <span class="sub-brand">by MinimallyFoliumTech</span>
-                </div>
+                <div class="brand-text"><span class="sub-brand">by MinimallyFoliumTech</span></div>
             </div>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
             <div class="nav-links">
                 <a href="#about">Tentang</a>
                 <a href="#objective">Objektif</a>
@@ -54,96 +41,109 @@
     </header>
 
     <main class="container">
-        
-        <section id="about" class="section-padding">
+        <section id="about" class="section-padding section-about">
             <div class="bento-grid-2">
-                <div class="card glass reveal">
-                    <h2 class="playfair gold-text mb-4">Tentang Projek</h2>
-                    <p><strong>NOVERA GREEN</strong> ialah projek inovasi yang memfokuskan kepada penukaran daun-daun mati yang biasanya dianggap sebagai sisa buangan kepada kertas berkualiti yang boleh digunakan semula. Selain itu, projek ini turut membangunkan sebuah laman web khas untuk memudahkan masyarakat menyumbangkan daun-daun kering atau mati bagi tujuan pengumpulan bahan mentah. Projek ini bertujuan menyokong kelestarian alam sekitar melalui konsep kitar semula dan teknologi hijau.</p>
+                <div class="card glass reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header">
+                        <h2 class="playfair gold-text">Tentang Projek</h2>
+                        <span class="toggle-icon">˄</span>
+                    </div>
+                    <div class="card-content">
+                        <p><strong>NOVERA GREEN</strong> ialah projek inovasi yang memfokuskan kepada penukaran daun-daun mati yang biasanya dianggap sebagai sisa buangan kepada kertas berkualiti yang boleh digunakan semula. Selain itu, projek ini turut membangunkan sebuah laman web khas untuk memudahkan masyarakat menyumbangkan daun-daun kering atau mati bagi tujuan pengumpulan bahan mentah. Projek ini bertujuan menyokong kelestarian alam sekitar melalui konsep kitar semula dan teknologi hijau.</p>
+                    </div>
                 </div>
-                <div class="card glass reveal">
-                    <h2 class="playfair gold-text mb-4">Mengapa Projek Ini Diwujudkan?</h2>
-                    <p>Projek ini diwujudkan kerana banyak daun mati dibuang begitu sahaja tanpa dimanfaatkan, sedangkan ia boleh dijadikan sumber yang bernilai. Pembuangan sisa daun secara berlebihan boleh menyebabkan longgokan sampah dan pencemaran persekitaran. Pada masa yang sama, penggunaan kertas yang tinggi menyebabkan penebangan pokok semakin meningkat.</p>
-                    <p class="mt-3">Oleh itu, NOVERA GREEN hadir sebagai satu penyelesaian yang menggabungkan inovasi dan teknologi untuk mengurangkan pembaziran, menjaga alam sekitar, serta memberi alternatif penghasilan kertas yang lebih lestari dan ekonomik.</p>
+
+                <div class="card glass reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header">
+                        <h2 class="playfair gold-text">Mengapa Projek Ini Diwujudkan?</h2>
+                        <span class="toggle-icon">˄</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Projek ini diwujudkan kerana banyak daun mati dibuang begitu sahaja tanpa dimanfaatkan, sedangkan ia boleh dijadikan sumber yang bernilai. Pembuangan sisa daun secara berlebihan boleh menyebabkan longgokan sampah dan pencemaran persekitaran. Pada masa yang sama, penggunaan kertas yang tinggi menyebabkan penebangan pokok semakin meningkat.</p>
+                        <p class="mt-3">Oleh itu, NOVERA GREEN hadir sebagai satu penyelesaian yang menggabungkan inovasi dan teknologi untuk mengurangkan pembaziran, menjaga alam sekitar, serta memberi alternatif penghasilan kertas yang lebih lestari dan ekonomik.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="objective" class="section-padding">
-            <h2 class="section-title playfair text-center mb-5">Objektif Utama</h2>
+            <h2 class="section-title playfair text-center mb-5">Objektif</h2>
             <div class="bento-grid-3">
-                <div class="card glass small-card reveal"><span class="number gold-text">01</span><p>Mengurangkan pembuangan sisa organik seperti daun mati secara tidak terkawal.</p></div>
-                <div class="card glass small-card reveal"><span class="number gold-text">02</span><p>Menghasilkan kertas berkualiti daripada bahan semula jadi yang mesra alam.</p></div>
-                <div class="card glass small-card reveal"><span class="number gold-text">03</span><p>Menggalakkan masyarakat menyertai aktiviti kitar semula secara aktif.</p></div>
-                <div class="card glass small-card reveal"><span class="number gold-text">04</span><p>Membina platform digital melalui laman web untuk memudahkan pengumpulan sumbangan daun.</p></div>
-                <div class="card glass small-card reveal"><span class="number gold-text">05</span><p>Meningkatkan kesedaran tentang kepentingan penjagaan alam sekitar dan inovasi hijau.</p></div>
+                <div class="card glass small-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><span class="number gold-text">01</span><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Mengurangkan pembuangan sisa organik seperti daun mati secara tidak terkawal.</p></div>
+                </div>
+                <div class="card glass small-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><span class="number gold-text">02</span><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Menghasilkan kertas berkualiti daripada bahan semula jadi yang mesra alam.</p></div>
+                </div>
+                <div class="card glass small-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><span class="number gold-text">03</span><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Menggalakkan masyarakat menyertai aktiviti kitar semula secara aktif.</p></div>
+                </div>
+                <div class="card glass small-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><span class="number gold-text">04</span><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Membina platform digital melalui laman web untuk memudahkan pengumpulan sumbangan daun.</p></div>
+                </div>
+                <div class="card glass small-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><span class="number gold-text">05</span><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Meningkatkan kesedaran tentang kepentingan penjagaan alam sekitar dan inovasi hijau.</p></div>
+                </div>
             </div>
         </section>
 
-        <section id="process" class="section-padding">
-            <h2 class="section-title playfair text-center mb-5">Proses Penghasilan</h2>
+        <section id="process" class="section-padding section-process">
+            <h2 class="section-title playfair text-center mb-5">Proses</h2>
             <div class="process-timeline">
-                <div class="card glass process-card reveal">
-                    <h3 class="gold-text playfair">1. Pengumpulan Daun Mati</h3>
-                    <p>Daun-daun mati dikumpulkan daripada kawasan rumah, sekolah, taman, dan melalui sumbangan masyarakat menggunakan laman web NOVERA GREEN.</p>
+                <div class="card glass process-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">1. Pengumpulan Daun Mati</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Daun-daun mati dikumpulkan daripada kawasan rumah, sekolah, taman, dan melalui sumbangan masyarakat menggunakan laman web NOVERA GREEN.</p></div>
                 </div>
-                <div class="card glass process-card reveal">
-                    <h3 class="gold-text playfair">2. Pembersihan & Pengeringan</h3>
-                    <p>Daun yang dikumpulkan dibersihkan daripada kotoran dan dikeringkan bagi memastikan proses seterusnya berjalan dengan baik.</p>
+                <div class="card glass process-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">2. Pembersihan & Pengeringan</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Daun yang dikumpulkan dibersihkan daripada kotoran dan dikeringkan bagi memastikan proses seterusnya berjalan dengan baik.</p></div>
                 </div>
-                <div class="card glass process-card reveal">
-                    <h3 class="gold-text playfair">3. Pengisaran & Pemprosesan</h3>
-                    <p>Daun dikisar sehingga menjadi serat halus sebelum dicampurkan dengan bahan semula jadi lain untuk membentuk pulpa kertas.</p>
+                <div class="card glass process-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">3. Pengisaran & Pemprosesan</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Daun yang telah kering dikisar sehingga menjadi serat halus sebelum dicampurkan dengan bahan semula jadi lain untuk membentuk pulpa kertas.</p></div>
                 </div>
-                <div class="card glass process-card reveal">
-                    <h3 class="gold-text playfair">4. Pembentukan Kertas</h3>
-                    <p>Pulpa tersebut ditekan, diratakan, dan dikeringkan untuk menghasilkan helaian kertas berkualiti.</p>
+                <div class="card glass process-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">4. Pembentukan Kertas</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Pulpa tersebut ditekan, diratakan, dan dikeringkan untuk menghasilkan helaian kertas berkualiti.</p></div>
                 </div>
-                <div class="card glass process-card reveal">
-                    <h3 class="gold-text playfair">5. Pengedaran & Kesedaran</h3>
-                    <p>Kertas digunakan untuk pendidikan dan kraftangan sambil menyebarkan kesedaran tentang kelestarian alam.</p>
+                <div class="card glass process-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">5. Pengedaran & Kesedaran</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Kertas yang dihasilkan boleh digunakan untuk tujuan pendidikan, kraftangan, dan pembungkusan mesra alam sambil menyebarkan kesedaran kepada masyarakat.</p></div>
                 </div>
             </div>
         </section>
 
-        <section id="impact" class="section-padding">
-            <h2 class="section-title playfair text-center mb-5">Impak Projek</h2>
+        <section id="impact" class="section-padding section-impact">
+            <h2 class="section-title playfair text-center mb-5">Impak</h2>
             <div class="bento-grid-2">
-                <div class="card glass impact-card reveal">
-                    <h3 class="gold-text playfair">Alam Sekitar</h3>
-                    <p>Mengurangkan sisa organik dan kebergantungan terhadap penebangan pokok untuk menghasilkan kertas.</p>
+                <div class="card glass impact-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">Alam Sekitar</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Mengurangkan sisa organik dan membantu mengurangkan pencemaran serta kebergantungan terhadap penebangan pokok untuk menghasilkan kertas.</p></div>
                 </div>
-                <div class="card glass impact-card reveal">
-                    <h3 class="gold-text playfair">Masyarakat</h3>
-                    <p>Mendidik masyarakat tentang kitar semula dan peluang terlibat langsung menjaga alam sekitar.</p>
+                <div class="card glass impact-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">Masyarakat</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Mendidik masyarakat tentang pentingnya kitar semula dan memberi peluang kepada mereka untuk terlibat secara langsung dalam menjaga alam sekitar.</p></div>
                 </div>
-                <div class="card glass impact-card reveal">
-                    <h3 class="gold-text playfair">Ekonomi</h3>
-                    <p>Menghasilkan produk bernilai daripada bahan buangan serta membuka peluang inovasi keusahawanan hijau.</p>
+                <div class="card glass impact-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">Ekonomi</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Menghasilkan produk bernilai daripada bahan buangan serta membuka peluang kepada inovasi keusahawanan hijau.</p></div>
                 </div>
-                <div class="card glass impact-card reveal">
-                    <h3 class="gold-text playfair">Teknologi</h3>
-                    <p>Penggunaan laman web menjadikan proses pengumpulan lebih sistematik, moden, dan mudah diakses.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="sertai" class="section-padding reveal">
-            <div class="card glass text-center" style="max-width: 800px; margin: 0 auto; padding: 60px 40px;">
-                <h2 class="playfair gold-text mb-4" style="font-size: 2.5rem;">Sertai Revolusi Hijau</h2>
-                <p class="mb-5" style="font-size: 1.1rem; opacity: 0.9;">Adakah anda bersedia untuk mengubah sisa menjadi nilai? Sertai kami sebagai sukarelawan hari ini.</p>
-                <div style="margin-top: 30px;">
-                    <a href="volunteer.html" class="nav-btn" style="padding: 18px 50px; font-size: 1.2rem; border-radius: 50px;">Daftar Sekarang</a>
+                <div class="card glass impact-card reveal toggle-card" onclick="this.classList.toggle('active')">
+                    <div class="card-header"><h3 class="gold-text playfair">Teknologi</h3><span class="toggle-icon">˄</span></div>
+                    <div class="card-content"><p>Penggunaan laman web menjadikan proses pengumpulan sumbangan lebih sistematik, moden, dan mudah diakses oleh semua lapisan masyarakat.</p></div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; border-top: 1px solid rgba(197, 160, 89, 0.1);">
+    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 0.9rem;">
         <p>&copy; 2026 Novera Green by MinimallyFoliumTech. Hak Cipta Terpelihara.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
