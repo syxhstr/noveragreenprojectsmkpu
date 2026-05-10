@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><title>Sertai Kami | Novera Green</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-</head>
-<body class="centered-layout">
-    <nav class="glass-nav"><div class="nav-content"><a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a></div></nav>
-    
-    <div class="glass-card reveal" style="max-width:500px; text-align:center;">
-        <h1 class="title-gold">Sertai Kami</h1>
-        <p style="margin-bottom:20px; opacity:0.7;">Bantu kami melestarikan alam sekitar.</p>
+    <meta charset="UTF-8"><title>Sertai Kami | Novera</title><link rel="stylesheet" href="style.css"></head>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding: 20px;">
+    <div class="glass-card" style="max-width: 600px; width: 100%; text-align: center;">
+        <h2 class="title-gold">Sertai Pergerakan Kami</h2>
+        <p style="margin-bottom: 30px; opacity: 0.7;">Pilih cara anda untuk membantu bumi.</p>
+        
         <form action="thankyou.html">
-            <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
-            <input type="email" placeholder="E-mel" class="luxury-input" required>
-            <button type="submit" class="nav-btn" style="width:100%; border:none; cursor:pointer;">HANTAR PERMOHONAN</button>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <label style="border: 1px solid var(--border); padding: 20px; border-radius: 20px; cursor: pointer;">
+                    <input type="radio" name="role" value="volunteer" required>
+                    <div style="margin-top: 10px; font-weight: bold;">Sukarelawan</div>
+                </label>
+                <label style="border: 1px solid var(--border); padding: 20px; border-radius: 20px; cursor: pointer;">
+                    <input type="radio" name="role" value="donate">
+                    <div style="margin-top: 10px; font-weight: bold;">Sumbang Daun</div>
+                </label>
+            </div>
+            <input type="text" placeholder="Nama Penuh" style="width: 100%; padding: 15px; background: none; border: 1px solid var(--border); border-radius: 10px; color: white; margin-bottom: 15px;">
+            <button type="submit" class="action-btn" style="width: 100%;">HANTAR</button>
         </form>
     </div>
-    <script>gsap.from(".reveal", {opacity:0, scale:0.9, duration:1, ease:"expo.out"});</script>
 </body>
 </html>
