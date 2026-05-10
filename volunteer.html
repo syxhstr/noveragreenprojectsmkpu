@@ -4,89 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertai Kami | Novera Green</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-
-    <nav class="glass-nav">
-        <div class="nav-content">
-            <div class="brand">
-                <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
-            </div>
-            <a href="index.html" class="nav-btn" style="font-size: 10px; padding: 10px 20px;">KEMBALI KE UTAMA</a>
-        </div>
+<body style="background: radial-gradient(circle at center, #1a2e25 0%, #0b1a13 100%);">
+    
+    <nav class="navbar">
+        <img src="assets/images/logonovera.png" style="height: 45px;">
+        <a href="index.html" class="gold-btn" style="padding: 10px 25px; font-size: 0.7rem;">KEMBALI KE UTAMA</a>
     </nav>
 
-    <main class="container" style="padding-top: 150px; padding-bottom: 100px;">
-        
-        <div style="text-align: center; margin-bottom: 60px;">
-            <h1 class="hero-title" style="font-size: 3.5rem;">Sertai <span>Perjuangan Kami.</span></h1>
-            <p class="hero-description">Pilih peranan anda dalam melestarikan alam sekitar melalui inovasi Novera Green.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+    <main class="container" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="glass-card" style="width: 100%; max-width: 600px; margin-top: 50px;">
+            <h2 style="text-align: center; margin-bottom: 10px;">Sertai Revolusi Hijau</h2>
+            <p style="text-align: center; opacity: 0.6; margin-bottom: 40px;">Lengkapkan butiran anda di bawah.</p>
             
-            <div class="info-side">
-                <div class="glass-card" style="margin: 0 0 30px 0; padding: 30px;">
-                    <h3 class="title-gold" style="font-size: 1.5rem;">Kriteria Sukarelawan</h3>
-                    <ul style="list-style: none; opacity: 0.8; line-height: 2;">
-                        <li>• Berumur 16 tahun ke atas.</li>
-                        <li>• Berminat dengan kelestarian alam.</li>
-                        <li>• Boleh meluangkan masa untuk aktiviti pengumpulan.</li>
-                        <li>• Mempunyai semangat kerja berpasukan.</li>
-                    </ul>
-                </div>
+            <form action="thankyou.html">
+                <input type="text" placeholder="Nama Penuh" class="luxury-input" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:20px; outline:none;" required>
+                <input type="email" placeholder="E-mel" class="luxury-input" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:20px; outline:none;" required>
+                
+                <select style="width:100%; background:var(--forest); border:1px solid var(--glass-border); padding:20px; border-radius:15px; color:white; margin-bottom:30px;">
+                    <option>Sukarelawan Pengumpulan</option>
+                    <option>Penyumbang Daun Kering</option>
+                    <option>Duta Kesedaran</option>
+                </select>
 
-                <div class="glass-card" style="margin: 0; padding: 30px;">
-                    <h3 class="title-gold" style="font-size: 1.5rem;">Cara Sumbang Daun</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Pastikan daun yang disumbangkan adalah <b>daun kering/mati</b>. Kami menerima pelbagai jenis daun kecuali yang telah reput hancur atau bercampur sampah plastik.</p>
-                </div>
-            </div>
-
-            <div class="form-side">
-                <div class="glass-card" style="margin: 0; padding: 40px; border-color: var(--gold);">
-                    <form action="#">
-                        <h3 style="margin-bottom: 25px; text-align: center;">Borang Pendaftaran</h3>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                            <label class="card-option" id="opt-v" onclick="selectRole('v')">
-                                <input type="radio" name="role" value="volunteer" id="r-v" required style="display:none;">
-                                <span style="font-size: 20px;">🌿</span><br><small>SUKARELAWAN</small>
-                            </label>
-                            <label class="card-option" id="opt-d" onclick="selectRole('d')">
-                                <input type="radio" name="role" value="donate" id="r-d" style="display:none;">
-                                <span style="font-size: 20px;">📦</span><br><small>SUMBANG DAUN</small>
-                            </label>
-                        </div>
-
-                        <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
-                        <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
-                        <input type="tel" placeholder="No. Telefon" class="luxury-input" required>
-                        <textarea placeholder="Kenapa anda ingin sertai kami?" class="luxury-input" style="height: 100px; resize: none;"></textarea>
-                        
-                        <button type="submit" class="nav-btn" style="width: 100%; padding: 20px; font-size: 1rem; margin-top: 10px;">HANTAR SEKARANG</button>
-                    </form>
-                </div>
-            </div>
-
+                <button type="submit" class="gold-btn" style="width: 100%; border: none; cursor: pointer;">Hantar Permohonan</button>
+            </form>
         </div>
     </main>
-
-    <script>
-        function selectRole(type) {
-            document.getElementById('opt-v').classList.remove('active');
-            document.getElementById('opt-d').classList.remove('active');
-            
-            if(type === 'v') {
-                document.getElementById('opt-v').classList.add('active');
-                document.getElementById('r-v').checked = true;
-            } else {
-                document.getElementById('opt-d').classList.add('active');
-                document.getElementById('r-d').checked = true;
-            }
-        }
-    </script>
 </body>
 </html>
