@@ -30,7 +30,7 @@ h1, h2, h3, h4, .section-title { font-family: 'Playfair Display', serif; }
 
 /* LOGO SIZE CONTROL */
 .main-logo { 
-    height: 28px; /* Ini akan paksa navbar jadi nipis balik */
+    height: 75px; /* Ini akan paksa navbar jadi nipis balik */
     width: auto; 
     display: block;
 }
