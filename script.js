@@ -1,27 +1,32 @@
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. HAMBURGER MENU
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
 
-// HAMBURGER TOGGLE
-const menuToggle = document.getElementById('mobile-menu');
-const navList = document.getElementById('nav-list');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            // Animasi tukar jadi X (Optional)
+            menuToggle.classList.toggle('is-active');
+        });
+    }
 
-menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-});
-
-// ANIMATION REVEAL WITH REVERSE (No More Dead Animation)
-gsap.utils.toArray('.reveal').forEach(elem => {
-    gsap.fromTo(elem, 
-        { y: 60, opacity: 0 }, 
-        { 
-            y: 0, opacity: 1, duration: 1.2, 
-            ease: "expo.out",
-            scrollTrigger: {
-                trigger: elem,
-                start: "top 90%",
-                toggleActions: "play none none reverse" // Re-triggers on scroll up/down
+    // 2. GSAP ANIMATION (RE-TRIGGER)
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.utils.toArray('.reveal').forEach(elem => {
+        gsap.fromTo(elem, 
+            { y: 50, opacity: 0 }, 
+            { 
+                y: 0, opacity: 1, duration: 1, 
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
             }
-        }
-    );
+        );
+    });
 });
 
 // ULTRA-SMOOTH REVEAL
