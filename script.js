@@ -1,21 +1,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero Entrance
-gsap.from(".hero-content > *", {
-    y: 50, opacity: 0, duration: 1.5, stagger: 0.3, ease: "power4.out"
-});
-
-// Scroll Reveal - RE-TRIGGER
+// Reveal Animation yang akan RE-TRIGGER (ulang balik)
 const reveals = document.querySelectorAll(".animate-scroll");
 reveals.forEach((el) => {
     gsap.fromTo(el, 
-        { y: 80, opacity: 0 }, 
-        {
-            y: 0, opacity: 1, duration: 1.2,
+        { y: 50, opacity: 0 },
+        { 
+            y: 0, opacity: 1, 
+            duration: 1, 
+            ease: "power3.out",
             scrollTrigger: {
                 trigger: el,
-                start: "top 85%",
-                end: "bottom 15%",
+                start: "top 90%",
+                end: "bottom 10%",
                 toggleActions: "play reverse play reverse"
             }
         }
