@@ -1,10 +1,8 @@
-/* --- RESET & VARIABLES --- */
+/* --- UNIVERSAL RESET --- */
 :root {
     --forest-base: #061109;
     --gold: #c5a059;
     --ivory: #fdfbf7;
-    --card-glass: rgba(255, 255, 255, 0.15); /* Grey/White Cerah */
-    --card-border: rgba(255, 255, 255, 0.25);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,19 +11,15 @@ body {
     background-color: var(--forest-base);
     color: var(--ivory);
     font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
 }
 
-/* --- FIX WARNA PURPLE (VISITED) --- */
+/* --- FIX LINK PURPLE (Global Fix) --- */
 a, a:visited, a:active {
     text-decoration: none;
-    color: var(--ivory) !important; /* Paksa warna Ivory */
-    transition: 0.3s;
+    color: inherit; /* Ikut warna asal teks */
 }
 
-a:hover { color: var(--gold) !important; }
-
-/* --- NAVBAR FIX --- */
+/* --- NAVBAR (Kekal untuk semua page) --- */
 .glass-nav {
     position: fixed;
     top: 20px;
@@ -44,21 +38,31 @@ a:hover { color: var(--gold) !important; }
     padding: 0 40px;
 }
 
-.brand { display: flex; align-items: center; gap: 15px; }
-.main-logo { height: 50px !important; width: auto; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.main-logo { height: 45px !important; width: auto; }
 .nav-links { margin-left: auto; display: flex; gap: 20px; align-items: center; }
-.nav-btn { background: var(--gold); color: var(--forest-base) !important; padding: 10px 20px; border-radius: 50px; font-weight: bold; }
+.nav-links a { color: var(--ivory) !important; font-size: 0.9rem; }
+.nav-links a:hover { color: var(--gold) !important; }
 
-/* --- HERO FIX (TEXT ON TOP) --- */
-.hero {
+.nav-btn { 
+    background: var(--gold); 
+    color: var(--forest-base) !important; 
+    padding: 10px 22px; 
+    border-radius: 50px; 
+    font-weight: bold; 
+}
+
+/* --- KHUSUS UNTUK INDEX PAGE SAHAJA --- */
+.index-page .hero {
     height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     padding-left: 8%;
+    overflow: hidden;
 }
 
-.hero-video {
+.index-page .hero-video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -67,46 +71,45 @@ a:hover { color: var(--gold) !important; }
     z-index: -1;
 }
 
-.hero-overlay {
+.index-page .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(6,17,9,0.9), transparent);
+    background: linear-gradient(to right, rgba(6,17,9,0.95), transparent);
     z-index: 0;
 }
 
-.hero-content { position: relative; z-index: 10; max-width: 700px; }
-.hero-content h1 { font-size: 4rem; line-height: 1.1; margin: 20px 0; }
-.gold-text { color: var(--gold); }
+.index-page .hero-content { position: relative; z-index: 10; max-width: 700px; }
 
-/* --- SECTION PULAU (THE RED LINE EFFECT) --- */
-.section-island {
-    width: 92%;
+/* --- EFEK PULAU (Hanya di Index) --- */
+.index-page .section-island {
+    width: 90%;
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 120px auto;
     padding: 80px 50px;
     border-radius: 60px;
-    border: 1px solid rgba(197, 160, 89, 0.15);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
-    background: rgba(255, 255, 255, 0.03); /* Beza dari background body */
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    background: rgba(255, 255, 255, 0.03); /* Memisahkan dari background body */
 }
 
-.section-about { background: rgba(13, 46, 27, 0.4); }
-.section-islands { background: rgba(255, 255, 255, 0.05); }
-
-.section-title { font-size: 3rem; margin-bottom: 50px; }
-
-/* --- KAD GREY/WHITE CERAH --- */
-.glass {
-    background: var(--card-glass) !important;
+/* --- KAD GREY/WHITE CERAH (Hanya di Index) --- */
+.index-page .glass {
+    background: rgba(255, 255, 255, 0.12) !important;
     backdrop-filter: blur(20px);
-    border: 1px solid var(--card-border);
-    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 35px;
     padding: 40px;
-    transition: 0.3s;
+    transition: 0.4s ease;
 }
 
-.glass:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.2) !important; }
+.index-page .glass:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    transform: translateY(-10px);
+}
 
-/* GRID */
-.bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.index-page .gold-text { color: var(--gold); }
+.index-page .bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.index-page .bento-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+/* Tajuk Section */
+.index-page .section-title { font-size: 3.5rem; text-align: center; margin-bottom: 50px; }
