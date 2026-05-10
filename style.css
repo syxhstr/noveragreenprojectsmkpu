@@ -1,70 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
 :root {
     --forest: #061109;
     --gold: #c5a059;
     --ivory: #fdfbf7;
-    --glass: rgba(255, 255, 255, 0.05);
-    --glass-heavy: rgba(255, 255, 255, 0.12);
-    --border: rgba(197, 160, 89, 0.3);
+    --glass-heavy: rgba(255, 255, 255, 0.1);
+    --border-gold: rgba(197, 160, 89, 0.4);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--forest); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+body { background: var(--forest); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
 
-/* --- NAVBAR FIXED --- */
+/* NAVBAR FIX - NO MORE COMPRESSION */
 .glass-nav {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 95%; max-width: 1300px; min-height: 90px;
-    background: rgba(6, 17, 9, 0.8); backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid var(--border); border-radius: 100px;
-    z-index: 9999; display: flex; align-items: center; padding: 0 40px;
+    position: fixed; top: 25px; left: 50%; transform: translateX(-50%);
+    width: 92%; max-width: 1400px; height: 100px;
+    background: rgba(6, 17, 9, 0.85); backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--border-gold); border-radius: 100px;
+    z-index: 9999; display: flex; align-items: center; padding: 0 50px;
 }
 
-.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.nav-content { 
+    width: 100%; display: flex; justify-content: space-between; align-items: center; 
+}
 
-.brand { display: flex; flex-direction: column; align-items: flex-start; }
-.main-logo { height: 65px; width: auto; object-fit: contain; margin-bottom: -5px; } /* Besarkan logo */
-.brand-sub { font-size: 11px; color: var(--ivory); opacity: 0.8; letter-spacing: 0.5px; }
+/* LOGO SECTION - FORCED SIZE */
+.brand { display: flex; flex-direction: column; min-width: 250px; }
+.main-logo { height: 75px !important; width: auto; object-fit: contain; } /* Dipaksa besar */
+.brand-sub { 
+    font-size: 13px; font-weight: 700; color: var(--gold); 
+    letter-spacing: 1px; margin-top: -5px; 
+}
 
-.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
-.nav-links a { font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-.nav-links a:hover { color: var(--gold) !important; }
+/* MENU LINKS - NO SHRINK */
+.nav-links { display: flex; gap: 40px; align-items: center; list-style: none; }
+.nav-links a { 
+    font-weight: 700; font-size: 15px; color: var(--ivory) !important;
+    text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-links a:hover { color: var(--gold) !important; transform: translateY(-2px); }
 
+/* PREMIUM BUTTON */
 .nav-btn { 
     background: var(--gold); color: var(--forest) !important; 
-    padding: 14px 35px; border-radius: 50px; font-weight: 700;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2); 
+    padding: 16px 40px; border-radius: 50px; font-weight: 700;
+    font-size: 14px; text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+    border: none; cursor: pointer; transition: 0.4s;
+}
+.nav-btn:hover { background: #e0b975; transform: scale(1.05); box-shadow: 0 15px 40px rgba(197, 160, 89, 0.5); }
+
+/* HERO TEXT FIX */
+.hero-content h1 { 
+    font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 700; line-height: 1; margin-bottom: 20px;
 }
 
-/* --- CARDS & UI FIX --- */
-.section-island { width: 90%; max-width: 1200px; margin: 150px auto; padding: 20px; }
-
+/* CARD LUXURY */
 .glass-card {
-    background: var(--glass) !important;
-    backdrop-filter: blur(40px) saturate(180%) !important;
-    border: 1px solid var(--border); border-radius: 40px;
-    padding: 60px; margin-bottom: 30px; transition: 0.4s;
+    background: var(--glass-heavy) !important;
+    backdrop-filter: blur(50px) saturate(200%) !important;
+    border: 1px solid var(--border-gold); border-radius: 50px;
+    padding: 70px; margin-bottom: 50px;
 }
+.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3rem; font-style: italic; }
 
-.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
-
-/* VOLUNTEER & THANK YOU UI SIZE */
-.full-card { max-width: 800px; margin: 180px auto; text-align: center; }
-.form-input { 
-    width: 100%; padding: 18px; margin-bottom: 15px; 
-    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-    border-radius: 15px; color: white; font-size: 1rem;
-}
-
-.btn-back { 
-    display: inline-block; margin-top: 25px; color: var(--gold) !important; 
-    font-weight: 600; text-decoration: underline !important; cursor: pointer;
-}
-
-/* --- MOBILE --- */
-@media (max-width: 1024px) {
-    .nav-links { display: none; } /* Hamburger logic handled by JS */
-    .main-logo { height: 50px; }
+/* MOBILE RESPONSIVE (DIPAKSA KERAS) */
+@media (max-width: 1100px) {
+    .nav-links { display: none; } /* Guna hamburger kalau skrin kecik */
+    .glass-nav { height: 80px; padding: 0 30px; }
+    .main-logo { height: 55px !important; }
 }
