@@ -2,23 +2,24 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertai Novera Green</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="sub-page">
+<body style="padding-top: 120px;">
     <nav class="navbar"><div class="nav-container"><a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a></div></nav>
-    <section class="form-section">
+    <main class="main-wrapper">
         <div class="glass-card reveal">
             <h2 class="section-title">Sertai Pergerakan Kami</h2>
-            <form action="thank-you.html" method="GET" class="volunteer-form">
-                <label>Nama Penuh</label><input type="text" required>
-                <label>Emel</label><input type="email" required>
-                <label>Sumbangan (Daun/Tenaga)</label>
-                <select><option>Sumbangan Daun Kering</option><option>Sukarelawan</option></select>
-                <button type="submit" class="gold-btn">Hantar Permohonan</button>
+            <form action="thank-you.html" method="GET" style="display: flex; flex-direction: column; gap: 20px;">
+                <input type="text" placeholder="Nama Penuh" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--gold); background: transparent; color: white;">
+                <input type="email" placeholder="Alamat Emel" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--gold); background: transparent; color: white;">
+                <select style="padding: 15px; border-radius: 10px; border: 1px solid var(--gold); background: var(--forest); color: white;">
+                    <option>Sumbangan Daun Mati</option>
+                    <option>Sukarelawan Proses</option>
+                </select>
+                <button type="submit" class="gold-btn">Hantar Sekarang</button>
             </form>
         </div>
-    </section>
+    </main>
 </body>
 </html>
