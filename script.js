@@ -1,22 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. REFINED HAMBURGER
+
+    // LOGIK BURGER
     const burger = document.getElementById('burger');
     const nav = document.querySelector('.nav-links');
     
     burger.addEventListener('click', () => {
         nav.classList.toggle('active');
-        burger.classList.toggle('toggle');
-        
-        // Animasi Line Burger
-        const lines = burger.querySelectorAll('div');
-        if(nav.classList.contains('active')) {
-            lines[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-            lines[1].style.opacity = '0';
-            lines[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-        } else {
-            lines.forEach(l => l.style.transform = 'none');
-            lines[1].style.opacity = '1';
-        }
+        // Animasi line burger pangkah...
     });
 
     // 2. FLOATING LEAVES (Particles)
@@ -58,4 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     });
+
+    // LOGIK REVEAL (BARANG TIMBUL)
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('.reveal').forEach(elem => {
+        gsap.fromTo(elem, 
+            { opacity: 0, y: 50 }, 
+            { opacity: 1, y: 0, duration: 1.5, scrollTrigger: elem }
+        );
+    });
+});
 });
