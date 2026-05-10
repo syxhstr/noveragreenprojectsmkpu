@@ -1,74 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-
 :root {
     --forest: #061109;
     --gold: #c5a059;
     --ivory: #fdfbf7;
-    --glass-heavy: rgba(255, 255, 255, 0.1);
-    --border-gold: rgba(197, 160, 89, 0.4);
+    --glass: rgba(255, 255, 255, 0.07);
+    --border: rgba(197, 160, 89, 0.25);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--forest); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { background: var(--forest); color: var(--ivory); font-family: 'DM Sans', sans-serif; overflow-x: hidden; line-height: 1.7; }
 
-/* NAVBAR FIX - NO MORE COMPRESSION */
+/* NAVBAR FIX */
 .glass-nav {
-    position: fixed; top: 25px; left: 50%; transform: translateX(-50%);
-    width: 92%; max-width: 1400px; height: 100px;
-    background: rgba(6, 17, 9, 0.85); backdrop-filter: blur(30px) saturate(150%);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--border-gold); border-radius: 100px;
-    z-index: 9999; display: flex; align-items: center; padding: 0 50px;
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    width: 94%; max-width: 1300px; height: 90px;
+    background: rgba(6, 17, 9, 0.85); backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border); border-radius: 100px;
+    z-index: 9999; display: flex; align-items: center; padding: 0 40px;
 }
 
-.nav-content { 
-    width: 100%; display: flex; justify-content: space-between; align-items: center; 
-}
+.nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
 
-/* LOGO SECTION - FORCED SIZE */
-.brand { display: flex; flex-direction: column; min-width: 250px; }
-.main-logo { height: 75px !important; width: auto; object-fit: contain; } /* Dipaksa besar */
-.brand-sub { 
-    font-size: 13px; font-weight: 700; color: var(--gold); 
-    letter-spacing: 1px; margin-top: -5px; 
-}
+.brand { flex-shrink: 0; display: flex; flex-direction: column; }
+.main-logo { height: 55px; width: auto; object-fit: contain; }
+.brand-sub { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-top: -5px; }
 
-/* MENU LINKS - NO SHRINK */
-.nav-links { display: flex; gap: 40px; align-items: center; list-style: none; }
-.nav-links a { 
-    font-weight: 700; font-size: 15px; color: var(--ivory) !important;
-    text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-links a:hover { color: var(--gold) !important; transform: translateY(-2px); }
+.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+.nav-links a { font-weight: 700; font-size: 14px; color: var(--ivory); text-decoration: none; text-transform: uppercase; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
 
-/* PREMIUM BUTTON */
 .nav-btn { 
-    background: var(--gold); color: var(--forest) !important; 
-    padding: 16px 40px; border-radius: 50px; font-weight: 700;
-    font-size: 14px; text-transform: uppercase;
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
-    border: none; cursor: pointer; transition: 0.4s;
-}
-.nav-btn:hover { background: #e0b975; transform: scale(1.05); box-shadow: 0 15px 40px rgba(197, 160, 89, 0.5); }
-
-/* HERO TEXT FIX */
-.hero-content h1 { 
-    font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 6.5rem);
-    font-weight: 700; line-height: 1; margin-bottom: 20px;
+    background: var(--gold); color: var(--forest) !important; padding: 12px 28px; 
+    border-radius: 50px; font-weight: 700; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* CARD LUXURY */
-.glass-card {
-    background: var(--glass-heavy) !important;
-    backdrop-filter: blur(50px) saturate(200%) !important;
-    border: 1px solid var(--border-gold); border-radius: 50px;
-    padding: 70px; margin-bottom: 50px;
-}
-.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3rem; font-style: italic; }
+/* HERO */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 8%; overflow: hidden; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.7); }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--forest), transparent); z-index: -1; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6.5rem); line-height: 1; margin-bottom: 20px; font-weight: 700; }
 
-/* MOBILE RESPONSIVE (DIPAKSA KERAS) */
-@media (max-width: 1100px) {
-    .nav-links { display: none; } /* Guna hamburger kalau skrin kecik */
-    .glass-nav { height: 80px; padding: 0 30px; }
-    .main-logo { height: 55px !important; }
+/* BENTO LAYOUT */
+.section-island { padding: 100px 0; }
+.section-header { font-family: 'Playfair Display', serif; font-size: 3.5rem; text-align: center; margin-bottom: 60px; color: var(--gold); }
+.bento-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+.bento-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+.glass-card { background: var(--glass); backdrop-filter: blur(40px); border: 1px solid var(--border); border-radius: 40px; padding: 50px; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.glass-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+.title-gold { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
+
+/* PROCESS STEPS */
+.process-step { border-left: 2px solid var(--gold); padding-left: 25px; margin-bottom: 35px; }
+.process-step h3 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 10px; }
+
+/* MOBILE LOGIC */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+.hamburger span { width: 30px; height: 3px; background: var(--gold); border-radius: 5px; }
+
+@media (max-width: 1000px) {
+    .nav-links { 
+        position: fixed; top: 110px; left: -100%; width: 100%; flex-direction: column; 
+        background: rgba(6, 17, 9, 0.98); padding: 40px; border-radius: 30px; transition: 0.5s;
+    }
+    .nav-links.active { left: 0; }
+    .hamburger { display: flex; }
+    .bento-2, .bento-3 { grid-template-columns: 1fr; }
+    .glass-card { padding: 30px; }
 }
