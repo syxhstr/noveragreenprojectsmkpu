@@ -1,84 +1,34 @@
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sertai Kami | Novera Green</title>
-    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-</head>
-<body class="form-page">
+<nav class="glass-nav">
+    <img src="assets/images/logonovera.png" class="main-logo">
+    <a href="index.html" class="nav-btn" style="padding: 10px 20px; font-size: 10px;">KEMBALI KE UTAMA</a>
+</nav>
 
-    <nav class="glass-nav">
-        <div class="nav-content">
-            <div class="brand">
-                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                    <img src="assets/images/logonovera.png" class="main-logo" alt="Logo">
-                    <div class="brand-text">
-                        <span style="color: white; font-weight: 800; font-size: 14px; display: block; line-height: 1;">NOVERA GREEN</span>
-                        <span class="brand-sub">BY MINIMALLYFOLIUMTECH</span>
-                    </div>
-                </a>
+<main class="volunteer-main">
+    <div class="hero-overlay" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 50px; border-radius: 40px; width: 100%; max-width: 600px;">
+        <h2 class="hero-title" style="font-size: 2rem;">Sertai Pergerakan</h2>
+        
+        <form>
+            <div class="role-grid">
+                <label class="role-card" onclick="selectRole(this)">
+                    <input type="radio" name="role" value="volunteer">
+                    <span style="font-size: 2rem;">🌿</span><br><b>SUKARELAWAN</b>
+                </label>
+                <label class="role-card" onclick="selectRole(this)">
+                    <input type="radio" name="role" value="donate">
+                    <span style="font-size: 2rem;">📦</span><br><b>SUMBANG DAUN</b>
+                </label>
             </div>
             
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
+            <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
+            <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
+            <button type="submit" class="nav-btn" style="width: 100%; padding: 20px;">HANTAR PERMOHONAN</button>
+        </form>
+    </div>
+</main>
 
-            <ul class="nav-links" id="nav-list">
-                <li><a href="index.html">Utama</a></li>
-                <li><a href="index.html#about">Tentang</a></li>
-                <li><a href="index.html#process">Proses</a></li>
-                <li><a href="volunteer.html" class="nav-btn">Sertai Kami</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="form-container">
-        <div class="glass-card reveal-form">
-            <h1 class="title-gold" style="text-align: center; font-size: 2.5rem;">Sertai Pergerakan Kami</h1>
-            <p style="text-align: center; opacity: 0.6; margin-bottom: 40px;">Pilih cara anda untuk membantu melestarikan bumi.</p>
-
-            <form action="thankyou.html">
-                <div class="role-grid">
-                    <label class="role-card">
-                        <input type="radio" name="role" value="volunteer" required>
-                        <div class="role-content">
-                            <span class="icon">🌿</span>
-                            <span class="label">Sukarelawan</span>
-                        </div>
-                    </label>
-                    <label class="role-card">
-                        <input type="radio" name="role" value="donate">
-                        <div class="role-content">
-                            <span class="icon">📦</span>
-                            <span class="label">Sumbang Daun</span>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="input-group">
-                    <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
-                    <input type="email" placeholder="Alamat Emel" class="luxury-input" required>
-                    <input type="tel" placeholder="No. Telefon (Optional)" class="luxury-input">
-                </div>
-
-                <button type="submit" class="nav-btn submit-btn">HANTAR PERMOHONAN</button>
-            </form>
-        </div>
-    </main>
-
-    <script>
-        // GSAP Animation for Form
-        gsap.from(".reveal-form", { opacity: 0, y: 30, duration: 1.2, ease: "expo.out" });
-
-        // Hamburger Menu Logic
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+<script>
+    function selectRole(elem) {
+        document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+        elem.classList.add('selected');
+    }
+</script>
