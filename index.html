@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novera Green | Inovasi Kertas Lestari</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html"><img src="assets/images/logonovera.png" class="main-logo" alt="Novera"></a>
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logonovera.png" class="main-logo" alt="Novera Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">TENTANG</a></li>
                 <li><a href="#objective">OBJEKTIF</a></li>
@@ -29,7 +34,9 @@
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="assets/images/logonovera.png" alt="Logo" class="hero-logo">
+            <div class="hero-center-logo">
+                <img src="assets/images/logonovera.png" alt="Novera Logo Besar">
+            </div>
             <h1 class="hero-title">Mengubah Sisa,<br><span>Mencipta Nilai.</span></h1>
             <p class="hero-description">Inovasi hijau mengubah daun mati menjadi kertas premium.</p>
             <a href="#about" class="gold-btn">Terokai Inovasi</a>
@@ -37,45 +44,58 @@
     </section>
 
     <main class="main-wrapper">
+        
         <section id="about" class="glass-card reveal">
-            <h2 class="section-title">Tentang Projek</h2>
-            <p>NOVERA GREEN ialah projek inovasi yang memfokuskan kepada penukaran daun-daun mati yang biasanya dianggap sebagai sisa buangan kepada kertas berkualiti yang boleh digunakan semula. Kami membina platform digital untuk memudahkan masyarakat menyumbangkan bahan mentah demi kelestarian alam sekitar.</p>
-            <h3 style="color:var(--gold); margin-top:20px;">Why This Project?</h3>
-            <p>Banyak daun mati dibuang begitu sahaja. NOVERA GREEN hadir sebagai penyelesaian yang menggabungkan teknologi untuk mengurangkan pembaziran dan penebangan pokok.</p>
+            <h2 class="section-title">About Project</h2>
+            <p class="main-p">NOVERA GREEN ialah projek inovasi yang memfokuskan kepada penukaran daun-daun mati yang biasanya dianggap sebagai sisa buangan kepada kertas berkualiti yang boleh digunakan semula. Selain itu, projek ini turut membangunkan sebuah laman web khas untuk memudahkan masyarakat menyumbangkan daun-daun kering atau mati bagi tujuan pengumpulan bahan mentah. Projek ini bertujuan menyokong kelestarian alam sekitar melalui konsep kitar semula dan teknologi hijau.</p>
+        </section>
+
+        <section id="why" class="glass-card reveal">
+            <h2 class="section-title">Why This Project?</h2>
+            <div class="content-split">
+                <p>Projek ini diwujudkan kerana banyak daun mati dibuang begitu sahaja tanpa dimanfaatkan, sedangkan ia boleh dijadikan sumber yang bernilai. Pembuangan sisa daun secara berlebihan boleh menyebabkan longgokan sampah dan pencemaran persekitaran. Pada masa yang sama, penggunaan kertas yang tinggi menyebabkan penebangan pokok semakin meningkat.</p>
+                <p style="margin-top: 20px; color: var(--gold); font-weight: 500;">NOVERA GREEN hadir sebagai satu penyelesaian yang menggabungkan inovasi dan teknologi untuk mengurangkan pembaziran, menjaga alam sekitar, serta memberi alternatif penghasilan kertas yang lebih lestari dan ekonomik.</p>
+            </div>
         </section>
 
         <section id="objective" class="glass-card reveal">
-            <h2 class="section-title">Objektif Utama</h2>
-            <ul class="obj-list">
-                <li>Mengurangkan pembuangan sisa organik daun mati secara tidak terkawal.</li>
-                <li>Menghasilkan kertas berkualiti daripada bahan semula jadi mesra alam.</li>
-                <li>Menggalakkan masyarakat menyertai aktiviti kitar semula secara aktif.</li>
-                <li>Membina platform digital sumbangan daun yang sistematik.</li>
-                <li>Meningkatkan kesedaran tentang inovasi hijau global.</li>
-            </ul>
+            <h2 class="section-title">Objective</h2>
+            <div class="bento-grid">
+                <div class="bento-item"><span>01</span><p>Mengurangkan pembuangan sisa organik seperti daun mati secara tidak terkawal.</p></div>
+                <div class="bento-item"><span>02</span><p>Menghasilkan kertas berkualiti daripada bahan semula jadi yang mesra alam.</p></div>
+                <div class="bento-item"><span>03</span><p>Menggalakkan masyarakat menyertai aktiviti kitar semula secara aktif.</p></div>
+                <div class="bento-item"><span>04</span><p>Membina platform digital melalui laman web untuk memudahkan pengumpulan sumbangan daun.</p></div>
+                <div class="bento-item"><span>05</span><p>Meningkatkan kesedaran tentang kepentingan penjagaan alam sekitar dan inovasi hijau.</p></div>
+            </div>
         </section>
 
         <section id="process" class="glass-card reveal">
-            <h2 class="section-title">Proses Penghasilan</h2>
-            <div class="bento-grid">
-                <div class="bento-item"><h4>1. Pengumpulan</h4><p>Dikumpul dari taman dan sumbangan masyarakat melalui web.</p></div>
-                <div class="bento-item"><h4>2. Pembersihan</h4><p>Dibersihkan dan dikeringkan untuk kualiti pulpa terbaik.</p></div>
-                <div class="bento-item"><h4>3. Pengisaran</h4><p>Dikisar menjadi serat halus dan dicampur bahan semula jadi.</p></div>
-                <div class="bento-item"><h4>4. Pembentukan</h4><p>Ditekan dan dikeringkan menjadi kertas premium.</p></div>
+            <h2 class="section-title">Process</h2>
+            <div class="process-grid">
+                <div class="process-box"><h3>1. Pengumpulan</h3><p>Daun-daun mati dikumpulkan daripada kawasan rumah, sekolah, taman, dan melalui sumbangan masyarakat menggunakan laman web NOVERA GREEN.</p></div>
+                <div class="process-box"><h3>2. Pembersihan</h3><p>Daun yang dikumpulkan dibersihkan daripada kotoran dan dikeringkan bagi memastikan proses seterusnya berjalan dengan baik.</p></div>
+                <div class="process-box"><h3>3. Pengisaran</h3><p>Daun yang telah kering dikisar sehingga menjadi serat halus sebelum dicampurkan dengan bahan semula jadi lain untuk membentuk pulpa kertas.</p></div>
+                <div class="process-box"><h3>4. Pembentukan</h3><p>Pulpa tersebut ditekan, diratakan, dan dikeringkan untuk menghasilkan helaian kertas berkualiti.</p></div>
+                <div class="process-box"><h3>5. Pengedaran</h3><p>Kertas yang dihasilkan digunakan untuk pendidikan, kraftangan, dan pembungkusan mesra alam sambil menyebarkan kesedaran.</p></div>
             </div>
         </section>
 
         <section id="impact" class="glass-card reveal">
-            <h2 class="section-title">Impak Projek</h2>
+            <h2 class="section-title">Impact</h2>
             <div class="impact-grid">
-                <div class="impact-box"><h3>Alam Sekitar</h3><p>Kurangkan sisa organik & penebangan pokok.</p></div>
-                <div class="impact-box"><h3>Masyarakat</h3><p>Didik kitar semula melalui pelibatan langsung.</p></div>
-                <div class="impact-box"><h3>Ekonomi</h3><p>Cipta nilai dari sisa melalui usahawan hijau.</p></div>
-                <div class="impact-box"><h3>Teknologi</h3><p>Sistem pengumpulan yang moden dan sistematik.</p></div>
+                <div class="impact-item"><h4>Alam Sekitar</h4><p>Mengurangkan sisa organik dan membantu mengurangkan pencemaran serta kebergantungan terhadap penebangan pokok.</p></div>
+                <div class="impact-item"><h4>Masyarakat</h4><p>Mendidik masyarakat tentang pentingnya kitar semula dan memberi peluang untuk terlibat secara langsung.</p></div>
+                <div class="impact-item"><h4>Ekonomi</h4><p>Menghasilkan produk bernilai daripada bahan buangan serta membuka peluang inovasi keusahawanan hijau.</p></div>
+                <div class="impact-item"><h4>Teknologi</h4><p>Penggunaan laman web menjadikan proses pengumpulan sumbangan lebih sistematik, moden, dan mudah diakses.</p></div>
             </div>
         </section>
+
     </main>
-    <footer><p>&copy; 2026 NOVERA GREEN. BY MINIMALLYFOLIUMTECH.</p></footer>
+
+    <footer>
+        <p>&copy; 2026 NOVERA GREEN. BY MINIMALLYFOLIUMTECH.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
