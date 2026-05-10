@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8"><title>Sertai Kami | Novera</title><link rel="stylesheet" href="style.css"></head>
-<body style="display:flex; flex-direction:column; min-height:100vh;">
+    <meta charset="UTF-8"><title>Sertai Kami | Novera Green</title>
+    <link rel="icon" type="image/png" href="assets/images/logonovera.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="centered-layout">
     <nav class="glass-nav"><div class="nav-content"><a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a></div></nav>
     
-    <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:100px 0;">
-        <div class="glass-card reveal" style="max-width:600px; text-align:center;">
-            <h1 class="title-gold">Sertai Sukarelawan</h1>
-            <form action="thankyou.html" style="display:flex; flex-direction:column; gap:20px;">
-                <input type="text" placeholder="Nama Penuh" style="padding:15px; background:none; border:1px solid var(--border); color:white; border-radius:10px;">
-                <input type="email" placeholder="Alamat E-mel" style="padding:15px; background:none; border:1px solid var(--border); color:white; border-radius:10px;">
-                <button type="submit" class="nav-btn" style="border:none; cursor:pointer;">HANTAR PERMOHONAN</button>
-            </form>
-            <a href="index.html" style="display:block; margin-top:20px; color:var(--gold); text-decoration:none; font-size:12px;">← BALIK KE UTAMA</a>
-        </div>
+    <div class="glass-card reveal" style="max-width:500px; text-align:center;">
+        <h1 class="title-gold">Sertai Kami</h1>
+        <p style="margin-bottom:20px; opacity:0.7;">Bantu kami melestarikan alam sekitar.</p>
+        <form action="thankyou.html">
+            <input type="text" placeholder="Nama Penuh" class="luxury-input" required>
+            <input type="email" placeholder="E-mel" class="luxury-input" required>
+            <button type="submit" class="nav-btn" style="width:100%; border:none; cursor:pointer;">HANTAR PERMOHONAN</button>
+        </form>
     </div>
-
-    <footer><div style="text-align:center; padding:30px; opacity:0.5; font-size:10px;">&copy; 2026 NOVERA GREEN</div></footer>
-    <script src="script.js"></script>
+    <script>gsap.from(".reveal", {opacity:0, scale:0.9, duration:1, ease:"expo.out"});</script>
 </body>
 </html>
