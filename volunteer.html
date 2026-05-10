@@ -4,41 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertai Kami | Novera Green</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html"><img src="assets/images/logonovera.png" class="main-logo"></a>
-        </div>
-    </nav>
-
     <div class="page-wrapper">
-        <div class="glass-card animate-scroll" style="opacity: 1; transform: none;">
-            <h2 class="section-title">Sertai Pergerakan</h2>
-            <form action="thankyou.html" method="GET" class="luxury-form">
+        <div class="glass-card-form">
+            <h2 class="form-title">Sertai Pergerakan</h2>
+            <form action="thankyou.html" class="luxury-form">
                 <div class="input-group">
                     <label>Nama Penuh</label>
-                    <input type="text" name="nama" placeholder="Contoh: Ali Bin Abu" required>
+                    <input type="text" placeholder="Ali Bin Abu" required>
                 </div>
                 <div class="input-group">
                     <label>Alamat Emel</label>
-                    <input type="email" name="emel" placeholder="ali@email.com" required>
+                    <input type="email" placeholder="ali@email.com" required>
                 </div>
                 <div class="input-group">
                     <label>Jenis Sumbangan</label>
-                    <select name="jenis">
-                        <option value="daun">Sumbangan Daun Kering</option>
-                        <option value="tenaga">Sukarelawan Tenaga Kerja</option>
-                        <option value="dana">Sumbangan Dana</option>
+                    <select>
+                        <option>Sumbangan Daun Kering</option>
+                        <option>Sukarelawan Tenaga Kerja</option>
+                        <option>Dana Inovasi</option>
                     </select>
                 </div>
-                <button type="submit" class="gold-btn-mega">Hantar Sekarang</button>
+                <button type="submit" class="gold-btn-submit">HANTAR SEKARANG</button>
             </form>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
